@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load get_api %}
+{% block left_nav %}
+    {% include "left_nav.html" %}
+{% endblock %}
+{% block content_head %}
+{% get_api_object as header cms snippet 342 code %}
+{{header}}
+<div id="sitetitle"><span style="font-face:times;">Connect with Carthage</span></div>
+{% endblock %}
+{% block content %}
+<div class="buffer">
+    <p>Please provide your email address to manage your newsletters.</p>
+    <form method="post" action="/communications/newsletters/manager/" class="form" id="profile">{% csrf_token %}
+        <fieldset class="blockLabels">
+            <ol>
+            {% for field in form.visible_fields %}
+                <li class="ctrlHolder">
+                <h3{% if field.field.required %} class="required"{% endif %}>{{ field.label_tag }}</h3>
+                {% if not valid_email and not home %}
+                    <div class="warning">
+                    <span class="error-message">Enter a valid email</span>
+                {% else %}
+                    <div>
+                {% endif %}
+                {% if field.help_text %}
+                    <p class="help">{{field.help_text}}</p>
+                {% endif %}
+                {{field}}
+                </div>
+            </li>
+            {% endfor %}
+            <li class="btnHolder">
+                <label for="id_submit">&nbsp;&nbsp;</label>
+                <input type="submit" value="Submit" class="button" />
+            </li>
+            </ol>
+        </fieldset>
+    </form>
+    <!--
+    <p>
+    {% if not user.is_anonymous %}
+        <a href="/communications/accounts/logout/?next={{request.path}}">Logout</a>
+    {% else %}
+        If you are part of the Carthage community, please <a href="/communications/accounts/login/?next={{request.path}}">login</a>
+        to manage all of your communications preferences.
+    {% endif %}
+    </p>
+    -->
+</div>
+{% endblock %}
+{% block sidebar %}
+    {% include "side_bar.html" %}
+{% endblock %}
