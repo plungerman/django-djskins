@@ -15,7 +15,9 @@
 </head>
 <body>
 {% block urchin %}
-    {% include "urchin.html" %}
+    {% if not template_debug %}
+        {% include "urchin.html" %}
+    {% endif %}
 {% endblock %}
 {% block content %}{% endblock %}
 {% block extra_javascript %}{% endblock %}
