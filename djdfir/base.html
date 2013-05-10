@@ -54,6 +54,7 @@
         $(".warning > input").addClass("error");
         $(".warning > select").addClass("error");
         $(".warning > textarea").addClass("error");
+        $(".required > ul").parent().parent().find('h3').addClass("required");
     });
     </script>
     {% endblock %}
