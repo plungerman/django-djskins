@@ -1,3 +1,5 @@
+{% autoescape off %}
+{% load get_api %}
  <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"> <![endif]-->
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en" dir="ltr"> <![endif]-->
@@ -5,7 +7,7 @@
 <!--[if gt IE 8]><!-->
 <html class=" js multiplebgs backgroundsize csstransitions svg" dir="ltr" lang="en"><!--<![endif]--><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Carthage College</title>
+<title>{% block title %}Carthage College{% endblock %}</title>
 
 <!-- Meta Data ================ -->
 <meta charset="UTF-8">
@@ -19,6 +21,10 @@
 <link rel="stylesheet" href="http://www.carthage.edu/static/themes/suki/css/header.css" type="text/css">
 <style type="text/css">
     .last-featured {border-bottom: 6px solid #800;margin-bottom:4px;}
+    .newshead {color:#fff;font-weight: bold;}
+    .news h1, .entry-head, .newsitem-fin {display: none;}
+    .newsitem, .footerPosts li {padding-bottom: 5px;}
+    .footerPosts li a {display:block;}
 </style>
 
 <!-- Icons ================ -->
@@ -45,10 +51,10 @@ https://graph.facebook.com/carthagecollege
 <meta property="og:locale" content="en_us">
 <meta property="og:description" content="Carthage is a four-year private college of the liberal arts and sciences, affiliated with the Evangelical Lutheran Church in America. Located midway between Chicago and Milwaukee, Carthage's picturesque campus on the Lake Michigan shore is home to 2,500 full-time and 900 part-time students.">
 
-<!-- JS JQuery in the head you can use ajax if you want ================ -->
-<script src="crisp_files/jquery.js"></script>
+<!-- JS JQuery in the head allows you to use ajax -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <!-- Add to Head after Style sheet http://modernizr.com/docs/#installing  ================ -->
-<script src="crisp_files/modernizr.js"></script><!-- js multiple backgrounds svg background size -->
+<script src="http://www.carthage.edu/static/vendor/js/modernizr.js"></script><!-- js multiple backgrounds svg background size -->
 </head>
 <body class="tall-logo tabs">
 
@@ -67,7 +73,7 @@ https://graph.facebook.com/carthagecollege
     <div class="search-wrapper">
         <form class="search" method="get" action="http://www.carthage.edu/search/">
             <div id="search-trigger">Search:</div>
-            <input style="display: none;" id="search-box" placeholder="search + enter" type="text" name="query">
+            <input id="search-box" placeholder="search + enter" type="text" name="query">
         </form>
     </div>
     <ul class="social quick-nav">
@@ -89,116 +95,116 @@ https://graph.facebook.com/carthagecollege
     </ul>
 </section>
 <!-- begin .header-->
-<header class="header clearfix"> <img src="crisp_files/print-logo.png" class="print logo" alt="name of company">
+<header class="header clearfix"> <img src="https://www.carthage.edu/assets/1.0.0/img/ui/carthage_top_sm.gif" class="print logo" alt="carthage college">
     <div class="container"> 
         <!-- begin #main_menu -->
         <nav id="main_menu">
             <ul class="accordmobile">
                 <li class="parent"><a href="javascript:void(0)">About<i></i></a>
                     <ul>
-                        <li><a href="http://www.carthage.edu/">Quick Facts</a></li>
-                        <li><a href="http://www.carthage.edu/">Our Location</a></li>
-                        <li><a href="http://www.carthage.edu/">Our Mission</a></li>
-                        <li><a href="http://www.carthage.edu/">Our History</a></li>
-                        <li><a href="http://www.carthage.edu/">Our Faculty</a></li>
-                        <li><a href="http://www.carthage.edu/">Rankings & Honors</a></li>
-                        <li><a href="http://www.carthage.edu/">Carthage A-Z</a></li>
-                        <li><a href="http://www.carthage.edu/">Office of the President</a></li>
-                        <li><a href="http://www.carthage.edu/">Green Carthage</a></li>
-                        <li><a href="http://www.carthage.edu/">Media Room</a></li>
+                        <li><a href="http://www.carthage.edu/quick-facts/">Quick Facts</a></li>
+                        <li><a href="http://www.carthage.edu/about/location/">Our Location</a></li>
+                        <li><a href="http://www.carthage.edu/about/mission/">Our Mission</a></li>
+                        <li><a href="http://www.carthage.edu/college-history/">Our History</a></li>
+                        <li><a href="http://faculty.carthage.edu/">Our Faculty</a></li>
+                        <li><a href="http://www.carthage.edu/top-10/">Rankings & Honors</a></li>
+                        <li><a href="http://www.carthage.edu/a-z/">Carthage A-Z</a></li>
+                        <li><a href="http://www.carthage.edu/president/">Office of the President</a></li>
+                        <li><a href="http://www.carthage.edu/sustainability/">Green Carthage</a></li>
+                        <li><a href="http://www.carthage.edu/newsroom/">Media Room</a></li>
                     </ul>
                 </li>
                 <li class="parent"><a href="javascript:void(0)">Academics<i></i></a>
                     <ul>
-                        <li><a href="http://www.carthage.edu/">Areas of Study</a></li>
-                        <li><a href="http://www.carthage.edu/">The Carthage Plan</a></li>
-                        <li><a href="http://www.carthage.edu/">Our Faculty</a></li>
-                        <li><a href="http://www.carthage.edu/">Centers & Institutes</a></li>
-                        <li><a href="http://www.carthage.edu/">Course Catalog</a></li>
-                        <li><a href="http://www.carthage.edu/">Calendar</a></li>
-                        <li><a href="http://www.carthage.edu/">Library</a></li>
-                        <li><a href="http://www.carthage.edu/">Resources</a></li>
-                        <li><a href="http://www.carthage.edu/">Study Abroad</a></li>
-                        <li><a href="http://www.carthage.edu/">J-Term</a></li>
+                        <li><a href="http://www.carthage.edu/academics/">Areas of Study</a></li>
+                        <li><a href="http://www.carthage.edu/academics/carthage-plan/">The Carthage Plan</a></li>
+                        <li><a href="http://faculty.carthage.edu/">Our Faculty</a></li>
+                        <li><a href="http://www.carthage.edu/academics#centers">Centers & Institutes</a></li>
+                        <li><a href="http://www.carthage.edu/academics/catalog/">Course Catalog</a></li>
+                        <li><a href="http://www.carthage.edu/calendar/academics/academic/">Calendar</a></li>
+                        <li><a href="http://www.carthage.edu/library/">Library</a></li>
+                        <li><a href="http://www.carthage.edu/academics/student-resources/">Resources</a></li>
+                        <li><a href="http://www.carthage.edu/study-abroad/">Study Abroad</a></li>
+                        <li><a href="http://www.carthage.edu/jterm/">J-Term</a></li>
                     </ul>
                 </li>
                 <li class="parent"><a href="javascript:void(0)">Admissions<i></i></a>
                     <ul>
-                        <li><a href="http://www.carthage.edu/">Apply Now</a></li>
-                        <li><a href="http://www.carthage.edu/">Visit Carthage</a></li>
-                        <li><a href="http://www.carthage.edu/">Request Information</a></li>
-                        <li><a href="http://www.carthage.edu/">Undergraduates</a></li>
-                        <li><a href="http://www.carthage.edu/">Graduates</a></li>
-                        <li><a href="http://www.carthage.edu/">Adult Students</a></li>
-                        <li><a href="http://www.carthage.edu/">Financial Aid</a></li>
-                        <li><a href="http://www.carthage.edu/">Is Carthage Worth It?</a></li>
-                        <li><a href="http://www.carthage.edu/">International Students</a></li>
-                        <li><a href="http://www.carthage.edu/">Transfer Students</a></li>
+                        <li><a href="http://www.carthage.edu/admissions/apply/">Apply Now</a></li>
+                        <li><a href="http://www.carthage.edu/admissions/visit/visit-days/">Visit Carthage</a></li>
+                        <li><a href="http://www.carthage.edu/admissions/inforeq/">Request Information</a></li>
+                        <li><a href="http://www.carthage.edu/admissions/">Undergraduates</a></li>
+                        <li><a href="http://www.carthage.edu/adult/graduate/">Graduates</a></li>
+                        <li><a href="http://www.carthage.edu/adult/">Adult Students</a></li>
+                        <li><a href="http://www.carthage.edu/finaid/">Financial Aid</a></li>
+                        <li><a href="http://www.carthage.edu/value/">Is Carthage Worth It?</a></li>
+                        <li><a href="http://www.carthage.edu/admissions/international-students/">International Students</a></li>
+                        <li><a href="http://www.carthage.edu/admissions/transfer/">Transfer Students</a></li>
                     </ul>
                 </li>
                 <li class="parent"><a href="javascript:void(0)">Research<i></i></a>
                     <ul>
-                        <li><a href="http://www.carthage.edu/">Undergraduate Research</a></li>
-                        <li><a href="http://www.carthage.edu/">Celebration of Scholars</a></li>
-                        <li><a href="http://www.carthage.edu/">Sure</a></li>
-                        <li><a href="http://www.carthage.edu/">Senior Theses</a></li>
-                        <li><a href="http://www.carthage.edu/">Masters Theses</a></li>
-                        <li><a href="http://www.carthage.edu/">Independent Research</a></li>
+                        <li><a href="http://www.carthage.edu/undergraduate-research/">Undergraduate Research</a></li>
+                        <li><a href="http://www.carthage.edu/celebration-scholars/">Celebration of Scholars</a></li>
+                        <li><a href="http://www.carthage.edu/sure/">Sure</a></li>
+                        <li><a href="http://www.carthage.edu/academics/senior-thesis/">Senior Theses</a></li>
+                        <!-- <li><a href="http://www.carthage.edu/">Masters Theses</a></li> -->
+                        <li><a href="http://www.carthage.edu/undergraduate-research/opportunities/">Independent Research</a></li>
                     </ul>
                 </li>
                 <li class="parent"><a href="javascript:void(0)">Athletics<i></i></a>
                     <ul>
-                        <li><a href="http://www.carthage.edu/">Recruit Me</a></li>
-                        <li><a href="http://www.carthage.edu/">Division III Athletics</a></li>
-                        <li><a href="http://www.carthage.edu/">Intramurals &amp; Club Sports</a></li>
-                        <li><a href="http://www.carthage.edu/">Athletic Facilities</a></li>
-                        <li><a href="http://www.carthage.edu/">Sports Camps</a></li>
+                        <li><a href="http://athletics.carthage.edu/sb_output.aspx?form=3&path=mbball">Recruit Me</a></li>
+                        <!-- <li><a href="http://www.carthage.edu/">Division III Athletics</a></li>
+                        <li><a href="http://www.carthage.edu/">Intramurals &amp; Club Sports</a></li>-->
+                        <li><a href="http://www.carthage.edu/athletics/facilities/">Athletic Facilities</a></li>
+                        <li><a href="http://athletics.carthage.edu/sports/2010/12/7/General_1207103356.aspx?">Sports Camps</a></li>
                     </ul>
                 </li>
                 <li class="parent"><a href="javascript:void(0)">Campus Life<i></i></a>
                     <ul>
-                        <li><a href="http://www.carthage.edu/">News</a></li>
-                        <li><a href="http://www.carthage.edu/">Calendar &amp; Events</a></li>
-                        <li><a href="http://www.carthage.edu/">Living @ Carthage</a></li>
-                        <li><a href="http://www.carthage.edu/">Music</a></li>
-                        <li><a href="http://www.carthage.edu/">Theatre</a></li>
-                        <li><a href="http://www.carthage.edu/">Art Gallery</a></li>
-                        <li><a href="http://www.carthage.edu/">Religious Life</a></li>
-                        <li><a href="http://www.carthage.edu/">Clubs &amp; Orcs</a></li>
-                        <li><a href="http://www.carthage.edu/">Green Carthage</a></li>
-                        <li><a href="http://www.carthage.edu/">College Offices</a></li>
-                        <li><a href="http://www.carthage.edu/">Security</a></li>
-                        <li><a href="http://www.carthage.edu/">Building Hours</a></li>
-                        <li><a href="http://www.carthage.edu/">Character Quest</a></li>
-                        <li><a href="http://www.carthage.edu/">Fitness Center</a></li>
+                        <li><a href="http://www.carthage.edu/campus-life/">News</a></li>
+                        <li><a href="http://www.carthage.edu/calendar/carthage/">Calendar &amp; Events</a></li>
+                        <li><a href="http://www.carthage.edu/campus-life/residence-life/">Living @ Carthage</a></li>
+                        <li><a href="http://www.carthage.edu/music/">Music</a></li>
+                        <li><a href="http://www.carthage.edu/theatre/">Theatre</a></li>
+                        <li><a href="http://www.carthage.edu/art-gallery/">Art Gallery</a></li>
+                        <li><a href="http://www.carthage.edu/chapel/">Religious Life</a></li>
+                        <li><a href="http://www.carthage.edu/campus-life/clubs/">Clubs &amp; Orgs</a></li>
+                        <li><a href="http://www.carthage.edu/sustainability/">Green Carthage</a></li>
+                        <!-- <li><a href="http://www.carthage.edu/">College Offices</a></li> -->
+                        <li><a href="http://www.carthage.edu/campus-life/security/">Security</a></li>
+                        <li><a href="http://www.carthage.edu/campus-life/security/building-hours/">Building Hours</a></li>
+                        <li><a href="http://www.carthage.edu/character-quest/">Character Quest</a></li>
+                        <li><a href="http://www.carthage.edu/athletics/facilities/tarc/">Fitness Center</a></li>
                     </ul>
                 </li>
                 <li class="parent"><a href="javascript:void(0)">Community<i></i></a>
                     <ul>
-                        <li><a href="http://www.carthage.edu/">Arts at Carthage</a></li>
-                        <li><a href="http://www.carthage.edu/">Centers &amp; Institutes</a></li>
-                        <li><a href="http://www.carthage.edu/">Calendar of Events</a></li>
-                        <li><a href="http://www.carthage.edu/">Family Fun Night</a></li>
-                        <li><a href="http://www.carthage.edu/">Community Service</a></li>
-                        <li><a href="http://www.carthage.edu/">Business &amp; Professional Coalation</a></li>
-                        <li><a href="http://www.carthage.edu/">Center for Children's Literature</a></li>
-                        <li><a href="http://www.carthage.edu/">Contact a Club</a></li>
+                        <li><a href="http://www.carthage.edu/calendar/fine-arts/">Arts at Carthage</a></li>
+                        <li><a href="http://www.carthage.edu/academics/#centers">Centers &amp; Institutes</a></li>
+                        <li><a href="http://www.carthage.edu/calendar/carthage/">Calendar of Events</a></li>
+                        <li><a href="http://www.carthage.edu/familyfun/">Family Fun Night</a></li>
+                        <!-- <li><a href="http://www.carthage.edu/">Community Service</a></li>  -->
+                        <li><a href="http://www.carthage.edu/business-professional-coalition/">Business &amp; Professional Coalation</a></li>
+                        <li><a href="http://www.carthage.edu/childrens-literature/">Center for Children's Literature</a></li>
+                        <li><a href="http://www.carthage.edu/campus-life/clubs/alphabetical-list/">Contact a Club</a></li>
                     </ul>
                 </li>
                 <li class="parent"><a href="javascript:void(0)">Giving<i></i></a>
                     <ul>
-                        <li><a href="http://www.carthage.edu/">Make a Gift</a></li>
-                        <li><a href="http://www.carthage.edu/">Why Give?</a></li>
-                        <li><a href="http://www.carthage.edu/">Areas of Support</a></li>
-                        <li><a href="http://www.carthage.edu/">The Carthage Fund</a></li>
-                        <li><a href="http://www.carthage.edu/">The Parents Fund</a></li>
+                        <li><a href="http://www.carthage.edu/give/">Make a Gift</a></li>
+                        <li><a href="http://www.carthage.edu/give/donor-voices/">Why Give?</a></li>
+                        <li><a href="http://www.carthage.edu/give/initiatives/">Areas of Support</a></li>
+                        <li><a href="http://www.carthage.edu/give/carthage-fund/">The Carthage Fund</a></li>
+                        <li><a href="http://www.carthage.edu/give/parents-fund/">The Parents Fund</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
         <!-- close / #main_menu --> 
         <!-- begin #logo -->
-        <div id="logo"> <a href="http://www.carthage.edu/?ext"><img alt="" src="crisp_files/trans.gif"><em>Carthage College</em><!--effing ie7 support--></a> </div>
+        <div id="logo"> <a href="http://www.carthage.edu/?ext"><img alt="Carthage College" src="http://www.carthage.edu/static/themes/suki/img/trans.gif"><em>Carthage College</em><!--effing ie7 support--></a> </div>
         <!-- end #logo --> 
     </div>
     <!-- close / .container--> 
@@ -208,236 +214,123 @@ https://graph.facebook.com/carthagecollege
 <div id="page">
     <div class="container clearfix" id="main-content">
         <!--begin main content-->
-        <div class="row-fluid">
         {% block content %}
-            <!-- Begin image slider -->
-            <div class="flexslider image-slider span6">
-                <ul class="slides">
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/Torchie-Alumni_display.jpg" alt="Torchie-Alumni.jpg" title="Torchie-Alumni.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/Milwaukee-Alumni-2_display.jpg" alt="Milwaukee-Alumni-2.jpg" title="Milwaukee-Alumni-2.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/Milwaukee-Alumni_display.jpg" alt="Milwaukee-Alumni.jpg" title="Milwaukee-Alumni.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/Homecoming-Alumni_display.jpg" alt="Homecoming-Alumni.jpg" title="Homecoming-Alumni.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/Alumni-Woodward_display.jpg" alt="Alumni-Woodward.jpg" title="Alumni-Woodward.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/Alumni-Night-Out_display.jpg" alt="Alumni-Night-Out.jpg" title="Alumni-Night-Out.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/Alumni-Homecoming_display.jpg" alt="Alumni-Homecoming.jpg" title="Alumni-Homecoming.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/Alumni-Daughter_display.jpg" alt="Alumni-Daughter.jpg" title="Alumni-Daughter.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/1.10-Club---Marquette30---2011_display.jpg" alt="(20111130T090719)1.10-Club---Marquette30---2011.jpg" title="(20111130T090719)1.10-Club---Marquette30---2011.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/1.10-Club---Marquette6---2011_display.jpg" alt="(20111130T090719)dude looks like diego" title="(20111130T090719)dude looks like diego" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/IMG_6074_20110831T084107_display.jpg" alt="(20111130T090809)IMG_6074_20110831T084107.jpg" title="(20111130T090809)IMG_6074_20110831T084107.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/IMG_6010_display.jpg" alt="(20111130T090809)IMG_6010.jpg" title="(20111130T090809)IMG_6010.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/11_AlumniEvents_639_display.jpg" alt="(20111130T090809)11_AlumniEvents_639.jpg" title="(20111130T090809)11_AlumniEvents_639.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniRed2-530_display.jpg" alt="AlumniRed2-530.jpg" title="AlumniRed2-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/Alumni-GreatAmerica-530_display.jpg" alt="Alumni-GreatAmerica-530.jpg" title="Alumni-GreatAmerica-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniReunion_MG_5110-1_display.jpg" alt="AlumniReunion_MG_5110-1.jpg" title="AlumniReunion_MG_5110-1.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniReunion5-530_display.jpg" alt="AlumniReunion5-530.jpg" title="AlumniReunion5-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniReunion3-530_display.jpg" alt="AlumniReunion3-530.jpg" title="AlumniReunion3-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniReunion2-530_display.jpg" alt="AlumniReunion2-530.jpg" title="AlumniReunion2-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniCollege2004-530_display.jpg" alt="AlumniCollege2004-530.jpg" title="AlumniCollege2004-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniCollege091-530_display.jpg" alt="AlumniCollege091-530.jpg" title="AlumniCollege091-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniCollege15-530_display.jpg" alt="AlumniCollege15-530.jpg" title="AlumniCollege15-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniCollege-065-530_display.jpg" alt="AlumniCollege-065-530.jpg" title="AlumniCollege-065-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniBrewers6-530_display.jpg" alt="AlumniBrewers6-530.jpg" title="AlumniBrewers6-530.jpg" /></li>
-                <li class="photo-slide"><img src="https://www.carthage.edu/assets/photologue/photos/cache/AlumniBrewers1-530_display.jpg" alt="AlumniBrewers1-530.jpg" title="AlumniBrewers1-530.jpg" /></li>
-                </ul>
-            </div>
-            <!-- end  .flexslider. image-slider span6 -->
-            <div class="span6">
-                <h2 class="short_headline"><span>Carthage Alumni Directory</span></h2>
-                <p>The Alumni Directory is offered as a way for graduates to stay in touch.
-                Graduates of the College are given access to the database via an individual
-                ID number. If you do not have an Alumni Association card with your ID number,
-                please contact the Alumni Office:</p>
-                <p class="right"><a href="http://www.carthage.edu/alumni/contact/" class="btn btn-small btn-very-subtle">Alumni Office &rarr;</a></p>
-            </div>
-            <!--close span6--> 
-        </div>
-        <!--close row-fluid-->
-        <div class="row-fluid sidebar-left"> 
-            <!--begin row-fluid--> 
-            <!--******add class "sidebar-left" to the row-fluid class ***-->
-            <div class="span9 primary-column">
-                <div class="content-tabs"> 
-                    <!-- wrapper required -->
-                    <ul class="tabs">
-                        <li class="tab"> <a href="#t1a">Alphabetical</a> </li>
-                        <li class="tab"> <a href="#t2a">Search</a> </li>
-                        <li class="tab"> <a href="#t4a">Class Notes</a> </li>
-                        <li class="tab"> <a href="#t3a">Manager</a> </li>
-                    </ul>
-                    <div class="panels">
-                        <div class="pane" id="t1a">
-                            <h3>Abraham Lincoln Vampire Hunter Parody!</h3>
-                            <div class="video-wrapper">
-                                <p>Boo!</p>
-                            </div>
-                            <p>The barely political guys pitch brand new spinoffs of Abraham Lincoln Vampire Hunter!</p>
-                        </div>
-                        <!--close #t1a -->
-                        <div class="pane" id="t2a">
-                            <h3>Parody of Taylor Swift / You Belong With Me</h3>
-                            <div class="video-wrapper">
-                                <p>hello world</p>
-                            </div>
-                            <p>You can put photos, videos, links, lists, etc., inside these panes.</p>
-                        </div>
-                        <!--close #t2a -->
-                        <div class="pane" id="t3a">
-                            <h3>Optional Headline</h3>
-                            <p>Whatever course you decide upon, there is always someone to 
-tell you that you are wrong. There are always difficulties arising which
- tempt you to believe that your critics are right. To map out a course 
-of action and follow it to an end requires courage.</p>
-                            <ol>
-                                <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                                <li>Aliquam tincidunt mauris eu risus.</li>
-                                <li>Vestibulum auctor dapibus neque.</li>
-                            </ol>
-                        </div>
-                        <!--close #t3a -->
-                        <div class="pane active" id="t4a">
-                            <h3>Eodem modo typi qui nunc nobis videntur parum clari</h3>
-                            <p><img class="alignleft" src="tabs_files/fw-457px-Maler_der_Grabkammer_des_Minnacht_001.png" alt="">Lorem
- ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
-nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
- wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper 
-suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate 
-velit esse molestie consequat, vel illum dolore eu feugiat nulla 
-facilisis at vero eros et accumsan et iusto odio dignissim qui blandit 
-praesent luptatum zzril delenit augue duis dolore te feugait nulla 
-facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil
- imperdiet doming id quod mazim placerat facer possim assum. Typi non 
-habent claritatem insitam; est usus legentis in iis qui facit eorum 
-claritatem. Investigationes demonstraverunt lectores legere me lius quod
- ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur
- mutationem consuetudium lectorum. Mirum est notare quam littera 
-gothica, quam nunc putamus parum claram, anteposuerit litterarum formas 
-humanitatis per seacula quarta decima et quinta decima. Eodem modo typi,
- qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-                        </div>
-                        <!--close #t4a -->
-                    </div>
-                    <!--close panels-->
-                </div>
-                <!-- /.content-tabs-->
-            </div>
-            <!--close span9 primary-column-->
         {% endblock content %}
         {% block left_column %}
-            <section class="span3 sidebar secondary-column" id="secondary-nav">
-                <aside class="widget">
-                    <h5 class="short_headline"><span>Menu</span></h5>
-                    <ul class="navigation">
-                        <li><a href="/alumni/">Alumni Home</a></li>
-                        <li><a href="http://www.carthage.edu/alumni/apps/">Alumni Directory</a></li>
-                        <li><a href="/alumni/alumni-survey/">Career Services and Alumni Survey</a></li>
-                        <li><a href="/alumni/social/">Stay Connected</a></li>
-                        <li class="last-featured"><a href="/alumni/calendar/">Upcoming Events</a></li>
-                        <li><a href="http://www.carthage.edu/alumni/110/">1-10 Club</a></li>
-                        <li><a href="/alumni/mission/">Alumni Association</a>
-                            <ul>
-                                <li><a href="/alumni/mission/">Mission</a></li>
-                                <li><a href="/alumni/alumnicouncil/">Alumni Council</a></li>
-                                <li><a href="/alumni/bylaws/">Bylaws</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/celebrate/">Celebrating Carthage</a></li>
-                        <li><a href="/character-quest">Character Quest</a></li>
-                        <li><a href="http://www.carthage.edu/alumni/apps/classnotes/">Class Notes</a></li>
-                        <li><a href="/alumni/alumni-news/">Alumni News</a></li>
-                        <li><a href="/alumni/distinguished-alumni/">Distinguished Alumni Awards</a></li>
-                        <li><a href="/give/">Gifts to Carthage</a></li>
-                        <li><a href="http://www.alumnilabels.com/session.php?sel_univ=00008">Order Alumni Address Labels</a></li>
-                        <li><a href="/alumni/galleries/">Photo Galleries</a></li>
-                        <li><a href="/academics/registrar/transcripts/">Transcripts</a></li>
-                        <li><a href="/alumni/travel/">Travel</a></li>
-                        <li><a href="/alumni/yearbooks-online/">Yearbooks</a></li>
-                    </ul>
-                </aside>
-                <!--close aside widget-->
-                <aside class="widget clearfix">
-                    <h5 class="short_headline"><span>Alumni Voices</span></h5>
-                    <ul class="sponsors">
-                        <li><a href="#"><img src="tabs_files/125banner-fpo.png" alt=""></a></li>
-                        <li><a href="#"><img src="tabs_files/125banner-fpo.png" alt=""></a></li>
-                        <li><a href="#"><img src="tabs_files/125banner-fpo.png" alt=""></a></li>
-                        <li><a href="#"><img src="tabs_files/125banner-fpo.png" alt=""></a></li>
-                    </ul>
-                </aside>
-                <!--close aside widget-->
-                
-                <aside class="widget clearfix">
-                    <h5 class="short_headline"><span>Featured Alumnus</span></h5>
-                    <p><a href="#"><img class="aligncenter" src="tabs_files/fotogrph-running-water.jpg" alt=""></a>
-                    </p><p>Image by <a title="CC BY 3.0 | Fotogrph.com" href="http://fotogrph.com/" target="blank">Fotogrph</a>.
- Think clicks-and-mortar. But don’t think all three at the same time. It
- seems unclear, but it’s entirely completely realistic! The 
+        <section class="span3 sidebar secondary-column" id="secondary-nav">
+            <aside class="widget">
+                <h5 class="short_headline"><span>Menu</span></h5>
+                <ul class="navigation">
+                    <li><a href="/alumni/">Alumni Home</a></li>
+                    <li><a href="http://www.carthage.edu/alumni/apps/">Alumni Directory</a></li>
+                    <li><a href="/alumni/alumni-survey/">Career Services and Alumni Survey</a></li>
+                    <li><a href="/alumni/social/">Stay Connected</a></li>
+                    <li class="last-featured"><a href="/alumni/calendar/">Upcoming Events</a></li>
+                    <li><a href="http://www.carthage.edu/alumni/110/">1-10 Club</a></li>
+                    <li><a href="/alumni/mission/">Alumni Association</a>
+                        <ul>
+                            <li><a href="/alumni/mission/">Mission</a></li>
+                            <li><a href="/alumni/alumnicouncil/">Alumni Council</a></li>
+                            <li><a href="/alumni/bylaws/">Bylaws</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/celebrate/">Celebrating Carthage</a></li>
+                    <li><a href="/character-quest">Character Quest</a></li>
+                    <li><a href="http://www.carthage.edu/alumni/apps/classnotes/">Class Notes</a></li>
+                    <li><a href="/alumni/alumni-news/">Alumni News</a></li>
+                    <li><a href="/alumni/distinguished-alumni/">Distinguished Alumni Awards</a></li>
+                    <li><a href="/give/">Gifts to Carthage</a></li>
+                    <li><a href="http://www.alumnilabels.com/session.php?sel_univ=00008">Order Alumni Address Labels</a></li>
+                    <li><a href="/alumni/galleries/">Photo Galleries</a></li>
+                    <li><a href="/academics/registrar/transcripts/">Transcripts</a></li>
+                    <li><a href="/alumni/travel/">Travel</a></li>
+                    <li><a href="/alumni/yearbooks-online/">Yearbooks</a></li>
+                </ul>
+            </aside>
+            <!--close aside widget-->
+            <aside class="widget clearfix">
+                <h5 class="short_headline"><span>Alumni Voices</span></h5>
+                <ul class="sponsors">
+                    <li><a href="#"><img src="tabs_files/125banner-fpo.png" alt=""></a></li>
+                    <li><a href="#"><img src="tabs_files/125banner-fpo.png" alt=""></a></li>
+                    <li><a href="#"><img src="tabs_files/125banner-fpo.png" alt=""></a></li>
+                    <li><a href="#"><img src="tabs_files/125banner-fpo.png" alt=""></a></li>
+                </ul>
+            </aside>
+            <!--close aside widget-->
+            
+            <aside class="widget clearfix">
+                <h5 class="short_headline"><span>Featured Alumnus</span></h5>
+                <p><a href="#"><img class="aligncenter" src="tabs_files/fotogrph-running-water.jpg" alt=""></a>
+                </p><p>Image by <a title="CC BY 3.0 | Fotogrph.com" href="http://fotogrph.com/" target="blank">Fotogrph</a>.
+Think clicks-and-mortar. But don’t think all three at the same time. It
+seems unclear, but it’s entirely completely realistic! The 
 infomediaries factor can be summed up in one word: killer. What do we 
 integrate? Anything and everything, regardless of humbleness!</p>
-                    <p class="right"><a href="#" class="btn btn-small btn-very-subtle">Learn More →</a></p>
-                </aside>
-                <!--close aside widget-->
-                <aside class="widget">
-                    <div class="rotating-testimonials"> 
-                        <!--"rotating-testimonials" is a required class-->
-                        <h5 class="short_headline"><span>Class Notes</span></h5>
-                        <div class="panels">
-                            <div id="t1">
-                                <blockquote>
-                                    <p>One isn’t necessarily born with courage, but one is born 
+                <p class="right"><a href="#" class="btn btn-small btn-very-subtle">Learn More →</a></p>
+            </aside>
+            <!--close aside widget-->
+            <aside class="widget">
+                <div class="rotating-testimonials"> 
+                    <!--"rotating-testimonials" is a required class-->
+                    <h5 class="short_headline"><span>Class Notes</span></h5>
+                    <div class="panels">
+                        <div id="t1">
+                            <blockquote>
+                                <p>One isn’t necessarily born with courage, but one is born 
 with potential. Without courage, we cannot practice any other virtue 
 with consistency. We can’t be kind, true, merciful, generous, or honest.</p>
-                                    <footer>Maya Angelou</footer>
-                                </blockquote>
-                            </div>
-                            <!--close #t1 -->
-                            <div id="t2">
-                                <blockquote>
-                                    <p>When the highest type of people hear Tao (Truth), they 
+                                <footer>Maya Angelou</footer>
+                            </blockquote>
+                        </div>
+                        <!--close #t1 -->
+                        <div id="t2">
+                            <blockquote>
+                                <p>When the highest type of people hear Tao (Truth), they 
 diligently practice it. When the average type of people hear Tao, they 
 half believe in it. When the lowest type of people hear Tao, they laugh 
 at it. If they did not laugh, it would not be Tao.</p>
-                                    <footer>Lao-Tzu</footer>
-                                </blockquote>
-                            </div>
-                            <!--close #t2 -->
-                            <div id="t3">
-                                <blockquote>
-                                    <p>The human being is part of the whole, called by us the 
+                                <footer>Lao-Tzu</footer>
+                            </blockquote>
+                        </div>
+                        <!--close #t2 -->
+                        <div id="t3">
+                            <blockquote>
+                                <p>The human being is part of the whole, called by us the 
 ‘universe’, a part limited in time and space. He experiences himself, 
 his thoughts and feelings, as something separate from the rest — a kind 
 of optical delusion of consciousness. This delusion is a kind of prison 
 for us, restricting us to our personal desires. Our task must be to free
- ourselves from this prison by widening our circle of compassion to 
+ourselves from this prison by widening our circle of compassion to 
 embrace all living creatures and the whole of nature in its beauty.</p>
-                                    <footer>Albert Einstein</footer>
-                                </blockquote>
-                            </div>
-                            <!--close #t3 -->
-                            <div id="t4">
-                                <blockquote>
-                                    <p>Whatever course you decide upon, there is always someone to 
-tell you that you are wrong. There are always difficulties arising which
- tempt you to believe that your critics are right. To map out a course 
-of action and follow it to an end requires courage.</p>
-                                    <footer>Ralph Waldo Emerson</footer>
-                                </blockquote>
-                            </div>
-                            <!--close #t4 --> 
+                                <footer>Albert Einstein</footer>
+                            </blockquote>
                         </div>
-                        <!--close panels-->
-                        <ul class="tabs">
-                            <li class="tab"><a class="" href="#t1">maya-angelou</a></li>
-                            <li class="tab"><a class="" href="#t2">lao-tzu</a></li>
-                            <li class="tab"><a class="" href="#t3">albert-einstein</a></li>
-                            <li class="tab active"><a class="active" href="#t4">ralph-waldo-emerson</a></li>
-                        </ul>
+                        <!--close #t3 -->
+                        <div id="t4">
+                            <blockquote>
+                                <p>Whatever course you decide upon, there is always someone to 
+tell you that you are wrong. There are always difficulties arising which
+tempt you to believe that your critics are right. To map out a course 
+of action and follow it to an end requires courage.</p>
+                                <footer>Ralph Waldo Emerson</footer>
+                            </blockquote>
+                        </div>
+                        <!--close #t4 --> 
                     </div>
-                    <!--close rotating-testimonials--> 
-                </aside>
-                <!--close aside .widget--> 
-            </section>
-            <!--close section sidebar span3-->
+                    <!--close panels-->
+                    <ul class="tabs">
+                        <li class="tab"><a class="" href="#t1">maya-angelou</a></li>
+                        <li class="tab"><a class="" href="#t2">lao-tzu</a></li>
+                        <li class="tab"><a class="" href="#t3">albert-einstein</a></li>
+                        <li class="tab active"><a class="active" href="#t4">ralph-waldo-emerson</a></li>
+                    </ul>
+                </div>
+                <!--close rotating-testimonials--> 
+            </aside>
+            <!--close aside .widget--> 
+        </section>
+        <!--close section sidebar span3-->
         {% endblock %}
         </div>
         <!--close row-fluid-->
@@ -469,7 +362,7 @@ of action and follow it to an end requires courage.</p>
                         2001 Alford Park Drive<br>
                         Kenosha, WI 53140<br>
                         <strong>phone:</strong> <a href="tel:2625518500" class="tele">262.551.8500</a><br>
-                        <strong>email:</strong> <a href="mailto:webmaster@carthage.edu">webmaster@carthage.ed</a> </p>
+                        <strong>email:</strong> <a href="mailto:webmaster@carthage.edu">webmaster@carthage.edu</a> </p>
                     </section>
                     <!--close section-->
                     <section>
@@ -486,13 +379,6 @@ of action and follow it to an end requires courage.</p>
                         </ul>
                     </section>
                     <!--close section-->
-                    <!--this is the login for the user-->
-                    <nav class="user clearfix"> <a href="http://www.carthage.edu/forms/accounts/login/"><i class="icon-user"></i> Login</a> </nav>
-                    <!--close user nav-->
-                </div>
-                <!-- close .span4 --> 
-                <!--section containing newsletter signup and recent news-->
-                <div class="span4">
                     <section>
                         <h4>Stay Updated</h4>
                         <p>Sign up for our newsletters. We won't share your email address.</p>
@@ -505,47 +391,38 @@ of action and follow it to an end requires courage.</p>
                         </form>
                     </section>
                     <!--close section-->
-                    <section>
-                        <h4>Latest News</h4>
-                        <ul class="image-widget clearfix">
-                            <li><a href="#"><img src="crisp_files/1.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/2.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/3.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/4.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/5.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/6.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/7.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/8.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/9.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/10.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/11.png" alt=""></a></li>
-                            <li><a href="#"><img src="crisp_files/12.png" alt=""></a></li>
-                        </ul>
-                    </section>
-                    <!--close section--> 
+                    <!--this is the login for the user-->
+                    <nav class="user clearfix"> <a href="http://www.carthage.edu/forms/accounts/login/"><i class="icon-user"></i> Login</a> </nav>
+                    <!--close user nav-->
                 </div>
                 <!-- close .span4 --> 
-                
+                <!--section containing newsletter signup and recent news-->
+                <div class="span4">
+                    <section>
+                        {% block news %}
+                        <h4>Latest News</h4>
+                        {% get_api_object as news cms newspageblock 433 code %}
+                        {{news}}
+                        {% endblock news %}
+                    </section>
+                    <!--close section-->
+                </div>
+                <!-- close .span4 -->
                 <!--section containing blog posts-->
                 <div class="span4">
                     <section>
-                        <h4>Recent Events</h4>
-                        <ul class="footerPosts">
-                            <li><a href="http://bombdiggitydesign.com/crisp/Crisp-cool/blog-single.html">We will amplify our power to benchmark</a> <span class="meta">December 10, 2012</span> </li>
-                            <li><a href="http://bombdiggitydesign.com/crisp/Crisp-cool/blog-single.html">Crisp has revolutionized the conceptualization of structuring</a> <span class="meta">September 10, 2012</span> </li>
-                            <li><a href="http://bombdiggitydesign.com/crisp/Crisp-cool/blog-single.html">A company that can implement correctly</a> <span class="meta">September 10, 2012</span> </li>
-                            <li><a href="http://bombdiggitydesign.com/crisp/Crisp-cool/blog-single.html">Claritas est etiam processus dynamicus</a> <span class="meta">September 10, 2012</span> </li>
-                            <li><a href="http://bombdiggitydesign.com/crisp/Crisp-cool/blog-single.html">It is stunning to you!</a> <span class="meta">September 10, 2012</span> </li>
-                            <li class="last"><a href="http://bombdiggitydesign.com/crisp/Crisp-cool/blog-single.html">We will increase our aptitude to evolve </a> <span class="meta">November 15, 2012</span> </li>
-                        </ul>
+                        {% block events %}
+                        <h4>Upcoming Events</h4>
+                        {% get_api_object as events cms calendarpageblock 11 code %}
+                        {{events}}
+                        {% endblock events %}
                     </section>
                 </div>
-                <!-- close .span4 --> 
+                <!-- close .span4 -->
             </div>
-            <!-- close .row-fluid--> 
+            <!-- close .row-fluid-->
         </div>
-        <!-- close footer .container--> 
-        
+        <!-- close footer .container-->
         <!--change this to your stuff-->
         <section class="footerCredits">
             <div class="container">
@@ -568,7 +445,6 @@ of action and follow it to an end requires courage.</p>
     <span class="backToTop"><a href="#top">back to top</a></span>
 </div>
 <!-- close #page-->
-
 <!-- JS JQuery ================ --> 
 <script src="http://www.carthage.edu/static/vendor/bootstrap/current/js/bootstrap.min.js"></script><!--transitions, tooltips, popover, buttons, modals, alert messages--> 
 <script src="http://www.carthage.edu/static/themes/suki/js/ddsmoothmenu-min.js"></script><!-- desktop edge detect menu --> 
@@ -583,3 +459,4 @@ of action and follow it to an end requires courage.</p>
 <script src="http://www.carthage.edu/static/themes/suki/js/scripts.js"></script>
 </body>
 </html>
+{% endautoescape %}

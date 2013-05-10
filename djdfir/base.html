@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 {% autoescape off %}
@@ -49,6 +48,12 @@
         }
         , buttonPlacement: 'right', button: 'none', defaultText: ''
         });
+        $(".required > input").addClass("required");
+        $(".required > select").addClass("required");
+        $(".required > textarea").addClass("required");
+        $(".warning > input").addClass("error");
+        $(".warning > select").addClass("error");
+        $(".warning > textarea").addClass("error");
     });
     </script>
     {% endblock %}
@@ -60,12 +65,14 @@
     {% include "urchin.html" %}
     <div id="wrapper" class="container">
     <div class="stone">
+        {% block header %}
         <div id="Header">
             <div id="topnav">
                 <h1><a href="http://www.carthage.edu/?ext"><img src="/assets/current/img/ui/carthage_top_sm.gif" alt="Carthage" /></a></h1>
                 {% block globalnavinclude %}{% include "includes/globalnav.html" %}{% endblock %}
             </div>
         </div>
+        {% endblock %}
         {% block left_nav %}
         <div id="first">
             <ul id="about">
@@ -101,6 +108,7 @@
         </div>
         {% block sidebar %}
         {% endblock %}
+        {% block footer %}
         <div id="footer">
             <p>Carthage College<br />
             2001 Alford Park Drive<br />
@@ -122,6 +130,7 @@
             <div style="clear:both;"></div>
             <div id="tagline"><img alt="Truth, Strength, Service. Together." src="/assets/img/ui/tagline.gif" border="0" /></div>
         </div><!-- end footer -->
+        {% endblock %}
     </div><!-- end stone -->
     </div><!-- end wrapper -->
     {% block modalform %}{% endblock %}
