@@ -11,9 +11,9 @@
     {% block feeds %}{% endblock %}
     {% block css %}{% endblock %}
     {% block extra_style %}{% endblock %}
-    {% block javascript %}<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>{% endif %}
+    {% block javascript %}<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>{% endblock %}
 </head>
-<body>
+<body{% block body_tag %}{% endblock %}>
 {% block urchin %}
     {% if not template_debug %}
         {% include "urchin.html" %}
