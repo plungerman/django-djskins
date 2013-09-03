@@ -64,7 +64,7 @@ $(function() {
 </ul>
 {% else %}
     {% if user.is_superuser %}
-    <p><a href="/communications/accounts/login/?next={% url communications.views.manager %}?email={{email}}">Login to manage your communications preferences.</a></p>
+    <p><a href="{{login_url}}?next={% url communications.views.manager %}?email={{email}}">Login to manage your communications preferences.</a></p>
     {% endif %}
 {% endif %}
 <form>
