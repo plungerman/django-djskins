@@ -109,20 +109,16 @@
         <div id="footer">
             <p>Carthage College<br />
             2001 Alford Park Drive<br />
-            Kenosha, WI 53140</p>
-            <p>262-551-8500<br />
+            Kenosha, WI 53140&nbsp;
+            {% if not user.is_anonymous %}
+                <a href="/forms/accounts/logout/?next={{request.path}}" style="text-decoration:none;">x</a>
+            {% else %}
+                <a href="/forms/accounts/login/?next={{request.path}}" style="text-decoration:none;">&bull;</a>
+            {% endif %}
+            </p>
+            <p class="last">262-551-8500<br />
             <a href="mailto:webmaster@carthage.edu">webmaster@carthage.edu</a><br />
             <a href="http://www.carthage.edu/about/campus-map/">Maps</a> and <a href="http://www.carthage.edu/about/directions">directions</a>
-            </p>
-            <p class="last">
-                <br />
-                Users:
-                <br />
-                {% if not user.is_anonymous %}
-                    <a href="/forms/accounts/logout/?next={{request.path}}">Logout</a>
-                {% else %}
-                    <a href="/forms/accounts/login/?next={{request.path}}">Login</a>
-                {% endif %}
             </p>
             <div style="clear:both;"></div>
             <div id="tagline"><img alt="Truth, Strength, Service. Together." src="/assets/img/ui/tagline.gif" border="0" /></div>
