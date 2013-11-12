@@ -1,45 +1,15 @@
 {% extends "base.html" %}
 {% block title %}Login{% endblock %}
 {% block content %}
-<div id="second">
     <div class="buffer">
         {% if user.is_anonymous %}
             <h1>Login</h1>
-            <p>Please use your Novell login.</p><p>If your password does not work, you can reset it at <a href="http://www.carthage.edu/password" target="_blank">carthage.edu/password</a>.</p>
-            <p>If you do not have a Novell username and login, please contact the Help Desk at (262) 551-5950. If you are a new entering student you may also contact the Admission Office at (262) 551-6000.</p>
+            <p>Please use your Carthage username to log in.</p>
             {% if form.errors %}
                 <p class="error">
-                Please enter a correct username and password. Both fields are case-sensitive.<br /><br />  NOTE: Your password expires every 6 months, so if you have not used your Novell account in over 6 months, you will have to <a href="http://www.carthage.edu/password" target="_blank">change your password</a>.</p>
+                Please enter a correct username and password. Both fields are case-sensitive.<br /><br />  NOTE: Your password expires every 6 months, so if you have not used your Carthage account in over 6 months, you will have to <a href="http://www.carthage.edu/password" target="_blank">change your password</a>.</p>
             {% endif %}
-            <form name="djauth" method="post" action="." class="form" id="profile">{% csrf_token %}
-                <input type="hidden" name="next" value="{% if next %}{{ next }}{% endif %}" />
-                <fieldset class="blockLabels">
-                    <ol>
-                        <li class="ctrlHolder">
-                            <label for="id_username"><h3>Username</h3></label>
-                            {% if form.username.errors %}
-                                <span class="error-message">{{ form.username.errors|join:", " }}</span>
-                            {% endif %}
-                            <input type="text" id="id_username" name="username" class="textInput required" size="15" value="{{form.data.username}}" maxlength="30" />
-                        </li>
-                        <li class="ctrlHolder">
-                            <label for="id_password"><h3>Password</h3></label>
-                            {% if form.password.errors %}
-                                <span class="error-message">{{ form.password.errors|join:", " }}</span>
-                            {% endif %}
-                            <input type="password" id="id_password" class="vPasswordField required" name="password" size="15" value="{{form.data.password}}" maxlength="30" />
-                        </li>
-                    </ol>
-                </fieldset>
-                <fieldset class="blockLabels">
-                    <ol>
-                        <li class="btnHolder">
-                            <label>&nbsp;</label>
-                            <input id="id_submit" type="submit" class="button" value="Log in" />
-                        </li>
-                    </ol>
-                </fieldset>
-            </form>
+            {% include "accounts/login_form.inc.html" %}
         {% else %}
             <h2>You are already logged in</h2>
             {% if next %}
@@ -49,5 +19,10 @@
             {% endif %}
         {% endif %}
     </div>
-</div>
+{% endblock %}
+{% block extra_content %}
+    <div class="buffer">
+    <p>If your password does not work, you can reset it at <a href="http://www.carthage.edu/password/" target="_blank">www.carthage.edu/password/</a>.</p>
+    <p>If you do not have a Carthage user account, please contact the Help Desk at (262) 551-5950. If you are a new entering student you may also contact the Admission Office at (262) 551-6000.</p>
+    </div>
 {% endblock %}
