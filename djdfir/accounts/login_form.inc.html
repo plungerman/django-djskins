@@ -7,14 +7,14 @@
                 {% if form.username.errors %}
                     <span class="error-message">{{ form.username.errors|join:", " }}</span>
                 {% endif %}
-                <input type="text" id="id_username" name="username" class="textInput required" size="15" value="{{form.data.username}}" maxlength="30" />
+                <input type="text" id="id_username" name="username" class="textInput required" size="15" value="{{form.data.username}}" maxlength="128" />
             </li>
             <li class="ctrlHolder">
                 <label for="id_password"><h3>Password</h3></label>
                 {% if form.password.errors %}
                     <span class="error-message">{{ form.password.errors|join:", " }}</span>
                 {% endif %}
-                <input type="password" id="id_password" class="vPasswordField required" name="password" size="15" value="{{form.data.password}}" maxlength="30" />
+                <input type="password" id="id_password" class="vPasswordField required" name="password" size="15" value="{{form.data.password}}" maxlength="64" />
             </li>
         </ol>
     </fieldset>
