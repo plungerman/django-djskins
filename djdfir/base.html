@@ -65,7 +65,6 @@
 </head>
 {% block body %}
 <body>
-    {% include "urchin.html" %}
     <div id="wrapper" class="container">
     <div class="stone">
         {% block header %}
@@ -128,6 +127,7 @@
     </div><!-- end stone -->
     </div><!-- end wrapper -->
     {% block modalform %}{% endblock %}
+    {% include "urchin.html" %}
 </body>
 {% endblock %}
 </html>
