@@ -1,4 +1,4 @@
-<form name="djauth" method="post" action="." class="form" id="profile">{% csrf_token %}
+<form name="djauth" method="post" action="{{action|default:'.'}}" class="form" id="profile">{% csrf_token %}
     <input type="hidden" name="next" value="{% if next %}{{ next }}{% endif %}" />
     <fieldset class="blockLabels">
         <ol>
