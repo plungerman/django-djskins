@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load livewhale_api %}
 {% block javascript %}
-    <script src="https://www.carthage.edu/assets/js/jquery/plugins/jquery.searchMeme.js" type="text/javascript"></script>
+    <script src="//www.carthage.edu/assets/js/jquery/plugins/jquery.searchMeme.js" type="text/javascript"></script>
     <script type="text/javascript">
     $(function() {
         var search = $('#search-text').searchMeme({ onSearch: function (searchText) {
@@ -17,6 +17,7 @@
 {% endblock %}
 {% block css %}
     <!-- CSS -->
+    <link rel="stylesheet" href="//www.carthage.edu/assets/css/jquery/plugins/searchmeme/searchMeme.css" type="text/css"/>
     <style type="text/css" media="screen, projection">
     /* <![CDATA[ */
         @import url("//www.carthage.edu/assets/current/css/overrides/adulted.css");
@@ -24,6 +25,7 @@
     /* ]]> */
     </style>
 {% endblock %}
+{% block extra_style %}{% endblock %}
 {% block css_columns %}{% endblock %}
 {% block body %}
 <body{%block bodytag %}{% if page.behavior %} id="{{page.behavior}}"{% endif %}{% if page %}{% if page.parent %} class="subpage"{% else %} class="home"{% endif %}{% endif %}{% endblock %}>
