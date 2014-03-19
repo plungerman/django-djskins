@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load livewhale_api %}
 {% block javascript %}
     <script src="https://www.carthage.edu/assets/js/jquery/plugins/jquery.searchMeme.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -18,7 +19,7 @@
     <!-- CSS -->
     <style type="text/css" media="screen, projection">
     /* <![CDATA[ */
-        @import url("https://www.carthage.edu/assets/current/css/overrides/adulted.css");
+        @import url("//www.carthage.edu/assets/current/css/overrides/adulted.css");
         body {font-size:13px;}
     /* ]]> */
     </style>
@@ -28,72 +29,21 @@
 <body{%block bodytag %}{% if page.behavior %} id="{{page.behavior}}"{% endif %}{% if page %}{% if page.parent %} class="subpage"{% else %} class="home"{% endif %}{% endif %}{% endblock %}>
     <div id="css_wrap1">
         <div id="css_wrap2">
+            <!-- wrapper -->
             <div id="wrapper">
-                <div id="header">
-                    <div id="topnav">
-                       {% include "includes/globalnav.html" %}
-                    </div>
-                    <div id="mainhead">
-                        <h1><a href="http://www.carthage.edu/?ext">{% block logo %}<img src="https://www.carthage.edu/media/img/elderberry/carthageflamelogo.gif" alt="Carthage Graudate and Professions Studies" />{% endblock %}</a></h1>
-                        <div class="buttons">
-                            <div class="buttlink"><a href="http://www.carthage.edu/continuing-education/inforequest/">Request Information</a></div>
-                            <div class="buttlink"><a href="https://www.carthage.edu/forms/continuing-education/admissions/">Apply Online</a></div>
-                            <div class="buttlink"><a href="http://www.carthage.edu/continuing-education/staff/">Schedule an Appointment</a></div>
-                        </div>
-                        <div id="address">
-                            <div id="program"><a href="http://www.carthage.edu/continuing-education/">Graduate and Professional Studies</a></div>
-                            <div id="street"><a href="http://www.carthage.edu/?ext">Carthage College</a> 2001 Alford Park Drive, Kenosha, Wisconsin 53140</div>
-                            <div id="phone">800-551-5343</div>
-                        </div>
-                        <ul class="mainnav">
-                            <li><a href="http://www.carthage.edu/continuing-education/welcome/">Welcome</a></li>
-                            <li><a href="http://www.carthage.edu/continuing-education/undergraduate/">Undergraduate Programs</a></li>
-                            <li><a href="http://www.carthage.edu/continuing-education/graduate/">Graduate Programs</a></li>
-                            <li><a href="http://www.carthage.edu/continuing-education/resources/">Student Resources</a></li>
-                            <li><a href="http://www.carthage.edu/continuing-education/staff/">Meet Our Staff</a></li>
-                            <li><a href="http://www.carthage.edu/continuing-education/professional-development/">Professional Development</a></li>
-                            <li><a href="http://www.carthage.edu/continuing-education/schedule/">Course Schedules</a></li>
-                            <li><a href="http://www.carthage.edu/continuing-education/financial-aid/">Financial Aid</a></li>
-                        </ul>
-                    </div>
-                    <!-- end topnav -->
-                </div><!-- end Header -->
+                <!-- Header -->
+                {% get_lw_content as header blurbs 1354 %}
+                {{header.body}}
+                <!-- end Header -->
                 {% block content %}{% endblock %}
-                <div id="footer">
-                    <h1><a href="http://www.carthage.edu/?ext"><img src="https://www.carthage.edu/media/img/elderberry/carthageflamelogo.gif" alt="Carthage Graduate and Professional Studies" /></a></h1>
-                    <ul class="mainnav">
-                        <li><a href="http://www.carthage.edu/continuing-education/undergraduate/">Undergraduate Programs</a></li>
-                        <li><a href="http://www.carthage.edu/continuing-education/graduate/">Graduate Programs</a></li>
-                        <li><a href="http://www.carthage.edu/continuing-education/financial-aid/">Financial Aid</a></li>
-                        <li><a href="http://www.carthage.edu/continuing-education/resources/">Student Resources</a></li>
-                        <li><a href="http://www.carthage.edu/continuing-education/professional-development/">Professional Development</a></li>
-                        <li><a href="http://www.carthage.edu/continuing-education/schedule/">Course Schedules</a></li>
-                        <li><a href="http://www.carthage.edu/continuing-education/staff/">Meet Our Staff</a></li>
-                        <li><a href="http://www.carthage.edu/continuing-education/about/">About Carthage</a></li>
-                    </ul>
-                    <div class="buttons">
-                        <div class="buttlink"><a href="http://www.carthage.edu/continuing-education/forms/admissions/inforequest/">Request Information</a></div>
-                        <div class="buttlink"><a href="https://www.carthage.edu/forms/continuing-education/admissions/">Apply Online</a></div>
-                        <div class="buttlink"><a href="http://www.carthage.edu/continuing-education/staff/">Schedule an Appointment</a></div>
-                    </div>
-                    <div id="contact">
-                        <div class="email"><a href="mailto:webmaster@carthage.edu">webmaster@carthage.edu</a></div>
-                        <div class="directions"><a href="http://www.carthage.edu/about/campus-map/">Maps</a> and <a href="http://www.carthage.edu/continuing-education/directions/">Directions</a></div>
-                        <div class="address"><a href="http://www.carthage.edu/">Carthage College</a> 2001 Alford Park Drive, Kenosha, Wisconsin 53140</div>
-                    </div>
-                </div><!-- end footer -->
-            </div><!-- end wrapper -->
-            {% if user.is_anonymous %}
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-            </script>
-            <script type="text/javascript">
-            try {
-            var pageTracker = _gat._getTracker("UA-23482792-1");
-            pageTracker._trackPageview();
-            } catch(err) {}</script>
-            {% endif %}
+                <!-- footer -->
+                {% get_lw_content as footer blurbs 1355 %}
+                {{footer.body}}
+                <!-- end footer -->
+            </div>
+            <!-- end wrapper -->
+            <!-- analytics -->
+            {% include "urchin.html" %}
         </div>
     </div>
 </body>
