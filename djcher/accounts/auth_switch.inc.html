@@ -1,0 +1,12 @@
+<ul>
+    {% if not user.is_anonymous %}
+        <li><a href="{{root_url}}accounts/logout/?next={{request.path}}">Logout</a></li>
+    {% else %}
+        <li>
+            <a href="{{login_url}}?next={{request.path}}">Login</a>
+        </li>
+    {% endif %}
+    {% if user.is_superuser %}
+        <li><a href="/forms/admin/">Administration</a></li>
+    {% endif %}
+</ul>
