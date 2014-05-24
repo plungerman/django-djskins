@@ -30,7 +30,7 @@
     {% endblock %}
 </head>
 {% block body %}
-<body class="carthage-page generic-subpage">
+<body class="carthage-page generic-subpage"{% block extra_body %} id="djforms"{% endblock %}>
     <!-- START: google analytics -->
     {% include "urchin.html" %}
     <!-- END: google analytics -->
@@ -50,7 +50,7 @@
                 <div id="main-page-section" class="cf">
                     {% block content_head %}
                     <h1 id="page_title">
-                        Our Facilities<span id="secondary-dropdown"></span>
+                        Nam pellentesque<span id="secondary-dropdown"></span>
                     </h1>
                     {% endblock %}
                 </div>
@@ -91,9 +91,8 @@ bibendum eu sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspen
             <!--START:Sidebar-->
             <div id="page-sidebar" class="large-3-half medium-4 small-12">
                 <div id="secondary-navigation-wrap">
-                    {% block left_nav %}
-                    <h4>About</h4>
                     <nav id="secondary-navigation">
+                        {% block left_nav %}
                         <ul>
                             <li><a href="#">About Carthage</a></li>
                             <li class="active"><a href="#">Our Facilities</a></li>
@@ -102,11 +101,9 @@ bibendum eu sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspen
                             <li><a href="#">Careers At Carthage</a></li>
                             <li><a href="#">Offices &amp; Services</a></li>
                         </ul>
-                        <div class="white-bar"></div>
-                        {% include "accounts/auth_switch.inc.html" %}
+                        {% endblock %}
                     </nav>
                     <div class="white-bar"></div>
-                    {% endblock %}
                 </div>
                 {% block sidebar %}
                 <div id="sidebar-buttons">
