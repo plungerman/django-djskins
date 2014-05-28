@@ -14,6 +14,7 @@ var openInFrame = function(hash) {
     var $modalWindow = $(hash.w);
     var $modalContainer = $('iframe', $modalWindow);
     var myUrl = $trigger.attr('href');
+    alert("my url = " + myUrl);
     var myTitle = $trigger.attr('title');
     var newWidth = 0, newHeight = 0, newLeft = 0, newTop = 0;
     $modalContainer.html('').attr('src', myUrl);
@@ -72,6 +73,9 @@ var openInFrame = function(hash) {
         $modalWindow.jqmShow();
     }
 }
+$('.jqmodal').click(function(e) {
+    e.preventDefault();
+});
 $('#modalWindow').jqm({
     overlay: 70,
     modal: true,

@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block title %}You have logged out.{% endblock %}
+{% block content_head %}
+<h1 id="page_title">
+    Log out successful
+    <span id="secondary-dropdown"></span>
+</h1>
+{% endblock %}
 {% block content %}
-<div id="second">
-    <div class="buffer">
-    <h1>Log out successful</h1>
     <p>You are now logged out.</p>
     <p><a href="{{login_url}}">Log in again</a></p>
     <br /><br /><br />
-    </div>
-</div>
 {% endblock %}
