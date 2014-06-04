@@ -58,7 +58,7 @@ id="djforms"{% endblock %}>
     <div id="page-content-wrap">
         <div id="page-content" class="site-width cf">
             <!--START:Content-->
-            <div class="content large-8 medium-7 small-12">
+            <div {% block page_content %}class="content large-8 medium-7 small-12"{% endblock %}>
                 <div id="main-page-section" class="cf">
                     {% block content_head %}
                     <h1 id="page_title">
