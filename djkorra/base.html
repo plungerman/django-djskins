@@ -36,19 +36,22 @@
     {% endblock %}
     {% block extra_style %}{% endblock %}
     {% block jquery %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
         type="text/javascript"></script>
     {% endblock %}
 </head>
 {% block body %}
 <body class="carthage-page generic-subpage"{% block extra_body %}
 id="djforms"{% endblock %}>
+    {% if not django_debug %}
     <!-- START: google analytics -->
     {% include "urchin.html" %}
     <!-- END: google analytics -->
+    {% endif %}
     {% block header %}
-        {% get_lw_content as header blurbs 1491 %}
-        {{header.body}}
+        {# get_lw_content as header blurbs 1491 #}
+        {#header.body#}
+        {% include "header-chapuza.html" %}
     {% endblock %}
     {% block hero %}
         {% get_lw_content as hero blurbs 1493 %}
@@ -67,12 +70,14 @@ id="djforms"{% endblock %}>
                     </h1>
                     {% endblock %}
                 </div>
+                <div id="main-content">
                 {% block content %}{% endblock %}
+                </div>
                 {% block extra_content %}{% endblock %}
             </div>
             <!--END:Content-->
             <!--START:Sidebar-->
-            <div id="page-sidebar" class="large-3-half medium-4 small-12">
+            <div id="page-sidebar" class="large-3 medium-4 small-12">
                 <div id="secondary-navigation-wrap">
                     <nav id="secondary-navigation">
                         {% block left_nav %}
@@ -89,7 +94,16 @@ id="djforms"{% endblock %}>
                     </nav>
                     <div class="white-bar"></div>
                 </div>
-                {% block sidebar %}{% endblock %}
+                <div id="editable-sidebar-content" class="optional">
+                {% block sidebar %}
+                    <div id="sidebar-buttons">
+                        {% get_lw_content as sidebar blurbs 1792 %}
+                        {{sidebar.body}}
+                    </div>
+                    {% get_lw_content as quick_facts blurbs 1793 %}
+                    {{quick_facts.body}}
+                {% endblock %}
+                </div>
             </div>
             <!--END:Sidebar-->
         </div>
@@ -104,12 +118,8 @@ id="djforms"{% endblock %}>
     <!-- END: modals -->
     <!--START: JS Files-->
     {% block javascript %}
-    <script src="//www.carthage.edu/themes/korra/assets/js/jquery.cycle2.min.js"
-        type="text/javascript"></script>
-    <script src="//www.carthage.edu/themes/korra/assets/js/jquery.cycle2.carousel.min.js"
-        type="text/javascript"></script>
-    <script src="//www.carthage.edu/themes/korra/assets/js/master.js"
-        type="text/javascript"></script>
+    {% get_lw_content as scripts blurbs 1797 %}
+    {{scripts.body}}
     <script type="text/javascript">
     $(function() {
         $(".required > input").addClass("required");
