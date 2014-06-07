@@ -82,17 +82,10 @@ id="djforms"{% endblock %}>
                     <nav id="secondary-navigation">
                         {% block left_nav %}
                         <h4>Carthage College</h4>
-                        <ul>
-                            <li><a href="#">About Carthage</a></li>
-                            <li class="active"><a href="#">Our Facilities</a></li>
-                            <li><a href="#">Our Faculty</a></li>
-                            <li><a href="#">Rankings And Honors</a></li>
-                            <li><a href="#">Careers At Carthage</a></li>
-                            <li><a href="#">Offices &amp; Services</a></li>
-                        </ul>
+                        {% get_lw_content as nav blurbs 1798 %}
+                        {{nav.body}}
                         {% endblock %}
                     </nav>
-                    <div class="white-bar"></div>
                 </div>
                 <div id="editable-sidebar-content" class="optional">
                 {% block sidebar %}
@@ -116,10 +109,10 @@ id="djforms"{% endblock %}>
     <!-- START: modals -->
     {% block modalform %}{% endblock %}
     <!-- END: modals -->
-    <!--START: JS Files-->
     {% block javascript %}
     {% get_lw_content as scripts blurbs 1797 %}
     {{scripts.body}}
+    <!--START: JS Files-->
     <script type="text/javascript">
     $(function() {
         $(".required > input").addClass("required");
