@@ -28,7 +28,8 @@
 {% block extra_style %}{% endblock %}
 {% block css_columns %}{% endblock %}
 {% block body %}
-<body{%block bodytag %}{% if page.behavior %} id="{{page.behavior}}"{% endif %}{% if page %}{% if page.parent %} class="subpage"{% else %} class="home"{% endif %}{% endif %}{% endblock %}>
+<body>
+    {% include "urchin.html" %}
     <div id="css_wrap1">
         <div id="css_wrap2">
             <!-- wrapper -->
@@ -45,7 +46,6 @@
             </div>
             <!-- end wrapper -->
             <!-- analytics -->
-            {% include "urchin.html" %}
         </div>
     </div>
 </body>
