@@ -1,7 +1,7 @@
                 {% for field in form_proc %}
                     {% if field.name == "expiration_month" %}
                     <li class="ctrlHolder">
-                    <h3>Expiration Date</h3>
+                    <h3><label>Expiration Date</label></h3>
                     <div class="required">{{field}}
                     {% else %}{% if field.name == "expiration_year" %}&mdash;&nbsp;{{field}}</div></li>
                     {% else %}
