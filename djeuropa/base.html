@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% autoescape off %}
+{% load livewhale_api %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% if request.session.desktop_mode %}
+    <meta name="viewport" content="width=1024">
+    {% else %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endif %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block metatags %}
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    {% endblock %}
+    {% block css %}
+    <link href="//www.carthage.edu/themes/shared/css/icons.css"
+        type="text/css" rel="stylesheet" />
+    <link href="//www.carthage.edu/themes/shared/css/tables.css"
+        type="text/css" rel="stylesheet" />
+    <link href="//www.carthage.edu/static/vendor/dashboard/font-awesome/css/font-awesome.min.css"
+        rel="stylesheet" />
+    <!--[if lt IE 9]>
+        <script src="//www.carthage.edu/themes/shared/js/html5shiv.js"
+            type="text/javascript"></script>
+    <![endif]-->
+    {% endblock %}
+    {% block extra_style %}{% endblock %}
+    {% block jquery %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+        type="text/javascript"></script>
+    {% endblock %}
+</head>
+{% block body %}
+<body class="carthage-page generic-subpage"{% block extra_body %}
+id="djforms"{% endblock %}>
+    {% if not django_debug %}
+    <!-- START: google analytics -->
+    {% include "urchin.html" %}
+    <!-- END: google analytics -->
+    {% endif %}
+    {% block header %}
+        {# get_lw_content as header blurbs 1876 #}
+        {% header.body %}
+    {% endblock %}
+    {% block page_header %}
+    <!--START: Page Header-->
+    <header id="page-header">
+        <h2></h2>
+        <span class="hairline"></span>
+    </header>
+    {% endblock %}
+    <!--END: Page Header-->
+    <!--START: Page Content-->
+    <section id="page-content-wrap" class="site-width cf">
+        <div id="main-page-section"
+            class="page-content
+            {% block page_content %}large-8-half small-12"{% endblock %}>
+            {% block content_head %}
+            <h1 id="page_title">
+                WSGC Forms
+                <span id="secondary-dropdown"></span>
+            </h1>
+            {% endblock %}
+            <div id="main-content">
+                {% block content %}{% endblock %}
+            </div>
+            {% block extra_content %}{% endblock %}
+        </div>
+        <aside id="page-sidebar" class="large-3-half small-12 editable">
+            <nav id="secondary-nav">
+                {% block left_nav %}
+                    <h3>WSGC</h3>
+                    {% get_lw_content as nav blurbs 1798 %}
+                    {{nav.body}}
+                {% endblock %}
+            </nav>
+            <div id="page-sidebar-content">
+                {% block left_audience %}
+                    <div id="audience-module">
+                        {% get_lw_content as footer blurbs 1878 %}
+                        {{footer.body}}
+                    </div>
+                {% endblock %}
+                {% block left_social_media %}
+                    {% get_lw_content as footer blurbs 1879 %}
+                    {{footer.body}}
+                {% endblock %}
+            </div>
+        </aside>
+    </section>
+    <!--END: Page Content-->
+    {% block footer %}
+        {% get_lw_content as footer blurbs 1877 %}
+        {{footer.body}}
+    {% endblock %}
+    {% block javascript %}
+    <!--START: JS-->
+    <script src="//www.carthage.edu/themes/europa/assets/js/master.js"
+        type="text/javascript"></script>
+    <script src="//www.carthage.edu/themes/europa/assets/js/addons.js"
+        type="text/javascript"></script>
+    <!--END: JS Files-->
+    <script type="text/javascript">
+    $(function() {
+        $(".required > input").addClass("required");
+        $(".required > select").addClass("required");
+        $(".required > textarea").addClass("required");
+        $(".warning > input").addClass("error");
+        $(".warning > select").addClass("error");
+        $(".warning > textarea").addClass("error");
+        $(".required > ul").parent().parent().find('h3').addClass("required");
+    });
+    </script>
+    {% endblock %}
+    {% block extra_javascript %}{% endblock %}
+</body>
+{% endblock %}
+</html>
+{% endautoescape %}
