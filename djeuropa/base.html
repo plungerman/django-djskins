@@ -15,11 +15,18 @@
     <meta name="keywords" content="" />
     {% endblock %}
     {% block css %}
+    <link href="//www.carthage.edu/themes/europa/assets/css/master.css"
+        type="text/css" rel="stylesheet" />
+    <link href="//www.carthage.edu/themes/europa/assets/css/addons.css"
+        type="text/css" rel="stylesheet" />
+    <link href="//www.carthage.edu/themes/shared/css/forms.css"
+        rel="stylesheet" type="text/css" />
     <link href="//www.carthage.edu/themes/shared/css/icons.css"
         type="text/css" rel="stylesheet" />
     <link href="//www.carthage.edu/themes/shared/css/tables.css"
         type="text/css" rel="stylesheet" />
-    <link href="//www.carthage.edu/static/vendor/dashboard/font-awesome/css/font-awesome.min.css"
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+        rel="stylesheet">
         rel="stylesheet" />
     <!--[if lt IE 9]>
         <script src="//www.carthage.edu/themes/shared/js/html5shiv.js"
@@ -33,7 +40,7 @@
     {% endblock %}
 </head>
 {% block body %}
-<body class="carthage-page generic-subpage"{% block extra_body %}
+<body{% block extra_body %} class="carthage-page generic-subpage spacegrant"
 id="djforms"{% endblock %}>
     {% if not django_debug %}
     <!-- START: google analytics -->
@@ -41,16 +48,14 @@ id="djforms"{% endblock %}>
     <!-- END: google analytics -->
     {% endif %}
     {% block header %}
-        {# get_lw_content as header blurbs 1876 #}
-        {% header.body %}
+        {% get_lw_content as header blurbs 1876 %}
+        {{header.body}}
     {% endblock %}
-    {% block page_header %}
     <!--START: Page Header-->
     <header id="page-header">
-        <h2></h2>
+        <h2>{% block page_header %}{% endblock %}</h2>
         <span class="hairline"></span>
     </header>
-    {% endblock %}
     <!--END: Page Header-->
     <!--START: Page Content-->
     <section id="page-content-wrap" class="site-width cf">
@@ -71,21 +76,21 @@ id="djforms"{% endblock %}>
         <aside id="page-sidebar" class="large-3-half small-12 editable">
             <nav id="secondary-nav">
                 {% block left_nav %}
-                    <h3>WSGC</h3>
-                    {% get_lw_content as nav blurbs 1798 %}
+                    <h3><a href="/">WSGC</a></h3>
+                    {% get_lw_content as nav blurbs 1882 %}
                     {{nav.body}}
                 {% endblock %}
             </nav>
             <div id="page-sidebar-content">
                 {% block left_audience %}
                     <div id="audience-module">
-                        {% get_lw_content as footer blurbs 1878 %}
-                        {{footer.body}}
+                        {% get_lw_content as audience blurbs 1878 %}
+                        {{audience.body}}
                     </div>
                 {% endblock %}
                 {% block left_social_media %}
-                    {% get_lw_content as footer blurbs 1879 %}
-                    {{footer.body}}
+                    {% get_lw_content as socmed blurbs 1879 %}
+                    {{socmed.body}}
                 {% endblock %}
             </div>
         </aside>
