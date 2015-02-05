@@ -1,0 +1,90 @@
+    <header id="main-header">
+        <div class="site-width cf">
+            <a id="wsgc-logo" href="/">
+                <img src="//www.carthage.edu/themes/europa/assets/images/wsgc-logo.gif" alt="WSGC" />
+                <span>
+                Wisconsin<br>
+                space grant<br>
+                consortium
+                </span>
+            </a>
+            <!--START: Main Navigation-->
+            <nav id="main-nav">
+                <ul>
+                    <li>
+                        <a href="/about/">About Us</a>
+                        <span class="dropdown-button"><span class="arrow"></span></span>
+                        <widget id="497_navigation_wsgc_main_navigation_about"></widget>
+                    </li>
+                    <li>
+                        <a href="/funding-programs/">Funding Programs</a>
+                        <span class="dropdown-button"><span class="arrow"></span></span>
+                        <widget id="498_navigation_wsgc_main_navigation_funding_programs"></widget>
+                    </li>
+                    <li>
+                        <a href="/news/">News &amp; Awards</a>
+                        <span class="dropdown-button"><span class="arrow"></span></span>
+                        <widget id="499_navigation_wsgc_main_navigation_news_and_awards"></widget>
+                    </li>
+                    <li>
+                        <a href="/conference/">Conference</a>
+                        <span class="dropdown-button"><span class="arrow"></span></span>
+                        <widget id="500_navigation_wsgc_main_navigation_conference"></widget>
+                    </li>
+                    <li>
+                        <a href="/nasa-programs/">NASA Programs</a>
+                        <span class="dropdown-button"><span class="arrow"></span></span>
+                        <widget id="501_navigation_wsgc_main_navigation_nasa_programs"></widget>
+                    </li>
+                </ul>
+            </nav>
+            <!--END: Main Navigation-->
+            <!--START: Menu Icon-->
+            <img id="menu-icon" src="/themes/europa/assets/images/menu-icon.gif" alt="Menu Icon" />
+            <!--END: Menu Icon-->
+            <!--START: Util-->
+            <div id="util">
+                <div id="util-content">
+                    <nav id="util-nav">
+                        <ul>
+                            <li><a href="/news/">News &amp; Events</a></li>
+                        </ul>
+                    </nav>
+                    <div id="audience-menu">
+                        <span>Info for:</span>
+                        <nav id="audience-nav">
+                            <ul>
+                                <li><a href="/students/">Students</a></li>
+                                <li><a href="/educators/">Educators</a></li>
+                                <li><a href="/researchers/">Researchers</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <a id="login-button" class="util-button"
+                        href="/forms/account/logout/">
+                        {% if user.is_authenticated %}
+                            Sign out
+                        {% else %}
+                            Sign in
+                        {% endif %}
+                    </a>
+                    <a id="register-button" class="util-button"
+                        href="/about/login/">Register</a>
+                    <!--START: Main Search-->
+                    <div id="main-search">
+                        <div class="icon"><span>search</span></div>
+                        <div id="search-container">
+                            <form class="cf" action="/about/search/" method="get">
+                                <input class="search-box" type="text" title="Search Input Box" autocomplete="off" placeholder="Search" name="q"/>
+                                <input class="search-submit" type="submit" value="Go"/>
+                            </form>
+                        </div>
+                    </div>
+                    <!--END: Main Search-->
+                </div>
+            </div>
+            <!--END: Util-->
+        </div>
+        <div class="header-background"></div>
+    </header>
+    <!--END: Main Header-->
