@@ -43,7 +43,7 @@
     {% endblock %}
 </head>
 {% block body %}
-<body class="carthage-page generic-subpage"{% block extra_body %}
+<body class="carthage-page generic-subpage body_list"{% block extra_body %}
 id="djforms"{% endblock %}>
     {% if not django_debug %}
     <!-- START: google analytics -->
@@ -80,9 +80,13 @@ id="djforms"{% endblock %}>
             <!--START:Sidebar-->
             <div id="page-sidebar" class="large-3 medium-4 small-12">
                 <div id="secondary-navigation-wrap">
+                    <h4>
+                    {% block group_name %}
+                    Carthage College
+                    {% endblock %}
+                    </h4>
                     <nav id="secondary-navigation">
                         {% block left_nav %}
-                        <h4>Carthage College</h4>
                         {% get_lw_content as nav blurbs 1798 %}
                         {{nav.body}}
                         {% endblock %}
