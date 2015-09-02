@@ -1,26 +1,25 @@
 {% extends "base.html" %}
 {% block title %}500 Server Error{% endblock %}
+{% block content_head %}
+    <h1 id="page_title">
+        Carthage Forms
+    </h1>
+{% endblock %}
 {% block content %}
 <img src="https://www.carthage.edu/assets/img/system/hamster.jpg"
     width="500" height="375" border="0" alt="Hamster" title="Hamster" />
 <p>
-    Our hamster powered servers are overloaded.
-    They are begging for a minutes rest.
+    Our hamster powered servers have encountered an error.
 </p>
 <p>
     <strong>
-        In the meantime, hit the back button or
-        please try one of the following pages:
+        The Systems Administrators have receive a detailed
+        email about this error<br>
+        and the problem will be fixed straight away.
+        <br><br>
+        That said, you might try hitting the back button
+        and submitting your request once again. That works
+        from time to time.
     </strong>
-</p>
-<p>
-    <ul>
-        <li>
-            <a href="/" title="Go to the home page.">Home Page</a>
-        </li>
-        <li>
-            <a href="/sitemap/" title="View the complete site map">Site Map</a>
-        </li>
-    </ul>
 </p>
 {% endblock %}
