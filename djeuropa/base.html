@@ -48,8 +48,7 @@ id="djforms"{% endblock %}>
     <!-- END: google analytics -->
     {% endif %}
     {% block header %}
-        {% get_lw_content as header blurbs 1876 %}
-        {{header.body}}
+        {% include "header.html" %}
     {% endblock %}
     <!--START: Page Header-->
     <header id="page-header">

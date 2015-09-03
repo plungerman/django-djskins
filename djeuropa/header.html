@@ -1,3 +1,4 @@
+{% load livewhale_api %}
     <header id="main-header">
         <div class="site-width cf">
             <a id="wsgc-logo" href="/">
@@ -14,33 +15,38 @@
                     <li>
                         <a href="/about/">About Us</a>
                         <span class="dropdown-button"><span class="arrow"></span></span>
-                        <widget id="497_navigation_wsgc_main_navigation_about"></widget>
+                        {% get_lw_content as about blurbs 2080 %}
+                        {{about.body}}
                     </li>
                     <li>
                         <a href="/funding-programs/">Funding Programs</a>
                         <span class="dropdown-button"><span class="arrow"></span></span>
-                        <widget id="498_navigation_wsgc_main_navigation_funding_programs"></widget>
+                        {% get_lw_content as fund blurbs 2081 %}
+                        {{fund.body}}
                     </li>
                     <li>
                         <a href="/news/">News &amp; Awards</a>
                         <span class="dropdown-button"><span class="arrow"></span></span>
-                        <widget id="499_navigation_wsgc_main_navigation_news_and_awards"></widget>
+                        {% get_lw_content as news blurbs 2082 %}
+                        {{news.body}}
                     </li>
                     <li>
                         <a href="/conference/">Conference</a>
                         <span class="dropdown-button"><span class="arrow"></span></span>
-                        <widget id="500_navigation_wsgc_main_navigation_conference"></widget>
+                        {% get_lw_content as conference blurbs 2083 %}
+                        {{conference.body}}
                     </li>
                     <li>
                         <a href="/nasa-programs/">NASA Programs</a>
                         <span class="dropdown-button"><span class="arrow"></span></span>
-                        <widget id="501_navigation_wsgc_main_navigation_nasa_programs"></widget>
+                        {% get_lw_content as programs blurbs 2084 %}
+                        {{programs.body}}
                     </li>
                 </ul>
             </nav>
             <!--END: Main Navigation-->
             <!--START: Menu Icon-->
-            <img id="menu-icon" src="/themes/europa/assets/images/menu-icon.gif" alt="Menu Icon" />
+            <img id="menu-icon" src="//www.carthage.edu/themes/europa/assets/images/menu-icon.gif" alt="Menu Icon" />
             <!--END: Menu Icon-->
             <!--START: Util-->
             <div id="util">
@@ -61,10 +67,11 @@
                         </nav>
                     </div>
                     <a id="login-button" class="util-button"
-                        href="/forms/account/logout/">
                         {% if user.is_authenticated %}
+                            href="/forms/account/logout/" style="padding:7px 5px;">
                             Sign out
                         {% else %}
+                            href="/forms/account/login/">
                             Sign in
                         {% endif %}
                     </a>
