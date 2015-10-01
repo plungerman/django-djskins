@@ -9,7 +9,7 @@
     {% else %}
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     {% endif %}
-    <title>{% block title %}{% endblock %} | The Campaign for Carthage</title>
+    <title>{% block title %}{% endblock %}</title>
     {% block metatags %}
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -20,10 +20,10 @@
         type="text/css" rel="stylesheet" />
     <link href="//www.carthage.edu/themes/korra/assets/css/addons.css"
         type="text/css" rel="stylesheet" />
-    <link href="//www.carthage.edu/themes/june/assets/css/style.css"
-        type="text/css" rel="stylesheet" />
     <link href="//www.carthage.edu/themes/shared/css/forms.css"
         rel="stylesheet" type="text/css" />
+    <link href="//www.carthage.edu/themes/june/assets/css/style.css"
+        type="text/css" rel="stylesheet" />
     <link href="//www.carthage.edu/themes/shared/css/icons.css"
         type="text/css" rel="stylesheet" />
     <link href="//www.carthage.edu/themes/shared/css/tables.css"
@@ -81,7 +81,7 @@
             </div>
         </div>
         <div id="subpage-nav">
-        {% block subnav %}
+        {% block subpage-nav %}
             <ul>
                 <li><a href="#">Lorem Ipsum Dolor</a></li>
                 <li><a href="#">Lorem Ipsum Dolor</a></li>
@@ -101,7 +101,8 @@
     {% get_lw_content as footer blurbs 2109 %}
     {{footer.body}}
     <!-- JS -->
-    <script src="/themes/june/assets/js/scripts.js"></script>
+    <script src="//www.carthage.edu/themes/june/assets/js/scripts.js"></script>
     {% block extra_javascript %}{% endblock %}
 </body>
 </html>
+{% endautoescape %}
