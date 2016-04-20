@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% autoescape off %}
+{% load livewhale_api %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% if request.session.desktop_mode %}
+    <meta name="viewport" content="width=1024">
+    {% else %}
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    {% endif %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block metatags %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    {% endblock %}
+    <!-- CSS -->
+    {% block css %}
+    <link href="//www.carthage.edu/themes/korra/assets/css/master.css"
+        type="text/css" rel="stylesheet">
+    <link href="//www.carthage.edu/themes/korra/assets/css/addons.css"
+        type="text/css" rel="stylesheet">
+    <link href="//www.carthage.edu/themes/shared/css/forms.css"
+        rel="stylesheet" type="text/css">
+    <link href="//www.carthage.edu/themes/june/assets/css/style.css"
+        type="text/css" rel="stylesheet">
+    <link href="//www.carthage.edu/themes/shared/css/icons.css"
+        type="text/css" rel="stylesheet">
+    <link href="//www.carthage.edu/themes/shared/css/tables.css"
+        type="text/css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+        integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+"
+        crossorigin="anonymous" type="text/css" rel="stylesheet">
+    {% endblock %}
+    {% block extra_style %}{% endblock %}
+    {% block jquery %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"
+        integrity="sha384-E7gp+UYBLS2XewcxoJbfi0UpGMHSvt9XyI9bH4YIw5GDGW8AlC+2J7bVBBlMFC6p"
+        crossorigin="anonymous"></script>
+    {% endblock %}
+</head>
+<body{% block extra_body %} class="subpage" id="djforms"{% endblock %}>
+    {% if not django_debug %}
+    <!-- START: google analytics -->
+    {% include "urchin.html" %}
+    <!-- END: google analytics -->
+    {% endif %}
+    {% get_lw_content as nav blurbs 2106 %}
+    {{nav.body}}
+    <div id="nav">
+        <div id="logo">
+            <h1>
+                <a href="/campaign/">The Campaign for Carthage</a>
+            </h1>
+        </div>
+        <div id="nav-right-buttons">
+            <div class="nav-button hide">
+                <div class="nav-label">
+                    <a href="/forms/giving/donation/campaign-carthage/">
+                        Give to Carthage
+                    </a>
+                </div>
+            </div>
+            <div id="nav-menu-button" class="nav-button">
+                <div class="nav-label">Menu</div>
+                <div id="nav-icon">
+                    <span class=""></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="subpage-background-wrapper">
+        <div></div>
+    </div>
+    <div id="subpage-background-wrapper-spacer"></div>
+    <div id="content">
+        <div id="subpage-title">
+            <div id="subpage-title-shrinkwrap">
+                <h1>{% block page_header %}{% endblock %}</h1>
+            </div>
+        </div>
+        <div id="subpage-nav">
+        {% block subpage-nav %}
+            <ul>
+                <li><a href="#">Lorem Ipsum Dolor</a></li>
+                <li><a href="#">Lorem Ipsum Dolor</a></li>
+                <li><a href="#">Lorem Ipsum Dolor</a></li>
+                <li><a href="#">Lorem Ipsum Dolor</a></li>
+            </ul>
+        {% endblock %}
+        </div>
+        <div id="subpage-intro" class="intro-paragraph cf">
+            {% block intro %}{% endblock %}
+        </div>
+        <div id="subpage-content">
+        {% block content %}{% endblock %}
+        </div>
+    </div>
+    <!--  END content -->
+    {% get_lw_content as footer blurbs 2109 %}
+    {{footer.body}}
+    <!-- JS -->
+    <script src="//www.carthage.edu/themes/june/assets/js/scripts.js"></script>
+    {% block extra_javascript %}{% endblock %}
+</body>
+</html>
+{% endautoescape %}
