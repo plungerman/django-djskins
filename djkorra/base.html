@@ -127,6 +127,10 @@ id="djforms"{% endblock %}>
         $(".warning > select").addClass("error");
         $(".warning > textarea").addClass("error");
         $(".required > ul").parent().parent().find('h3').addClass("required");
+        // add the current year to copyright container since php does not seem
+        // to work in livewhale includes
+        $('#copyright').after("&nbsp;" + (new Date).getFullYear());
+
     });
     </script>
     {% endblock %}
