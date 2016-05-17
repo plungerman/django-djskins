@@ -44,8 +44,10 @@
                         <div class="icon"><span>search</span></div>
                         <div id="search-container">
                             <form id="quick-access-form" class="cf" method="get" action="/search/">
-                                <input type="text" class="search-box" name="q" placeholder="Search" id="quicksearch" title="Search Input Box"/>
-                                <input class="search-submit" type="submit" value="Go" />
+                                <label for="quicksearch" style="display:none;">Search box</label>
+                                <input type="text" class="search-box" name="q" placeholder="Search" id="quicksearch" autocomplete="off"/>
+                                <label for="quick-access-form-submit" style="display:none;">Submit form</label>
+                                <input id="quick-access-form-submit" class="search-submit" type="submit" value="Go"/>
                             </form>
                             <div id="search-options">
                                 <ul>
