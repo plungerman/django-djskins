@@ -49,7 +49,9 @@
 {% block body %}
 <body class="carthage-page generic-subpage body_list"{% block extra_body %}
 id="djforms"{% endblock %}>
+    {% block skip_to_main %}
     <a href="#page-content-wrap" class="skip-to-maine">Skip to main content</a>
+    {% endblock %}
     {% if not django_debug %}
     <!-- START: google analytics -->
     {% include "urchin.html" %}
