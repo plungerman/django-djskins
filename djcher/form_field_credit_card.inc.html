@@ -1,24 +1,31 @@
-                {% for field in form_proc %}
-                    {% if field.name == "expiration_month" %}
-                    <li class="ctrlHolder">
-                    <h3><label>Expiration Date</label></h3>
-                    <div class="required">{{field}}
-                    {% else %}{% if field.name == "expiration_year" %}&mdash;&nbsp;{{field}}</div></li>
-                    {% else %}
-                    <li class="ctrlHolder">
-                    <h3>{{ field.label_tag }}</h3>
-                    {% if field.errors %}
-                        <div class="required warning">
-                        <span class="error-message">{{ field.errors|join:", "}}</span>
-                    {% else %}
-                        <div{% if field.field.required %} class="required"{% endif %}>
-                    {% endif %}
-                    {{field}}
-                    {% if field.help_text %}
-                        <p class="help">{{field.help_text}}</p>
-                    {% endif %}
-                    </div>
-                    </li>
-                    {% endif %}{% endif %}
-                {% endfor %}
+{% for field in form_proc %}
+    {% if field.name == "expiration_month" %}
+    <li class="ctrlHolder">
+    <h3><label for="id_expiration_month">Expiration Date</label></h3>
+    <div class="required">{{field}}
+    {% else %}
+        {% if field.name == "expiration_year" %}
+        <label for="id_expiration_year" style="display:none;">
+            Expiration Year
+        </label>
+        &mdash;&nbsp;{{field}}
+    </div>
+    </li>
+    {% else %}
+    <li class="ctrlHolder">
+    <h3>{{ field.label_tag }}</h3>
+    {% if field.errors %}
+        <div class="required warning">
+        <span class="error-message">{{ field.errors|join:", "}}</span>
+    {% else %}
+        <div{% if field.field.required %} class="required"{% endif %}>
+    {% endif %}
+    {{field}}
+    {% if field.help_text %}
+        <p class="help">{{field.help_text}}</p>
+    {% endif %}
+    </div>
+    </li>
+    {% endif %}{% endif %}
+{% endfor %}
 
