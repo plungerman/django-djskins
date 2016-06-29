@@ -4,7 +4,7 @@
     <fieldset class="blockLabels">
         <ol>
             <li class="ctrlHolder">
-                <label for="id_username"><h3>Username</h3></label>
+                <label for="id_username" style="width:120px;"><h3>Username</h3></label>
                 {% if form.username.errors %}
                     <span class="error-message">
                         {{ form.username.errors|join:", " }}
@@ -15,7 +15,7 @@
                     value="{{form.data.username}}" maxlength="128" />@carthage.edu
             </li>
             <li class="ctrlHolder">
-                <label for="id_password"><h3>Password</h3></label>
+                <label for="id_password" style="width:120px;"><h3>Password</h3></label>
                 {% if form.password.errors %}
                     <span class="error-message">
                         {{ form.password.errors|join:", " }}
