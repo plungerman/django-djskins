@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% autoescape off %}
+{% load livewhale_api %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% if request.session.desktop_mode %}
+    <meta name="viewport" content="width=1024">
+    {% else %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endif %}
+    <title>{% block title %}{% endblock %}</title>
+    {% block metatags %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    {% endblock %}
+    {% block css %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+        rel="stylesheet" type="text/css">
+    <link href="//www.carthage.edu/themes/korra/assets/css/master.css"
+        type="text/css" rel="stylesheet">
+    <link href="//www.carthage.edu/themes/korra/assets/css/addons.css"
+        type="text/css" rel="stylesheet">
+    <link href="//www.carthage.edu/themes/korra/assets/css/print.css"
+        type="text/css" rel="stylesheet">
+    <link href="//www.carthage.edu/themes/shared/css/icons.css"
+        type="text/css" rel="stylesheet">
+    <link href="//www.carthage.edu/themes/shared/css/forms.css"
+        rel="stylesheet" type="text/css">
+    <link href="//www.carthage.edu/themes/shared/css/tables.css"
+        rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+        type="text/css" rel="stylesheet">
+    <style type="text/css">
+        .news_image {
+            float:right;
+            width: 250px;
+            margin: 15px 0 20px 20px;
+        } 
+      #main-content .lw_image_caption {
+            margin-bottom:20px;
+        }
+        .contact_location {margin-right:7px;float:left;}
+    </style>
+    <link href="//www.carthage.edu/themes/katara/assets/css/bridge.css"
+        type="text/css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="//www.carthage.edu/themes/korra/assets/js/html5shiv.js"
+            type="text/javascript"></script>
+    <![endif]-->
+    <!--<script src="//www.carthage.edu/themes/korra/assets/pie/PIE.js"
+        type="text/javascript"></script>-->
+    {% endblock %}
+    {% block extra_style %}{% endblock %}
+    {% block jquery %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+        integrity="sha384-/Gm+ur33q/W+9ANGYwB2Q4V0ZWApToOzRuA8md/1p9xMMxpqnlguMvk8QuEFWA1B"
+        crossorigin="anonymous" type="text/javascript"></script>
+    {% endblock %}
+</head>
+{% block body %}
+<body class="carthage-page bridge-page generic-subpage details_news details body_bridge group_the_bridge livewhale lw_editor_off"{% block extra_body %}
+id="djforms"{% endblock %}>
+    {% block skip_to_main %}
+    <a href="#page-content-wrap" class="skip-to-maine">Skip to main content</a>
+    {% endblock %}
+    {% if not django_debug %}
+    <!-- START: google analytics -->
+    {% include "urchin.html" %}
+    <!-- END: google analytics -->
+    {% endif %}
+    {% block header %}
+        {% get_lw_content as header blurbs 2283 %}
+        {{header.body}}
+    {% endblock %}
+    <!--START:Page Hero-->
+    <div id="page-background">
+    {% block hero %}
+      <img class="lw_image lw_image4163" src="//www.carthage.edu/live/image/gid/94/width/1400/height/660/4163_bridge-carthage-0488.jpg" alt="Students on the red bridge">
+    {% endblock %}
+    </div>
+    <!--END:Page Hero-->
+    <!--START:Page Content-->
+    <div id="page-content-wrap">
+        <div id="page-content" class="site-width cf">
+            <!--START:Content-->
+            <div {% block page_content %}class="content large-8 medium-7 small-12"{% endblock %}>
+                <div id="main-page-section" class="cf">
+                    {% block content_head %}
+                    <h1 id="page_title">
+                        News and Events
+                    </h1>
+                    {% endblock %}
+                </div>
+                <div id="main-content">
+                {% block content %}{% endblock %}
+                </div>
+                {% block extra_content %}{% endblock %}
+            </div>
+            <!--END:Content-->
+            <!--START:Sidebar-->
+            <div id="page-sidebar" class="large-3 medium-4 small-12">
+              <div id="secondary-navigation-wrap" class="editable">
+                <h4>
+                  {% block group_name %}
+                    <a href="/bridge/">The Bridge</a>
+                  {% endblock %}
+                </h4>
+                <nav id="secondary-navigation">
+                  {% block left_nav %}
+                    {% get_lw_content as nav blurbs 1816 %}
+                    {{nav.body}}
+                    <ul>
+                      {% if not user.is_anonymous %}
+                        <li>
+                          <a href="{{root_url}}accounts/logout/?next=/bridge/">Logout</a>
+                        </li>
+                      {% else %}
+                        <li>
+                          <a href="{{login_url}}?next={{request.path}}">Login</a>
+                        </li>
+                      {% endif %}
+                      {% if user.is_superuser %}
+                        <li><a href="/forms/admin/">Administration</a></li>
+                      {% endif %}
+                    </ul>
+                  {% endblock %}
+                </nav>
+                <div class="white-bar">
+                </div>
+              </div>
+              <div id="editable-sidebar-content" class="optional">
+                {% block sidebar %}
+                  <div id="sidebar-buttons">
+                    <div id="lw_widget_301d2489" class="lw_widget lw_widget_type_blurbs lw_widget_blurbs lw_widget_id_437 lw_widget_call_to_action">
+                      <ul>
+                        <li class="lw_item_1">
+                          <div class="cc-tab cc-tab-red-large">
+                            <div class="content-wrap">
+                              <div class="border"></div>
+                                <p>
+                                  <a href="/bridge/submit/">Submit News</a>
+                                </p>
+                              </div>
+                              <div class="arrow-wrap">
+                                <div class="arrow"></div>
+                                <div class="border"></div>
+                              </div>
+                            </div>
+                          </li>
+                      </ul>
+                    </div>
+                  </div>
+                {% endblock %}
+              </div>
+            <!--END:Sidebar-->
+        </div>
+    </div>
+    <!--END:Page Content-->
+    {% block footer %}
+        {% get_lw_content as footer blurbs 1492 %}
+        {{footer.body}}
+    {% endblock %}
+    <!-- START: modals -->
+    {% block modalform %}{% endblock %}
+    <!-- END: modals -->
+    {% block javascript %}
+    <!--START: JS Files-->
+    <script src="//www.carthage.edu/themes/korra/assets/js/jquery.cycle2.min.js" type="text/javascript"></script>
+    <script src="//www.carthage.edu/themes/korra/assets/fancybox/jquery.fancybox.js" type="text/javascript"></script>
+    <script src="//www.carthage.edu/themes/korra/assets/js/jquery.cycle2.carousel.min.js" type="text/javascript"></script>
+    <script src="//www.carthage.edu/themes/korra/assets/js/master.js" type="text/javascript"></script>
+    <!--END: JS Files-->
+    <script type="text/javascript">
+    $(function() {
+        $(".required > input").addClass("required");
+        $(".required > select").addClass("required");
+        $(".required > textarea").addClass("required");
+        $(".warning > input").addClass("error");
+        $(".warning > select").addClass("error");
+        $(".warning > textarea").addClass("error");
+        $(".required > ul").parent().parent().find('h3').addClass("required");
+        // add the current year to copyright container since php does not seem
+        // to work in livewhale includes
+        $('#copyright').after("&nbsp;" + (new Date).getFullYear());
+
+    });
+    </script>
+    {% endblock %}
+    {% block extra_javascript %}{% endblock %}
+</body>
+{% endblock %}
+</html>
+{% endautoescape %}
