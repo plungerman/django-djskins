@@ -40,6 +40,11 @@
     {% endblock %}
 </head>
 <body{% block extra_body %} class="subpage" id="djforms"{% endblock %}>
+    {% block emergency_alert %}
+    <!-- ens -->
+    {% get_lw_content as ens blurbs 1260 %}
+    {{ens.body}}
+    {% endblock emergency_alert %}
     {% if not django_debug %}
     <!-- START: google analytics -->
     {% include "urchin.html" %}

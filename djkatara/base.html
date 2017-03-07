@@ -64,6 +64,11 @@ id="djforms"{% endblock %}>
     {% block skip_to_main %}
     <a href="#page-content-wrap" class="skip-to-maine">Skip to main content</a>
     {% endblock %}
+    {% block emergency_alert %}
+    <!-- ens -->
+    {% get_lw_content as ens blurbs 1260 %}
+    {{ens.body}}
+    {% endblock emergency_alert %}
     {% if not django_debug %}
     <!-- START: google analytics -->
     {% include "urchin.html" %}
