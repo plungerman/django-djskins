@@ -1,0 +1,20 @@
+{% if field.errors %}
+<div class="form-group has-danger{% if field.field.required %} required{% endif %}">
+{% else %}
+<div class="form-group{% if field.field.required %} required{% endif %}">
+{% endif %}
+  <label class="control-label" for="{{ field.html_name }}">
+    {{ field.label }}
+  </label>
+  {{field}}
+  {% if field.errors %}
+    <div class="form-control-feedback">
+      {{ field.errors|join:", "}}
+    </div>
+  {% endif %}
+  {% if field.help_text %}
+  <small class="form-text text-muted">
+    {{field.help_text|safe}}
+  </small>
+  {% endif %}
+</div>
