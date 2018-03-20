@@ -1122,6 +1122,7 @@
       </div>
     </div>
     {% endblock logout %}
+    {% block javascript %}
     <!-- Bootstrap core JavaScript-->
     <script src="https://www.carthage.edu/static/vendor/bootstrap-admin4/vendor/jquery/jquery.min.js"></script>
     <script src="https://www.carthage.edu/static/vendor/bootstrap-admin4/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -1134,6 +1135,19 @@
     <script src="https://www.carthage.edu/static/vendor/bootstrap-admin4/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="https://www.carthage.edu/static/vendor/bootstrap-admin4/js/sb-admin-datatables.min.js"></script>
+    <script>
+    $(function() {
+      $('#olvidado').click(function(e) {
+        e.preventDefault();
+        $('div#form-olvidado').toggle('500');
+      });
+      $('#acceso').click(function(e) {
+        e.preventDefault();
+        $('div#form-olvidado').toggle('500');
+      });
+    });
+    </script>
+    {% endblock %}
     {% block extra_javascript %}{% endblock %}
 </body>
 </html>
