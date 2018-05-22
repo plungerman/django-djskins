@@ -8,7 +8,7 @@
   </label>
   {{field}}
   {% if field.errors %}
-    <div class="form-control-feedback">
+    <div class="invalid-feedback">
       {{ field.errors|join:", "}}
     </div>
   {% endif %}
