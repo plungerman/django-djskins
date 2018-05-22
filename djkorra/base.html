@@ -4,11 +4,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    {% if request.session.desktop_mode %}
-    <meta name="viewport" content="width=1024">
-    {% else %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% endif %}
     <title>{% block title %}{% endblock %}</title>
     {% block metatags %}
     <meta name="description" content="">
