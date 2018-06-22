@@ -3,6 +3,7 @@
 {% load livewhale_api %}
 <html lang="en">
 <head>
+    {% include "google-tag-manager-head.html" %}
     <meta charset="utf-8">
     {% if request.session.desktop_mode %}
     <meta name="viewport" content="width=1024">
@@ -61,6 +62,7 @@
 {% block body %}
 <body class="carthage-page bridge-page generic-subpage details_news details body_bridge group_the_bridge livewhale lw_editor_off"{% block extra_body %}
 id="djforms"{% endblock %}>
+    {% include "google-tag-manager-body.html" %}
     {% block skip_to_main %}
     <a href="#page-content-wrap" class="skip-to-maine">Skip to main content</a>
     {% endblock %}
@@ -70,9 +72,6 @@ id="djforms"{% endblock %}>
     {{ens.body}}
     {% endblock emergency_alert %}
     {% if not django_debug %}
-    <!-- START: google analytics -->
-    {% include "urchin.html" %}
-    <!-- END: google analytics -->
     {% endif %}
     {% block header %}
         {% get_lw_content as header blurbs 2283 %}

@@ -3,6 +3,7 @@
 {% load livewhale_api %}
 <html lang="en">
 <head>
+    {% include "google-tag-manager-head.html" %}
     <meta charset="utf-8">
     {% if request.session.desktop_mode %}
     <meta name="viewport" content="width=1024">
@@ -48,13 +49,11 @@
 {% block body %}
 <body{% block extra_body %} class="carthage-page generic-subpage spacegrant"
 id="djforms"{% endblock %}>
+    {% include "google-tag-manager-body.html" %}
     {% block skip_to_main %}
     <a href="#page-content-wrap" class="skip-to-maine">Skip to main content</a>
     {% endblock %}
     {% if not django_debug %}
-    <!-- START: google analytics -->
-    {% include "urchin.html" %}
-    <!-- END: google analytics -->
     {% endif %}
     {% block header %}
         {% include "header.html" %}
