@@ -56,7 +56,7 @@
     {% endblock %}
 </head>
 {% block body %}
-<body class="carthage-page generic-subpage body_list"{% block extra_body %}
+<body class="{% block body_class %}carthage-page generic-subpage body_list{% endblock %}"{% block extra_body %}
 id="djforms"{% endblock %}>
     {% include "google-tag-manager-body.html" %}
     {% block skip_to_main %}
@@ -80,7 +80,8 @@ id="djforms"{% endblock %}>
     {% endblock %}
     <!--START:Page Content-->
     <div id="page-content-wrap">
-      <div class="generic-background" style="height: 120px;"></div>
+      {% block page-content-wrap %}
+        <div class="generic-background" style="height: 120px;"></div>
         <div id="page-content" class="site-width cf">
             <!--START:Content-->
             <div {% block page_content %}class="content large-8 medium-7 small-12"{% endblock %}>
@@ -125,7 +126,10 @@ id="djforms"{% endblock %}>
             </div>
             <!--END:Sidebar-->
         </div>
+        <!--/#page-content -->
+      {% endblock page-content-wrap %}
     </div>
+    <!--/#page-content-wrap -->
     <!--END:Page Content-->
     {% block footer %}
         {% get_lw_content as footer blurbs 1492 %}
