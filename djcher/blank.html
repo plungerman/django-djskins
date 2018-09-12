@@ -1,27 +1,28 @@
-{% autoescape off %}
-<!DOCTYPE html>
-<html>
+{% autoescape off %}<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="robots" content="noindex, nofollow">
-    {% block redirect %}{% endblock %}
-    <title>{% block title %}{% endblock %}</title>
-    {% block extra_head %}{% endblock %}
-    {% block metatags %}{% endblock %}
-    {% block feeds %}{% endblock %}
-    {% block css %}{% endblock %}
-    {% block extra_style %}{% endblock %}
-    {% block jquery %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
-            integrity="sha384-/Gm+ur33q/W+9ANGYwB2Q4V0ZWApToOzRuA8md/1p9xMMxpqnlguMvk8QuEFWA1B"
-            crossorigin="anonymous" type="text/javascript"></script>
-    {% endblock %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="robots" content="noindex, nofollow">
+  {% block redirect %}{% endblock %}
+  <title>{% block title %}{% endblock %}</title>
+  {% block extra_head %}{% endblock %}
+  {% block metatags %}{% endblock %}
+  {% block feeds %}{% endblock %}
+  {% block css %}{% endblock %}
+  {% block extra_style %}{% endblock %}
+  {% block jquery %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+      integrity="sha384-/Gm+ur33q/W+9ANGYwB2Q4V0ZWApToOzRuA8md/1p9xMMxpqnlguMvk8QuEFWA1B"
+      crossorigin="anonymous" type="text/javascript"></script>
+  {% endblock %}
 </head>
 <body{% block body_tag %}{% endblock %}>
 {% block content %}{% endblock %}
 {% block javascript %}{% endblock %}
 {% block extra_javascript %}{% endblock %}
 </body>
-</html>
-{% endautoescape %}
+</html>{% endautoescape %}
