@@ -1,7 +1,7 @@
 {% spaceless %}
-<div id="main_modal" title="Update Emergency Contact Information"
+<div id="main_modal" title="Update Contact Information"
     style="display:none;">
-    <div id="ens_form" title="Update Emergency Contact Information">
+    <div id="ens_form" title="Update Contact Information">
         <div class="header">What is this about?</div>
         <fieldset id="instructions">
             <p>
@@ -37,16 +37,15 @@
         <fieldset id="ens">
             <input type="hidden" name="STATUS" id="STATUS" value=""/>
             <p>
-                If we are unable to locate you or if there is a
-                campus-wide emergency, we will try to contact you
-                at the following number and address.
+                Please provide a cell phone number at which we can reach you
+                for important college business
             </p>
             <table cellpadding="5" cellspacing="0">
                 <tr>
-                    <td colspan="2">
+                    <td>
                         Your cell phone number
                     </td>
-                    <td colspan="2">
+                    <td>
                         <input type="text" class="phone" name="ENS_SELF_CELL"
                             id="ENS_SELF_CELL" value="{{ENS.phone}}" />
                         <select name="ENS_CARRIER" id="ENS_CARRIER">
@@ -64,21 +63,20 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        Can you receive text messages at this number?
-                    </td>
-                    <td colspan="2">
-                        <input type="radio" name="ENS_SMS" id="ENS_SMS" value="1"
-                            {% if ENS.opt_out == "1" %}checked{% endif %} /> yes
-                        <input type="radio" name="ENS_SMS" id="ENS_SMS" value="0"
-                            {% if ENS.opt_out == "0" %}checked{% endif %} /> no
+                        <p>Your primary email address for college business is: {{user.email}}</p>
+                        <p>
+                        Please also provide your alternate non-Carthage email address.
+                        The alternate email will also be part of the Emergency Notification System,
+                        and you can use it to reset your Carthage password.
+                        </p>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td>
                         <span id="asterisk">*</span>
-                        Emergency notification email
+                        Alternate (non-Carthage) email
                     </td>
-                    <td colspan="2">
+                    <td>
                         <input type="text" class="name" name="ENS_EMAIL"
                             id="ENS_EMAIL" value="{{ENS.line1}}" />
                     </td>
