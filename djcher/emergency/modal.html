@@ -46,8 +46,7 @@
                         Your cell phone number
                     </td>
                     <td>
-                        <input type="text" class="phone" name="ENS_SELF_CELL"
-                            id="ENS_SELF_CELL" value="{{ENS.phone}}" />
+                        <input type="text" class="phone" name="ENS_SELF_CELL" id="ENS_SELF_CELL" value="{{ENS.phone.strip}}">
                         <select name="ENS_CARRIER" id="ENS_CARRIER">
                             {% for val,txt in mobile_carrier %}
                                 <option value="{{val}}"
@@ -77,8 +76,7 @@
                         Alternate (non-Carthage) email
                     </td>
                     <td>
-                        <input type="text" class="name" name="ENS_EMAIL"
-                            id="ENS_EMAIL" value="{{ENS.line1}}" />
+                        <input type="text" class="name" name="ENS_EMAIL" id="ENS_EMAIL" value="{{ENS.line1.strip}}">
                     </td>
                 </tr>
             </table>
@@ -100,8 +98,7 @@
                         Primary Contact Name
                     </td>
                     <td>
-                        <input type="text" name="MIS1_NAME" class="name"
-                            id="MIS1_NAME" value="{{MIS1.line1}}" />
+                        <input type="text" name="MIS1_NAME" class="name" id="MIS1_NAME" value="{{MIS1.line1.strip}}">
                     </td>
                     <td align="right">
                         <span id="asterisk">*</span>
@@ -127,8 +124,7 @@
                         Their cell phone
                     </td>
                     <td colspan="3">
-                        <input type="text" name="MIS1_PHONE1" id="MIS1_PHONE1"
-                            class="phone" value="{{MIS1.phone}}" />
+                        <input type="text" name="MIS1_PHONE1" id="MIS1_PHONE1" class="phone" value="{{MIS1.phone.strip}}">
                     </td>
                 </tr>
                 <tr>
@@ -136,15 +132,13 @@
                         Their daytime phone
                     </td>
                     <td>
-                        <input type="text" name="MIS1_PHONE2" id="MIS1_PHONE2"
-                            class="phone" value="{{MIS1.line2}}" />
+                        <input type="text" name="MIS1_PHONE2" id="MIS1_PHONE2" class="phone" value="{{MIS1.line2.strip}}">
                     </td>
                     <td align="right" nowrap="nowrap">
                         Their evening phone
                     </td>
                     <td>
-                        <input type="text" name="MIS1_PHONE3" id="MIS1_PHONE3"
-                            class="phone" value="{{MIS1.line3}}" />
+                        <input type="text" name="MIS1_PHONE3" id="MIS1_PHONE3" class="phone" value="{{MIS1.line3.strip}}">
                     </td>
                 </tr>
                 <tr>
@@ -155,15 +149,13 @@
                         Alternate Contact Name
                     </td>
                     <td>
-                        <input type="text" name="MIS2_NAME" id="MIS2_NAME"
-                            class="name" value="{{MIS2.line1}}" />
+                        <input type="text" name="MIS2_NAME" id="MIS2_NAME" class="name" value="{{MIS2.line1.strip}}">
                     </td>
                     <td align="right">
                         Phone
                     </td>
                     <td>
-                        <input type="text" name="MIS2_PHONE1" id="MIS2_PHONE1"
-                            class="phone" value="{{MIS2.phone}}" />
+                        <input type="text" name="MIS2_PHONE1" id="MIS2_PHONE1" class="phone" value="{{MIS2.phone.strip}}">
                     </td>
                 </tr>
                 <tr>
@@ -174,15 +166,13 @@
                         Alternate Contact Name
                     </td>
                     <td>
-                        <input type="text" name="MIS3_NAME" id="MIS3_NAME"
-                            class="name" value="{{MIS3.line1}}" />
+                        <input type="text" name="MIS3_NAME" id="MIS3_NAME" class="name" value="{{MIS3.line1.strip}}">
                     </td>
                     <td align="right">
                         Phone
                     </td>
                     <td>
-                        <input type="text" name="MIS3_PHONE1" id="MIS3_PHONE1"
-                            class="phone" value="{{MIS3.phone}}" />
+                        <input type="text" name="MIS3_PHONE1" id="MIS3_PHONE1" class="phone" value="{{MIS3.phone.strip}}">
                     </td>
                 </tr>
             </table>
@@ -210,8 +200,7 @@
                         Name
                     </td>
                     <td>
-                        <input type="text" name="ICE_NAME" id="ICE_NAME"
-                            class="name" value="{{ICE.line1}}" />
+                        <input type="text" name="ICE_NAME" id="ICE_NAME" class="name" value="{{ICE.line1.strip}}">
                     </td>
                     <td align="right">
                         <span id="asterisk">*</span>
@@ -236,8 +225,7 @@
                         Their cell phone
                     </td>
                     <td colspan="3">
-                        <input type="text" name="ICE_PHONE1" id="ICE_PHONE1"
-                            class="phone" value="{{ICE.phone}}" />
+                        <input type="text" name="ICE_PHONE1" id="ICE_PHONE1" class="phone" value="{{ICE.phone.strip}}">
                     </td>
                 </tr>
                 <tr>
@@ -245,15 +233,13 @@
                         Their daytime phone
                     </td>
                     <td>
-                        <input type="text" name="ICE_PHONE2" id="ICE_PHONE2"
-                            class="phone" value="{{ICE.line2}}" />
+                        <input type="text" name="ICE_PHONE2" id="ICE_PHONE2" class="phone" value="{{ICE.line2.strip}}">
                     </td>
                     <td align="right">
                         Their evening phone
                     </td>
                     <td>
-                        <input type="text" name="ICE_PHONE3" id="ICE_PHONE3"
-                            class="phone" value="{{ICE.line3}}" />
+                        <input type="text" name="ICE_PHONE3" id="ICE_PHONE3" class="phone" value="{{ICE.line3.strip}}">
                     </td>
                 </tr>
                 <tr>
@@ -269,8 +255,7 @@
                 <tr>
                     <td>Name</td>
                     <td>
-                        <input type="text" name="ICE2_NAME" id="ICE2_NAME"
-                            class="name" value="{{ICE2.line1}}" />
+                        <input type="text" name="ICE2_NAME" id="ICE2_NAME" class="name" value="{{ICE2.line1.strip}}">
                     </td>
                     <td align="right">Relationship</td>
                     <td>
@@ -290,22 +275,19 @@
                 <tr>
                     <td>Their cell phone</td>
                     <td colspan="3">
-                        <input type="text" name="ICE2_PHONE1" id="ICE2_PHONE1"
-                            class="phone" value="{{ICE2.phone}}" />
+                        <input type="text" name="ICE2_PHONE1" id="ICE2_PHONE1" class="phone" value="{{ICE2.phone.strip}}">
                     </td>
                 </tr>
                 <tr>
                     <td>Their daytime phone</td>
                     <td>
-                        <input type="text" name="ICE2_PHONE2" id="ICE2_PHONE2"
-                            class="phone" value="{{ICE2.line2}}" />
+                        <input type="text" name="ICE2_PHONE2" id="ICE2_PHONE2" class="phone" value="{{ICE2.line2.strip}}">
                     </td>
                     <td align="right">
                         Their evening phone
                     </td>
                     <td>
-                        <input type="text" name="ICE2_PHONE3" id="ICE2_PHONE3"
-                            class="phone" value="{{ICE2.line3}}" />
+                        <input type="text" name="ICE2_PHONE3" id="ICE2_PHONE3" class="phone" value="{{ICE2.line3.strip}}">
                     </td>
                 </tr>
             </table>
