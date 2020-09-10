@@ -239,7 +239,7 @@
   </nav>
   {% endblock navigation %}
   <div{% block content-wrapper %} class="content-wrapper"{% endblock %}>
-    <div class="container-fluid mb-4">
+    <div{% block container %} class="container-fluid mb-4"{% endblock %}>
       {% block breadcrumb %}
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
