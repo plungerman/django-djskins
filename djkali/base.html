@@ -1,0 +1,809 @@
+ <!DOCTYPE html>
+{% load livewhale_api %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  {% block metatags %}
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% endblock %}
+  <script src="//unpkg.com/yett"></script>
+  <link media="screen" rel="stylesheet" href="https://carthage-2021.livewhale.net/_ingredients/_dist/css/index.css">
+  <link media="print" rel="stylesheet" href="https://carthage-2021.livewhale.net/_ingredients/_dist/css/print.css">
+  <title>{% block title %}{% endblock %}</title>
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+  {% block extra_style %}{% endblock %}
+</head>
+{% block body %}
+<body class="{% block body_class %}basic-page v2 body_ingredients{% endblock %}"{% block extra_body %}{% endblock %}>
+  <a href="#main-content" class="skipnav button">Skip to main content</a>
+  <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <symbol id="icon-location-landing-fall" viewBox="0 0 29 32">
+        <path
+          d="M13.643 3.673l0.945-3.692 0.941 3.692 0.141 0.531 0.152 0.527 0.078 0.26 0.159 0.5 0.159 0.469c0.157 0.449 0.308 0.833 0.433 1.101l0.080 0.162 0.015-0.006c0.329-0.133 0.824-0.405 1.281-0.699l0.193-0.128 1.953-1.38-0.776 6.14 2.623-2.174 0.29 1.656 0.042 0.232 0.094 0.465c0.066 0.306 0.136 0.596 0.2 0.836l0.048 0.169 0.034 0.11 0.073-0.004c0.093-0.007 0.195-0.017 0.306-0.031l0.358-0.050 0.198-0.033c0.173-0.028 0.357-0.063 0.546-0.101l0.376-0.076 0.678-0.152 2.056-0.502-1.082 2.149-0.24 0.496-0.228 0.493-0.213 0.48-0.192 0.454-0.087 0.215-0.153 0.395c-0.046 0.124-0.087 0.239-0.121 0.344l-0.048 0.151 0.1 0.023c0.125 0.025 0.264 0.047 0.401 0.065l0.204 0.021 0.148 0.009 2.889 0.126-2.651 1.857-1.081 0.766-0.779 0.562-0.976 0.713-0.875 0.654-0.574 0.439-0.491 0.384-0.394 0.32-0.134 0.115 0.055 0.079c0.071 0.098 0.152 0.204 0.238 0.31l0.131 0.156 2.317 2.541-7.84-1.997 0.011 0.089c0.387 2.918 1.903 5.374 3.56 5.636l0.151 0.018 0.14 0.005h0.471v1.967h-0.471c-2.885 0-5.214-3.302-5.768-7.266l-0.035-0.264-0.024-0.223-7.986 2.034 2.214-2.426c0.111-0.122 0.224-0.257 0.326-0.388l0.143-0.191 0.055-0.080-0.242-0.203-0.408-0.328-0.604-0.47-0.713-0.538-1.090-0.805-0.592-0.429-1.188-0.85-3.114-2.183 2.885-0.13c0.19-0.009 0.394-0.032 0.582-0.063l0.182-0.033 0.089-0.021-0.048-0.151-0.123-0.349c-0.061-0.172-0.086-0.237-0.112-0.301l0.037 0.106-0.169-0.425-0.196-0.461-0.216-0.487-0.113-0.248-0.239-0.502-0.122-0.25-1.064-2.108 2.371 0.574c0.24 0.062 0.675 0.152 1.113 0.231l0.173 0.026 0.198 0.032 0.358 0.051 0.16 0.019 0.146 0.012 0.074 0.005 0.024-0.074c0.032-0.108 0.067-0.235 0.104-0.376l0.107-0.451c0.019-0.079 0.036-0.16 0.054-0.242l0.099-0.498 0.32-1.831 2.623 2.175-0.775-6.139 1.803 1.276c0.459 0.325 0.99 0.635 1.387 0.826l0.162 0.073 0.088 0.037 0.077-0.154 0.125-0.287c0.023-0.053 0.045-0.108 0.068-0.167l0.141-0.373c0.025-0.066 0.050-0.135 0.075-0.204l0.15-0.438c0.025-0.075 0.051-0.152 0.075-0.232l0.151-0.48 0.147-0.499c0.024-0.084 0.047-0.168 0.071-0.252l0.123-0.465zM14.483 7.003l-0.068 0.166c-0.638 1.488-1.214 2.005-1.89 2.045-0.4 0.025-0.888-0.098-1.443-0.332l-0.072-0.032 0.947 7.021-4.235-3.293c-0.184 0.656-0.383 1.139-0.622 1.431l-0.082 0.090c-0.314 0.314-0.712 0.405-1.256 0.405-0.307 0-0.689-0.033-1.129-0.093l-0.252-0.036 0.085 0.177 0.2 0.446 0.172 0.409c0.632 1.57 0.599 2.323 0.095 2.784l-0.065 0.056c-0.040 0.033-0.086 0.066-0.133 0.097l-0.007 0.004-0.035 0.021 1.148 0.776 0.9 0.618 0.768 0.543 0.495 0.36 0.431 0.325 0.369 0.292 0.215 0.178 0.189 0.165 0.167 0.153 0.145 0.143 0.122 0.134 0.055 0.063 0.094 0.12 0.076 0.113 0.032 0.054 0.051 0.104c0.012 0.026 0.024 0.058 0.034 0.091l0.002 0.006 0.021 0.093 0.006 0.043 0.004 0.050-0.002 0.088 2.534-0.605-3.772-3.099 1.063-1.179 3.844 3.159v-8.283h1.603v8.28l3.833-3.157 1.064 1.178-3.766 3.101 2.536 0.605v-0.091l0.002-0.035c0.002-0.033 0.007-0.063 0.013-0.093l-0.001 0.004 0.025-0.091c0.008-0.022 0.014-0.038 0.020-0.053l-0.002 0.006 0.047-0.1 0.061-0.105 0.079-0.113c0.019-0.024 0.034-0.043 0.050-0.062l-0.003 0.004 0.105-0.124 0.061-0.066 0.136-0.137 0.157-0.148 0.279-0.243 0.331-0.271 0.39-0.301 0.451-0.335 0.702-0.504 0.827-0.575 0.96-0.653 0.631-0.424-0.033-0.020-0.139-0.103c-0.632-0.509-0.64-1.385 0.294-3.46l0.19-0.413-0.25 0.037c-0.353 0.047-0.668 0.078-0.937 0.088l-0.193 0.004c-0.546 0-0.941-0.090-1.256-0.405-0.245-0.246-0.449-0.68-0.635-1.284l-0.069-0.237-4.235 3.294 0.946-7.021-0.094 0.041c-0.426 0.179-0.809 0.29-1.144 0.318l-0.205 0.007-0.069-0.002c-0.676-0.042-1.252-0.558-1.89-2.046l-0.070-0.166z">
+        </path>
+      </symbol>
+      <symbol id="icon-location-landing-spring" viewBox="0 0 31 32">
+        <path
+          d="M26.908 0.646l1.080-0.313 0.367 1.255 0.105 0.385 0.119 0.468 0.13 0.545 0.066 0.299c0.289 1.304 0.529 2.69 0.686 4.113 0.448 4.037 0.168 7.603-1.126 10.318-1.6 3.36-4.631 4.812-8.363 4.897l-0.352 0.005c-0.347 0-0.687-0.012-1.016-0.036l-0.111-0.009 0.011 0.047c0.512 2.662 0.264 5.65-0.696 8.136l-0.166 0.41-0.241 0.561-2.074-0.96 0.225-0.529c0.905-2.117 1.166-4.76 0.735-7.086l-0.011-0.043-0.286 0.175c-1.39 0.819-2.916 1.37-4.5 1.451l-0.397 0.009c-0.009 0-0.019 0-0.029 0-1.586 0-3.046-0.545-4.201-1.457l0.014 0.011c-2.041-1.569-3.615-4.204-4.805-7.497-0.338-0.889-0.693-2.037-0.985-3.21l-0.048-0.23-0.119-0.501-0.096-0.441-0.107-0.536-0.217-1.249 1.231-0.258 0.341-0.064 0.638-0.104c1.338-0.214 2.882-0.338 4.454-0.341h0.003c2.355 0 4.379 0.311 6.049 0.929l0.2 0.078 0.066-0.135 0.179-0.325c1.505-2.599 4.252-4.77 7.772-6.558 0.985-0.516 2.208-1.061 3.465-1.537l0.244-0.081 0.542-0.196 0.478-0.166 0.409-0.132 0.332-0.101zM7.17 11.189c-1.228 0-2.432 0.091-3.537 0.235l-0.454 0.063 0.069 0.293c0.934 3.897 2.497 7.552 4.741 9.455l0.263 0.213c0.694 0.551 1.566 0.905 2.518 0.966l0.013 0.001 0.309 0.008 0.341-0.009c0.798-0.052 1.621-0.281 2.445-0.649l0.353-0.166c0.42-0.209 0.807-0.435 1.153-0.663l0.308-0.212-0.047-0.088c-1.559-2.824-3.333-4.243-7.877-5.393l-0.987-0.239 0.405-1.82 0.587 0.141c4.312 1.036 6.752 2.517 8.423 4.725l0.091 0.126 0.007-0.183c0.056-2.15-0.569-3.994-2.163-5.14l-0.223-0.153c-1.547-0.996-3.814-1.511-6.74-1.511zM26.421 3.245l-0.321 0.115c-4.322 1.561-8.347 3.893-10.276 6.91l-0.197 0.325-0.14 0.256-0.050 0.1 0.273 0.205c0.802 0.635 1.451 1.426 1.909 2.331l0.018 0.040 0.059 0.126 0.142-0.307c0.891-1.839 2.094-3.433 3.605-4.684l0.353-0.282 0.488-0.375 1.079 1.513-0.454 0.348c-1.928 1.481-3.461 3.855-4.302 6.625l-0.095 0.324 0.027 0.364c0.051 0.96-0.013 1.909-0.156 2.809l-0.044 0.243 0.107 0.012c0.249 0.024 0.506 0.040 0.77 0.049l0.403 0.007c2.957 0 5.286-0.985 6.532-3.329l0.134-0.265 0.158-0.351c1.41-3.323 1.132-8.116 0.065-12.741l-0.088-0.366z">
+        </path>
+      </symbol>
+      <symbol id="icon-location-landing-summer" viewBox="0 0 32 32">
+        <path
+          d="M17.094 0.571l-0.001 4.113 0.249 0.025c2.040 0.247 3.867 1.003 5.398 2.136l-0.031-0.022 0.331 0.254 0.185 0.151 2.912-2.912 1.545 1.546-2.912 2.911 0.152 0.186c1.168 1.464 1.987 3.256 2.302 5.216l0.009 0.065 0.057 0.418 0.024 0.247h4.114v2.186h-4.114l-0.023 0.248c-0.247 2.040-1.003 3.867-2.137 5.397l0.022-0.031-0.254 0.331-0.152 0.186 2.912 2.912-1.545 1.546-2.912-2.913-0.185 0.152c-1.464 1.168-3.255 1.987-5.215 2.302l-0.065 0.009-0.418 0.057-0.249 0.024v4.114h-2.186v-4.114l-0.248-0.023c-2.040-0.248-3.866-1.004-5.396-2.137l0.031 0.022-0.331-0.254-0.186-0.151-2.912 2.912-1.545-1.546 2.911-2.913-0.151-0.184c-1.168-1.464-1.987-3.257-2.302-5.217l-0.009-0.065-0.057-0.417-0.025-0.248h-4.113v-2.186h4.113l0.025-0.247c0.247-2.040 1.003-3.867 2.136-5.398l-0.022 0.031 0.254-0.331 0.151-0.187-2.911-2.911 1.545-1.546 2.912 2.911 0.185-0.15c1.464-1.168 3.256-1.987 5.216-2.302l0.065-0.009 0.418-0.057 0.247-0.025v-4.113h2.187zM16 6.816c-5.063 0-9.183 4.121-9.183 9.184s4.12 9.184 9.183 9.184 9.183-4.121 9.183-9.184-4.12-9.184-9.183-9.184z">
+        </path>
+      </symbol>
+      <symbol id="icon-location-landing-winter" viewBox="0 0 29 32">
+        <path
+          d="M15.974 0.571l-0.001 5.569 2-1.718 1.409 1.633-3.408 2.928v4.759l0.083-0.009 4.504-2.595 0.838-4.409 2.12 0.4-0.493 2.587 4.103-2.363 1.081 1.865-4.103 2.365 2.489 0.869-0.712 2.034-4.245-1.481-4.23 2.438 0.009 0.042 0.019 0.128 0.013 0.128 0.011 0.259c0 0.115-0.007 0.231-0.019 0.345l-0.024 0.171-0.009 0.039 4.23 2.438 4.245-1.481 0.68 1.943-0.41 0.237-1.545 0.881-1.95 0.68 4.103 2.365-1.080 1.867-4.103-2.366 0.491 2.586-2.12 0.403-0.838-4.411-3.75-2.16v4.317l3.409 2.929-1.408 1.634-2.001-1.72 0.001 4.731h-2.158v-4.73l-1.998 1.719-1.41-1.632 3.408-2.934v-4.87l-0.2-0.080c-0.158-0.070-0.291-0.143-0.418-0.224l0.013 0.008-0.19-0.129-0.17-0.134-4.231 2.438-0.837 4.411-2.121-0.403 0.49-2.586-4.102 2.366-1.021-1.766 4.327-4.038-2.774-0.968 0.715-2.034 4.242 1.48 3.744-2.159-3.744-2.159-4.242 1.481-0.715-2.033 2.489-0.87-4.102-2.365 1.080-1.865 4.103 2.363-0.491-2.586 2.121-0.401 0.837 4.409 4.231 2.439 0.17-0.134c0.123-0.091 0.254-0.171 0.389-0.245l0.206-0.101 0.201-0.081v-4.872l-3.408-2.928 1.371-1.591 2.646 1.83v-4.885h2.158z">
+        </path>
+      </symbol>
+      <symbol id="icon-reset" viewBox="0 0 37 32">
+        <path
+          d="M26.545 27.307c-2.814 2.9-6.703 4.693-10.998 4.693-8.587 0-15.547-7.163-15.547-16s6.96-16 15.547-16c8.581 0 15.54 7.157 15.546 15.988h-3.887v-0.011c0-6.628-5.22-12-11.659-12-6.441 0-11.66 5.372-11.66 12s5.22 12 11.66 12c3.217 0 6.129-1.342 8.239-3.509l2.759 2.839zM21.376 15.988h15.547l-7.774 8-7.774-8z">
+        </path>
+      </symbol>
+      <symbol id="icon-email" viewBox="0 0 48 32">
+        <path d="M0 30.643v-27.296l22.912 15.52 25.088-15.667v27.443z"></path>
+        <path d="M48 0l-24.954 16-23.046-16z"></path>
+      </symbol>
+      <symbol id="icon-location-pin" viewBox="0 0 24 32">
+        <path d="M12 0c6.627 0 12 5.437 12 12.144 0 4.472-4 11.091-12 19.856-8-8.765-12-15.384-12-19.856 0-6.707 5.373-12.144 12-12.144zM12 8c-2.651 0-4.8 2.149-4.8 4.8s2.149 4.8 4.8 4.8v0c2.651 0 4.8-2.149 4.8-4.8s-2.149-4.8-4.8-4.8v0z"></path>
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 32 32">
+        <path
+          d="M23.467 19.2c-2.133 2.133-2.133 4.267-4.267 4.267s-4.267-2.133-6.4-4.267c-2.133-2.133-4.267-4.267-4.267-6.4s2.133-2.133 4.267-4.267-4.267-8.533-6.4-8.533c-2.133 0-6.4 6.4-6.4 6.4 0 4.267 4.384 12.917 8.533 17.067s12.8 8.533 17.067 8.533c0 0 6.4-4.267 6.4-6.4s-6.4-8.533-8.533-6.4z">
+        </path>
+      </symbol>
+      <symbol id="icon-envelope-send" viewBox="0 0 37 32">
+        <path d="M0 16.376v-14.587l12.245 8.293 13.408-8.372v14.667z"></path>
+        <path d="M25.653 0l-13.336 8.552-12.317-8.552z"></path>
+        <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.5238"
+          d="M22.181 11.515c0.16 0.074 0.268 0.232 0.268 0.416 0 0.001 0 0.002 0 0.003v-0 4.114c6.868 0.035 12.445 5.792 12.445 12.864v0.393c0 0.001 0 0.002 0 0.003 0 0.248-0.198 0.449-0.444 0.454h-0c-0.168-0.001-0.313-0.095-0.387-0.234l-0.001-0.002c-2.045-3.802-5.941-6.164-10.164-6.164h-1.448v4.114c0 0.001 0 0.002 0 0.003 0 0.184-0.109 0.343-0.265 0.415l-0.003 0.001c-0.052 0.024-0.113 0.038-0.178 0.038-0.119 0-0.226-0.048-0.304-0.125l0 0-8-7.771c-0.086-0.084-0.14-0.202-0.14-0.332s0.053-0.248 0.14-0.332l0-0 8-7.771c0.078-0.077 0.186-0.125 0.304-0.125 0.064 0 0.125 0.014 0.18 0.039l-0.003-0.001z">
+        </path>
+      </symbol>
+      <symbol id="icon-new-tab" viewBox="0 0 32 32">
+        <path d="M4.572 0v27.428h27.428v-27.428h-27.428zM29.714 25.142h-22.855v-22.856h22.856v22.855zM2.286 29.714v-24l-2.286-2.286v28.572h28.572l-2.286-2.286h-24z"></path>
+        <path d="M10.833 6.957l5.465 5.963-6.559 7.155 3.279 3.577 6.559-7.155 5.466 5.963v-15.503z"></path>
+      </symbol>
+      <symbol id="icon-filter" viewBox="0 0 24 32">
+        <path
+          d="M3 0v12.050c1.151 0.24 2.002 1.245 2.002 2.45s-0.852 2.21-1.986 2.447l-0.016 0.003v15.050h-1v-15.050c-1.151-0.24-2.002-1.245-2.002-2.45s0.852-2.21 1.986-2.447l0.016-0.003v-12.050h1zM13 0v20.050c1.151 0.24 2.002 1.245 2.002 2.45s-0.852 2.21-1.986 2.447l-0.016 0.003v7.050h-1v-7.050c-1.151-0.24-2.002-1.245-2.002-2.45s0.852-2.21 1.986-2.447l0.016-0.003v-20.050h1zM22 0v4.050c1.151 0.24 2.003 1.245 2.003 2.45s-0.852 2.21-1.986 2.447l-0.016 0.003v23.050h-1v-23.050c-1.151-0.24-2.003-1.245-2.003-2.45s0.852-2.21 1.986-2.447l0.016-0.003v-4.050h1z">
+        </path>
+      </symbol>
+      <symbol id="icon-gear" viewBox="0 0 32 32">
+        <path
+          d="M21.333 16c0 2.941-2.392 5.333-5.333 5.333s-5.333-2.392-5.333-5.333 2.392-5.333 5.333-5.333 5.333 2.392 5.333 5.333zM31.247 12.357l-2.459-0.535c-0.247-0.748-0.515-1.38-0.828-1.984l0.035 0.075 1.362-2.118c0.095-0.146 0.151-0.324 0.151-0.516 0-0.264-0.107-0.502-0.279-0.676l-3.832-3.832c-0.173-0.173-0.412-0.28-0.676-0.28-0.192 0-0.371 0.057-0.521 0.154l0.004-0.002-2.118 1.362c-0.529-0.278-1.16-0.546-1.813-0.765l-0.094-0.027-0.533-2.459c-0.097-0.433-0.478-0.753-0.934-0.753-0.001 0-0.002 0-0.004 0h-5.417c-0.456 0-0.837 0.319-0.933 0.746l-0.001 0.006-0.535 2.459c-0.655 0.213-1.294 0.478-1.909 0.792l-2.118-1.362c-0.146-0.095-0.324-0.151-0.516-0.151-0.264 0-0.502 0.107-0.676 0.279l-3.832 3.832c-0.173 0.173-0.28 0.412-0.28 0.676 0 0.192 0.057 0.371 0.154 0.521l-0.002-0.004 1.362 2.118c-0.314 0.614-0.579 1.253-0.792 1.908l-2.459 0.533c-0.434 0.097-0.753 0.479-0.753 0.935 0 0.001 0 0.002 0 0.002v-0 5.419c0 0.45 0.314 0.838 0.753 0.934l2.459 0.535c0.213 0.655 0.478 1.294 0.792 1.909l-1.362 2.118c-0.095 0.146-0.151 0.324-0.151 0.516 0 0.264 0.107 0.502 0.279 0.676l3.832 3.832c0.173 0.173 0.412 0.28 0.676 0.28 0.192 0 0.371-0.057 0.521-0.154l-0.004 0.002 2.118-1.362c0.614 0.314 1.253 0.579 1.908 0.792l0.533 2.459c0.097 0.434 0.479 0.753 0.935 0.753 0 0 0.001 0 0.001 0h5.419c0.45 0 0.838-0.314 0.934-0.753l0.535-2.459c0.655-0.213 1.294-0.478 1.909-0.792l2.118 1.362c0.378 0.244 0.875 0.19 1.192-0.128l3.832-3.832c0.173-0.173 0.28-0.412 0.28-0.676 0-0.192-0.057-0.371-0.154-0.521l0.002 0.004-1.362-2.118c0.278-0.529 0.546-1.16 0.765-1.813l0.027-0.094 2.459-0.533c0.434-0.097 0.753-0.479 0.753-0.935 0-0 0-0 0-0.001v0-5.42c-0-0.456-0.319-0.837-0.746-0.933l-0.006-0.001z">
+        </path>
+      </symbol>
+      <symbol id="icon-facebook" viewBox="0 0 16 32">
+        <path
+          d="M14.258 6.14c0.204 0.040 0.43 0 0.616-0.124 0.178-0.12 0.3-0.31 0.328-0.53l0-0.004 0.554-4.002c0.004-0.028 0.006-0.061 0.006-0.094 0-0.364-0.243-0.671-0.576-0.768l-0.006-0.001c-1.352-0.391-2.906-0.616-4.512-0.616-0.036 0-0.072 0-0.108 0l0.006-0c-4.906 0-7.286 2.34-7.286 7.188v2.112h-2.5c-0.431 0-0.78 0.349-0.78 0.78v0 4.108c0 0.452 0.348 0.8 0.78 0.8h2.5v15.772c0 0.43 0.35 0.78 0.78 0.78h5.128c0.41 0 0.76-0.35 0.76-0.78v-15.77h4.144c0.413-0.009 0.748-0.331 0.78-0.737l0-0.003 0.286-4.106c0.002-0.019 0.003-0.042 0.003-0.064 0-0.205-0.079-0.392-0.207-0.533l0.001 0.001c-0.135-0.151-0.33-0.246-0.547-0.246-0.002 0-0.005 0-0.007 0h-4.45v-1.806c0-1.356 0.144-1.684 1.54-1.684 0.8 0 1.886 0.144 2.768 0.328z">
+        </path>
+      </symbol>
+      <symbol id="icon-flickr" viewBox="0 0 76 32">
+        <path d="M31.080 15.54c0 8.582-6.957 15.54-15.54 15.54s-15.54-6.957-15.54-15.54c0-8.582 6.957-15.54 15.54-15.54s15.54 6.957 15.54 15.54z"></path>
+        <path d="M75.48 15.54c0 8.582-6.957 15.54-15.54 15.54s-15.54-6.957-15.54-15.54c0-8.582 6.957-15.54 15.54-15.54s15.54 6.957 15.54 15.54z"></path>
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 32 32">
+        <path
+          d="M15.444 2.781c4.126 0 4.614 0.018 6.237 0.091 1.509 0.066 2.322 0.32 2.865 0.53 0.719 0.277 1.237 0.616 1.775 1.152 0.542 0.542 0.875 1.056 1.158 1.774 0.21 0.542 0.465 1.364 0.53 2.865 0.073 1.63 0.091 2.118 0.091 6.238s-0.018 4.614-0.091 6.237c-0.066 1.509-0.32 2.324-0.53 2.865-0.26 0.696-0.653 1.289-1.151 1.774l-0.001 0.001c-0.487 0.5-1.079 0.894-1.741 1.147l-0.033 0.011c-0.544 0.21-1.364 0.465-2.865 0.53-1.63 0.073-2.118 0.091-6.238 0.091s-4.616-0.018-6.238-0.091c-1.509-0.066-2.322-0.32-2.865-0.53-0.696-0.26-1.289-0.653-1.774-1.151l-0.001-0.001c-0.5-0.487-0.894-1.079-1.147-1.741l-0.011-0.033c-0.212-0.542-0.465-1.364-0.532-2.865-0.072-1.63-0.090-2.118-0.090-6.238s0.018-4.616 0.091-6.238c0.066-1.509 0.32-2.322 0.53-2.865 0.277-0.718 0.616-1.237 1.152-1.774 0.487-0.5 1.079-0.894 1.741-1.147l0.033-0.011c0.542-0.212 1.364-0.465 2.865-0.532 1.623-0.072 2.112-0.090 6.238-0.090zM15.444 0c-4.194 0-4.718 0.018-6.365 0.091-1.641 0.070-2.769 0.335-3.746 0.716-1.073 0.409-1.987 1.017-2.739 1.785l-0.001 0.001c-0.768 0.752-1.375 1.664-1.768 2.682l-0.018 0.052c-0.379 0.981-0.645 2.104-0.716 3.746-0.075 1.655-0.091 2.179-0.091 6.37 0 4.194 0.018 4.719 0.091 6.365 0.072 1.641 0.337 2.77 0.716 3.747 0.399 1.019 0.923 1.882 1.786 2.738 0.856 0.856 1.72 1.387 2.734 1.78 0.983 0.381 2.104 0.646 3.746 0.718 1.647 0.073 2.171 0.091 6.365 0.091 4.192 0 4.718-0.018 6.363-0.091 1.641-0.072 2.77-0.337 3.747-0.716 1.069-0.409 1.981-1.015 2.731-1.78l0.001-0.001c0.766-0.751 1.371-1.663 1.762-2.681l0.017-0.052c0.381-0.983 0.646-2.106 0.718-3.747 0.073-1.646 0.091-2.171 0.091-6.363 0-4.194-0.018-4.718-0.091-6.365-0.072-1.641-0.337-2.769-0.716-3.746-0.393-1.078-0.997-1.996-1.766-2.744l-0.002-0.002c-0.752-0.766-1.665-1.371-2.684-1.762l-0.052-0.017c-0.983-0.379-2.106-0.645-3.747-0.716-1.65-0.081-2.176-0.098-6.368-0.098z">
+        </path>
+        <path
+          d="M15.444 7.511c-4.381 0.001-7.932 3.552-7.933 7.933v0c0.001 4.381 3.552 7.932 7.933 7.933h0c4.381-0.001 7.932-3.552 7.933-7.933v-0c-0.001-4.381-3.552-7.932-7.933-7.933h-0zM15.444 20.59c-2.842 0-5.147-2.304-5.147-5.147s2.304-5.147 5.147-5.147v0c2.842 0 5.147 2.304 5.147 5.147s-2.304 5.147-5.147 5.147v0zM25.542 7.197c0 1.023-0.829 1.851-1.851 1.851s-1.851-0.829-1.851-1.851v0c0-1.023 0.829-1.851 1.851-1.851s1.851 0.829 1.851 1.851v0z">
+        </path>
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 34 32">
+        <path
+          d="M12.018 9.614h6.652v3.41h0.094c0.926-1.66 3.192-3.41 6.568-3.41 7.020 0 8.32 4.372 8.32 10.056v11.576h-6.934v-10.262c0-2.448-0.050-5.598-3.608-5.598-3.61 0-4.16 2.666-4.16 5.42v10.44h-6.934v-21.632zM0 9.614h7.21v21.632h-7.21zM7.21 3.606c0.001 0.025 0.001 0.055 0.001 0.085 0 1.992-1.614 3.606-3.606 3.606s-3.606-1.614-3.606-3.606c0-0.030 0-0.060 0.001-0.089l-0 0.004c0.048-1.955 1.643-3.521 3.605-3.521s3.558 1.566 3.605 3.517l0 0.004z">
+        </path>
+      </symbol>
+      <symbol id="icon-round-left-quote" viewBox="0 0 46 32">
+        <path
+          d="M42.828 28.566c-1.081 1.987-4.081 5.092-8.642 2.359-4.681-2.856-8.882-12.295-8.282-19.871 0.12-3.229 1.68-11.177 11.763-11.052 2.88 0.868 7.322 1.241 8.401 6.706 0.48 2.484-1.080 5.837-4.201 7.7-2.521 2.36-4.321 3.85-0.72 7.7 2.521 3.601 2.761 4.471 1.68 6.458zM16.982 28.566c-1.081 1.987-4.081 5.092-8.642 2.359-4.681-2.856-8.882-12.295-8.282-19.871 0.12-3.228 1.68-11.176 11.763-11.052 2.88 0.868 7.322 1.241 8.401 6.705 0.48 2.484-1.080 5.837-4.201 7.7-2.521 2.36-4.321 3.85-0.72 7.7 2.521 3.601 2.761 4.471 1.68 6.458z">
+        </path>
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 32 32">
+        <path
+          d="M12.345 1.778c5.837 0 10.568 4.731 10.568 10.568s-4.731 10.568-10.568 10.568v0c-5.837 0-10.568-4.731-10.568-10.568s4.731-10.568 10.568-10.568v0zM12.345 4.596c-0.049-0.001-0.108-0.002-0.166-0.002-4.281 0-7.751 3.47-7.751 7.751s3.47 7.751 7.751 7.751c0.058 0 0.117-0.001 0.175-0.002l-0.009 0c4.209-0.093 7.585-3.527 7.585-7.749s-3.376-7.656-7.576-7.749l-0.009-0z">
+        </path>
+        <path d="M18.889 16.896l10.898 10.898-1.993 1.991-10.898-10.898z"></path>
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 35 32">
+        <path d="M17.6 26.4l-10.346 5.44 1.976-11.52-8.366-8.16 11.565-1.68 5.171-10.48 5.173 10.48 11.566 1.68-8.37 8.16 1.976 11.52z"></path>
+      </symbol>
+      <symbol id="icon-twitter" viewBox="0 0 39 32">
+        <path
+          d="M36.719 3.471c-0.199 0-1.575 0.578-1.932 0.677 0.478-0.559 1.575-2.252 1.575-2.971 0-0.353-0.287-0.64-0.64-0.64v0c-0.119 0.006-0.229 0.043-0.323 0.103l0.003-0.002c-1.354 0.738-2.649 1.317-4.162 1.637-1.456-1.399-3.435-2.264-5.615-2.274h-0.002c-4.444 0.011-8.042 3.612-8.049 8.056v0.001c0 0.32 0.020 0.66 0.079 0.977-4.582-0.421-8.66-2.299-11.834-5.161l0.018 0.016c-0.795-0.719-1.472-1.497-2.191-2.294-0.115-0.147-0.293-0.24-0.493-0.24-0.015 0-0.031 0.001-0.046 0.002l0.002-0c-0.222 0-0.399 0.16-0.5 0.32-0.714 1.056-1.095 2.772-1.095 4.047 0 1.856 0.64 3.67 1.834 5.105-0.379-0.118-0.958-0.497-1.295-0.497-0.418 0-0.778 0.298-0.778 0.716 0 2.794 1.534 5.386 3.884 6.843-0.18-0.022-0.337-0.081-0.517-0.081-0.337 0.009-0.609 0.28-0.618 0.617l-0 0.001c0 0.081 0.020 0.14 0.039 0.222 0.879 2.677 3.054 4.702 5.764 5.353l0.055 0.011c-2.116 1.326-4.687 2.112-7.442 2.112-0.011 0-0.022 0-0.033-0h0.002c-0.596 0-1.194-0.098-1.772-0.098-0.352 0.001-0.638 0.287-0.638 0.64 0 0 0 0 0 0v0c0 0.217 0.121 0.396 0.298 0.537 0.517 0.379 1.157 0.697 1.735 0.997 2.891 1.532 6.32 2.431 9.959 2.432h0c8.689 0 16.118-4.665 19.705-12.603 1.295-2.85 2.053-5.982 1.994-9.113v-0.66c1.354-1.017 2.668-2.334 3.564-3.791 0.062-0.101 0.098-0.224 0.098-0.355 0-0.001 0-0.001 0-0.002v0c0 0 0 0 0-0 0-0.352-0.284-0.637-0.635-0.64h-0z">
+        </path>
+      </symbol>
+      <symbol id="icon-youtube" viewBox="0 0 48 32">
+        <path
+          d="M44.827 7.347c-0.243-1.637-0.875-3.261-1.571-4.779-0.64-1.397-1.893-2.173-3.499-2.261-1.376-0.077-2.749-0.28-4.125-0.285-8.547-0.027-17.091-0.032-25.635 0-1.557 0.008-3.12 0.179-4.667 0.352-1.379 0.155-2.4 0.901-3.115 2.107-0.77 1.285-1.316 2.794-1.542 4.406l-0.007 0.063c-0.8 5.568-0.925 11.157-0.117 16.725 0.245 1.699 0.813 3.387 1.485 4.976 0.573 1.36 1.733 2.293 3.285 2.48 1.187 0.147 2.384 0.248 3.579 0.28 4.688 0.115 9.376 0.195 14.912 0.307 4.336-0.125 9.517-0.253 14.693-0.432 1.568-0.053 3.133-0.224 4.243-1.592 0.836-1.034 1.444-2.289 1.724-3.662l0.009-0.055c1.299-6.187 1.256-12.413 0.347-18.629zM18.28 23.96v-16.472l12.752 8.259-12.752 8.213z">
+        </path>
+      </symbol>
+      <symbol id="icon-hamburger" viewBox="0 0 35 32">
+        <path d="M0 0h34.56v3.84h-34.56zM0 14.080h34.56v3.84h-34.56zM0 28.16h34.56v3.84h-34.56z"></path>
+      </symbol>
+      <symbol id="icon-mobile-menu" viewBox="0 0 49 32">
+        <path
+          d="M0 28.16h26.88v3.84h-26.88zM0 14.080h19.84v3.84h-19.84zM0 0h33.28v3.84h-33.28zM34.56 8.96c4.948 0 8.96 4.012 8.96 8.96s-4.012 8.96-8.96 8.96v0c-4.948 0-8.96-4.012-8.96-8.96s4.012-8.96 8.96-8.96v0zM34.56 12.8c-2.828 0-5.12 2.292-5.12 5.12s2.292 5.12 5.12 5.12v0c2.828 0 5.12-2.292 5.12-5.12s-2.292-5.12-5.12-5.12v0z">
+        </path>
+        <path d="M36.996 23.712l2.715-2.715 8.146 8.146-2.714 2.715z"></path>
+      </symbol>
+      <symbol id="icon-plus" viewBox="0 0 32 32">
+        <path d="M13.176 0h5.647v31.059h-5.647z"></path>
+        <path d="M31.529 12.706v5.647h-31.059v-5.647z"></path>
+      </symbol>
+      <symbol id="icon-caret-vt" viewBox="0 0 50 32">
+        <path d="M0 0l24.069 30.24 24.069-30.24h-14.688l-9.381 12.466-9.257-12.466z"></path>
+      </symbol>
+    </defs>
+  </svg>
+  <div class="site-wrapper">
+    <header class="site-header">
+      <a href="placeholder-link" class="site-header__logo">
+        <img src="https://carthage-2021.livewhale.net/_ingredients/_dist/img/logo.svg" alt="Carthage College logo">
+      </a>
+      <div class="site-header__top">
+        <nav class="site-header__utility" aria-label="Utility">
+          <ul>
+             <li>
+               <a href="https://athletics.carthage.edu/">Athletics</a>
+             </li>
+             <li>
+               <a href="https://www.carthage.edu/arts/">Arts</a>
+             </li>
+             <li>
+               <a href="https://www.carthage.edu/news-events/">News &amp; Events</a>
+             </li>
+             <li>
+               <a href="https://www.carthage.edu/giving/">Giving</a>
+             </li>
+           </ul>
+         </nav>
+         <nav class="site-header__prospective" aria-label="Prospective students">
+           <ul>
+             <li>
+               <a href="https://www.carthage.edu/admissions/request-information/">Request Info</a>
+             </li>
+             <li>
+               <a href="https://www.carthage.edu/admissions/apply/">Apply</a>
+             </li>
+             <li>
+               <a href="https://www.carthage.edu/admissions/visit/">Visit</a>
+             </li>
+           </ul>
+        </nav>
+        <nav class="site-header__tools" aria-labelledby="site-header-tools-toggle">
+          <a href="#site-header-tools-dropdown" class="site-header__tools-toggle" id="site-header-tools-toggle" aria-haspopup="true">
+            <span class="site-header__tools-toggle-label">Campus Tools</span>
+            <svg aria-hidden="true" class="icon icon-gear" width="21" height="21">
+              <use xlink:href="#icon-gear"></use>
+            </svg>
+            <svg aria-hidden="true" class="icon icon-caret-vt">
+              <use xlink:href="#icon-caret-vt"></use>
+            </svg>
+          </a>
+          <div class="site-header__tools-dropdown">
+            <ul>
+              <li>
+                <a href="https://www.carthage.edu/bridge/">The Bridge</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/about/directory/">Directory</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/life-at-carthage/health-wellness-safety/covid-19/">COVID-19</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/academics/library/">Library</a>
+              </li>
+              <li>
+                <a href="https://carthage.onelogin.com/" class="lw_external_url">OneLogin</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="site-header__search">
+          <a href="#site-search" class="site-header__search-toggle" data-micromodal-trigger="site-search">
+            <span class="visible-for-screen-readers">Toggle Site Search</span>
+            <svg aria-hidden="true" class="icon icon-search" width="16" height="16">
+              <use xlink:href="#icon-search"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="site-header__main">
+        <nav class="site-header__highlights" aria-label="Highlights">
+          <ul>
+            <li>
+              <a href="https://www.carthage.edu/academics/">Academics</a>
+            </li>
+            <li>
+              <a href="https://www.carthage.edu/admissions/">Admission &amp; Aid</a>
+            </li>
+            <li>
+              <a href="https://www.carthage.edu/why-carthage/">Why Carthage</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="#site-header-mega-menu" class="site-header__mega-menu-open" role="button" aria-controls="site-header-mega-menu">
+          <span class="site-header__mega-menu-open-label">Full Menu</span>
+          <svg aria-hidden="true" class="icon icon-mobile-menu" width="36" height="23">
+            <use xlink:href="#icon-mobile-menu"></use>
+          </svg>
+          <svg aria-hidden="true" class="icon icon-hamburger" width="27" height="25">
+            <use xlink:href="#icon-hamburger"></use>
+          </svg>
+        </a>
+        <div class="site-header__mega-menu" id="site-header-mega-menu">
+          <a href="#" class="site-header__mega-menu-close" role="button">
+            <span class="visible-for-screen-readers">Close Full Menu</span>
+            <svg aria-hidden="true" class="icon icon-plus" width="24" height="24">
+              <use xlink:href="#icon-plus"></use>
+            </svg>
+          </a>
+          <div class="site-header__mega-menu-inner">
+            <div class="site-header__mega-menu-scroller">
+              <div>
+                <div class="site-header__mega-menu-main">
+                  <div class="site-header__mega-menu-max-bound">
+                    <nav class="site-header__mega-menu-main-nav" aria-label="Main">
+                      <ul>
+                        <li>
+                          <a href="https://www.carthage.edu/academics/">Academics</a>
+                          <ul>
+                            <li>
+                              <a href="https://www.carthage.edu/academics/what-should-i-study/">What Should I Study?</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/academics/majors-minors/">Majors &amp; Minors</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/academics/masters-programs/">Master&#x2019;s Programs</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/academics/adult-evening-programs/">Adult &amp; Evening Programs</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/academics/carthage-curriculum/">Carthage Curriculum</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/academics/study-abroad/">Study Abroad</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/academics/experiential-learning/">Experiential Learning</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/academics/advising-support/">Advising &amp; Support</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/academics/calendars-schedules/">Calendars &amp; Schedules</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="https://www.carthage.edu/admissions/">Admission &amp; Aid</a>
+                          <ul>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/apply/">Apply to Carthage</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/costs-scholarships-aid/">Costs, Scholarships &amp; Aid</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/request-information/">Request Information</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/visit/">Visit</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/applicant-portal/">Applicant Portal</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/welcome-accepted-students/">Welcome, Accepted Students!</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/contact-admissons/">Contact Admissons</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="https://www.carthage.edu/why-carthage/">Why Carthage</a>
+                          <ul>
+                            <li>
+                              <a href="https://www.carthage.edu/why-carthage/exploration-mentorship/">Exploration &amp; Mentorship</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/why-carthage/career-preparation/">Career Preparation</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/why-carthage/4-year-graduation-guarantee/">4-Year Graduation Guarantee</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/why-carthage/affordability/">Affordability</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/why-carthage/commitment-to-equity-inclusion/">Commitment to Equity &amp; Inclusion</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/why-carthage/opportunities-abroad/">Opportunities Abroad</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/why-carthage/student-athletics/">Student Athletics</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/why-carthage/campus-location/">Campus &amp; Location</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/why-carthage/rankings-honors/">Rankings &amp; Honors</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="https://www.carthage.edu/life-at-carthage/">Life at Carthage</a>
+                          <ul>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/housing/">Housing &amp; Residence Life</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/commuting-to-carthage/">Commuting to Carthage</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/dining/">Dining</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/faith-spirituality/">Spiritual Life</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/student-activities/">Student Activities</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/kenosha-and-beyond/">Kenosha and Beyond</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/health-wellness-and-safety/">Health, Wellness and Safety</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/campus-services/">Campus Services</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/aspire/">Aspire Career Preparation</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/life-at-carthage/equity-inclusion/">Equity and Inclusion</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="https://www.carthage.edu/about/">About</a>
+                          <ul>
+                            <li>
+                              <a href="https://www.carthage.edu/about/carthage-at-a-glance/">Carthage at a Glance</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/about/mission-and-values/">Mission &amp; Values</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/about/college-history/">College History</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/about/facilities/">Facilities</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/about/location-and-map/">Location &amp; Map</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/about/offices-services/">Offices &amp; Services</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/about/divisions-centers-institutes/">Divisions, Centers &amp; Institutes</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/about/directory/">Directory</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/about/accreditation/">Accreditation</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+                <div class="site-header__mega-menu-info">
+                  <div class="site-header__mega-menu-max-bound">
+                    <nav class="site-header__mega-menu-info-nav" aria-labelledby="site-header-info-nav-label">
+                      <h2 class="site-header__mega-menu-info-nav-label" id="site-header-info-nav-label">Info For&hellip;</h2>
+                      <ul>
+                        <li>
+                          <a href="https://www.carthage.edu/current-students/">Current Students</a>
+                        </li>
+                        <li>
+                          <a href="https://www.carthage.edu/alumni/">Alumni</a>
+                        </li>
+                        <li>
+                          <a href="https://www.carthage.edu/faculty-staff/">Faculty &amp; Staff</a>
+                        </li>
+                        <li>
+                          <a href="https://www.carthage.edu/parents-families/">Parents &amp; Families</a>
+                        </li>
+                        <li>
+                          <a href="https://www.carthage.edu/community/">Community</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+                <div class="site-header__mega-menu-secondary">
+                  <div class="site-header__mega-menu-max-bound">
+                    <div class="silc-grid silc-grid--collapse">
+                      <div class="silc-grid__col silc-grid__col--6">
+                        <nav class="site-header__mega-menu-utility" aria-label="Utility">
+                          <ul>
+                            <li>
+                              <a href="placeholder-link">Athletics</a>
+                            </li>
+                            <li>
+                              <a href="placeholder-link">Arts</a>
+                            </li>
+                            <li>
+                              <a href="placeholder-link">News & Events</a>
+                            </li>
+                            <li>
+                              <a href="placeholder-link">Giving</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="silc-grid__col silc-grid__col--6">
+                        <nav class="site-header__mega-menu-prospective" aria-label="Prospective students">
+                          <ul>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/request-information/">Request Info</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/apply/">Apply</a>
+                            </li>
+                            <li>
+                              <a href="https://www.carthage.edu/admissions/visit/">Visit</a>
+                            </li>
+                          </ul>
+                        </nav>
+                      </div>
+                    </div>
+                    <nav class="site-header__mega-menu-social" aria-label="Social Media">
+                      <ul>
+                        <li>
+                          <a href="https://www.instagram.com/carthagecollege/" target="_blank">
+                            <span class="visible-for-screen-readers">Instagram</span>
+                            <svg aria-hidden="true" class="icon icon-instagram" width="21" height="21">
+                              <use xlink:href="#icon-instagram"></use>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://twitter.com/carthagecollege" target="_blank">
+                            <span class="visible-for-screen-readers">Twitter</span>
+                            <svg aria-hidden="true" class="icon icon-twitter" width="16" height="13">
+                              <use xlink:href="#icon-twitter"></use>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.facebook.com/carthagecollege" target="_blank">
+                            <span class="visible-for-screen-readers">Facebook</span>
+                            <svg aria-hidden="true" class="icon icon-facebook" width="8" height="16">
+                              <use xlink:href="#icon-facebook"></use>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.youtube.com/user/carthagecollege" target="_blank">
+                            <span class="visible-for-screen-readers">YouTube</span>
+                            <svg aria-hidden="true" class="icon icon-youtube" width="17" height="12">
+                              <use xlink:href="#icon-youtube"></use>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.linkedin.com/school/carthage-college/" target="_blank">
+                            <span class="visible-for-screen-readers">LinkedIn</span>
+                            <svg aria-hidden="true" class="icon icon-linkedin" width="17" height="16">
+                              <use xlink:href="#icon-linkedin"></use>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.flickr.com/photos/carthagecollege/sets/" target="_blank">
+                            <span class="visible-for-screen-readers">Flickr</span>
+                            <svg aria-hidden="true" class="icon icon-flickr" width="19" height="8">
+                              <use xlink:href="#icon-flickr"></use>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://carthage.meritpages.com/" target="_blank">
+                            <span class="visible-for-screen-readers">Merit Pages</span>
+                            <img aria-hidden="true" src="../../img/meritpages-logo.png" alt="Merit Pages logo">
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <form class="site-header__mega-menu-search" action="https://www.carthage.edu/search/" method="GET">
+                      <label class="visible-for-screen-readers" for="site-header-mega-menu-search-input">Search</label>
+                      <input class="site-header__mega-menu-search-input" id="site-header-mega-menu-search-input" type="text" name="q" placeholder="Search">
+                      <button class="site-header__mega-menu-search-submit" type="submit" aria-label="Submit">
+                        <span class="visible-for-screen-readers">Submit</span>
+                        <svg aria-hidden="true" class="icon icon-search" width="16" height="16">
+                          <use xlink:href="#icon-search"></use>
+                        </svg>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="site-search modal" id="site-search">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="site-search-title">
+          <a href="#" class="modal__close" role="button" data-micromodal-close>
+            <span class="visible-for-screen-readers">Close Search</span>
+            <svg aria-hidden="true" class="icon icon-plus" width="24" height="24">
+              <use xlink:href="#icon-plus"></use>
+            </svg>
+          </a>
+          <h2 class="site-search__title" id="site-search-title">Search</h2>
+          <form class="site-search__form" action="https://www.carthage.edu/search/" method="GET">
+            <div class="site-search__form-inner">
+              <label class="visible-for-screen-readers" for="site-search-input">Search Keyword</label>
+              <input class="site-search__form-input lw_qa lw_qa_page" id="site-search-input" type="text" name="q" placeholder="Search">
+              <button class="site-search__form-submit" type="submit" aria-label="Submit">
+                <span class="visible-for-screen-readers">Submit</span>
+                <svg aria-hidden="true" class="icon icon-search" width="17" height="17">
+                  <use xlink:href="#icon-search"></use>
+                </svg>
+              </button>
+              <div class="qa_results qa_mouse">
+                <div class="qa_category_Top_Links">
+                  <div class="qa_category_title">Top Links</div>
+                  <ul>
+                    <li class="qa_selected">
+                      <a href="https://www.carthage.edu/academics/masters-programs/sports-management/">Mas<span class="qa_highlight">ter</span> Of Science In Business — Sports Management</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <main id="main-content">
+      <article class="page-content max-bound">
+        <div class="page-header">
+          <h1>Directory</h1>
+          <nav class="silc-breadcrumb" aria-label="Breadcrumb">
+            <ol class="silc-breadcrumb__list">
+              <li>
+                <a href="placeholder-link">Home</a>
+              </li>
+              <li>
+                <a href="placeholder-link">About</a>
+              </li>
+              <li>
+                <a href="placeholder-link" aria-current="page">Directory</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div class="page-sidebar-hero">
+          <div class="page-sidebar-hero__sidebar">
+            <nav class="subnav" aria-label="Sidebar">
+              <div class="subnav__list" id="subnav-list">
+                <ul>
+                  <li>
+                    <a href="placeholder-link">About</a>
+                    <ul>
+                      <li>
+                        <a href="placeholder-link">Carthage At a Glance</a>
+                      </li>
+                      <li>
+                        <a href="placeholder-link">Mission & Values</a>
+                      </li>
+                      <li>
+                        <a href="placeholder-link">History</a>
+                      </li>
+                      <li>
+                        <a href="placeholder-link">Facilities</a>
+                      </li>
+                      <li>
+                        <a href="placeholder-link">Location & Map</a>
+                      </li>
+                      <li>
+                        <a href="placeholder-link">Offices & Services</a>
+                      </li>
+                      <li>
+                        <a href="placeholder-link">Divisions, Centers & Institutes</a>
+                      </li>
+                      <li>
+                        <a href="placeholder-link" aria-current="page">Directory</a>
+                      </li>
+                      <li>
+                        <a href="placeholder-link">Accreditation</a>
+                      </li>
+
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div id="page-body" class="page-body editable">
+          <div class="directory-root">
+            <directory></directory>
+            <noscript>
+              <p>Please enable JavaScript to search our directory.</p>
+            </noscript>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer__main">
+        <div class="site-footer__contact-info">
+          <div class="site-footer__logo">
+            <img src="https://carthage-2021.livewhale.net/_ingredients/_dist/img/footer-logo.svg" alt="Carthage College logo">
+          </div>
+          <div class="site-footer__address">
+            <p>2001 Alford Park Drive<br>Kenosha, WI 53140</p>
+          </div>
+          <span class="site-footer__phone">(262) 551-8500</span>
+          <div class="site-footer__contact-info-links">
+            <ul>
+              <li>
+                <a href="https://www.carthage.edu/about/offices-services/">Contact</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/about/location-and-map/">Map &amp; Directions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer__navs">
+          <nav class="site-footer__primary-nav" aria-label="Footer Primary">
+            <ul>
+              <li>
+                <a href="https://www.carthage.edu/admissions/request-information/">Request Info</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/admissions/apply/">Apply</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/admissions/visit/">Visit</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/giving/">Give</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="site-footer__secondary-nav" aria-label="Footer Secondary">
+            <ul>
+              <li>
+                <a href="https://athletics.carthage.edu/" class="lw_external_url">Athletics</a>
+              </li>
+              <li>
+                <a href="https://carthage.bncollege.com/" class="lw_external_url">Bookstore</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/life-at-carthage/health-wellness-safety/covid-19/">COVID-19</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/about/directory/">Directory</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/academics/library/">Library</a>
+              </li>
+              <li>
+                <a href="https://carthage.onelogin.com" class="lw_external_url">OneLogin</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/bridge/">The Bridge</a>
+              </li>
+              <li>
+                <a href="https://carthage.college-tour.com" class="lw_external_url">Virtual Tour</a>
+              </li>
+              <li>
+                <a href="https://www.carthage.edu/about/offices-services/human-resources/careers-at-carthage/">Work at Carthage</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="site-footer__social" aria-label="Footer Social Media">
+            <ul>
+              <li>
+                <a href="https://www.instagram.com/carthagecollege/" target="_blank"><span class="visible-for-screen-readers">Instagram</span> <svg aria-hidden="true" class="icon icon-instagram" width="21" height="21">
+                    <use xlink:href="#icon-instagram"></use>
+                  </svg></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/carthagecollege" target="_blank"><span class="visible-for-screen-readers">Twitter</span> <svg aria-hidden="true" class="icon icon-twitter" width="16" height="13">
+                    <use xlink:href="#icon-twitter"></use>
+                  </svg></a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/carthagecollege" target="_blank"><span class="visible-for-screen-readers">Facebook</span> <svg aria-hidden="true" class="icon icon-facebook" width="8" height="16">
+                    <use xlink:href="#icon-facebook"></use>
+                  </svg></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/user/carthagecollege" target="_blank"><span class="visible-for-screen-readers">YouTube</span> <svg aria-hidden="true" class="icon icon-youtube" width="17" height="12">
+                    <use xlink:href="#icon-youtube"></use>
+                  </svg></a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/school/carthage-college/" target="_blank"><span class="visible-for-screen-readers">LinkedIn</span> <svg aria-hidden="true" class="icon icon-linkedin" width="17" height="16">
+                    <use xlink:href="#icon-linkedin"></use>
+                  </svg></a>
+              </li>
+              <li>
+                <a href="https://www.flickr.com/photos/carthagecollege/sets/" target="_blank"><span class="visible-for-screen-readers">Flickr</span> <svg aria-hidden="true" class="icon icon-flickr" width="19" height="8">
+                    <use xlink:href="#icon-flickr"></use>
+                  </svg></a>
+              </li>
+              <li>
+                <a href="https://carthage.meritpages.com/" target="_blank"><span class="visible-for-screen-readers">Merit Pages</span><img aria-hidden="true" src="https://carthage-2021.livewhale.net/_ingredients/_dist/img/meritpages-logo.png"
+                    alt="Merit Pages logo" loading="lazy" /></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__sole">
+        <span class="site-footer__copyright"><a href="/livewhale/?login&amp;referer=1">©</a>Carthage College</span>
+        <div class="site-footer__legal">
+          <ul>
+            <li>
+              <a href="https://www.carthage.edu/about/offices-services/policies/privacy-policy/">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="https://www.carthage.edu/about/offices-services/policies/accessibility/">Accessibility</a>
+            </li>
+            <li>
+              <a href="https://www.carthage.edu/about/offices-services/polices/non-discrimination-statement/">Non-Discrimination Statement</a>
+            </li>
+            <li>
+              <a href="https://www.carthage.edu/about/offices-services/policies/">Policies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="privacy-consent" hidden="">
+    <div class="privacy-consent__content">
+      This website uses cookies to measure traffic and improve your experience.
+      Declining tracking cookies will set a single cookie to remember your
+      preference. You can manage your cookie preference at any time and learn
+      more by visiting our
+      <a href="https://www.carthage.edu/privacy-policy/">Privacy Policy</a>.
+    </div>
+    <div class="privacy-consent__buttons">
+      <button class="button privacy-consent__accept" type="button">Accept</button>
+      <button class="button privacy-consent__decline" type="button">Decline</button>
+    </div>
+  </div>
+  {% block modalform %}{% endblock %}
+  <script src="https://carthage-2021.livewhale.net/_ingredients/_dist/js/index.js"></script>
+  {% block extra_javascript %}{% endblock %}
+</body>
+{% endblock body %}
+</html>
