@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 {% load livewhale_api %}
 <html lang="en">
 <head>
@@ -7,9 +7,15 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% endblock %}
+  <!-- Prevents GDPR-dependent scripts from executing on load -->
+  <script>
+    window.YETT_BLACKLIST = [
+      /addthis\.com/
+    ];
+  </script>
   <script src="//unpkg.com/yett"></script>
-  <link media="screen" rel="stylesheet" href="https://carthage-2021.livewhale.net/_ingredients/_dist/css/index.css">
-  <link media="print" rel="stylesheet" href="https://carthage-2021.livewhale.net/_ingredients/_dist/css/print.css">
+  <link media="screen" rel="stylesheet" href="https://www.carthage.edu/_ingredients/_dist/css/carthage.css">
+  <link media="print" rel="stylesheet" href="https://www.carthage.edu/_ingredients/_dist/css/print.css">
   <title>{% block title %}{% endblock %}</title>
   <script>
     document.documentElement.classList.add("js");
@@ -146,37 +152,16 @@
   <div class="site-wrapper">
     <header class="site-header">
       <a href="placeholder-link" class="site-header__logo">
-        <img src="https://carthage-2021.livewhale.net/_ingredients/_dist/img/logo.svg" alt="Carthage College logo">
+        <img src="https://www.carthage.edu/_ingredients/_dist/img/logo.svg" alt="Carthage College logo">
       </a>
       <div class="site-header__top">
         <nav class="site-header__utility" aria-label="Utility">
-          <ul>
-             <li>
-               <a href="https://athletics.carthage.edu/">Athletics</a>
-             </li>
-             <li>
-               <a href="https://www.carthage.edu/arts/">Arts</a>
-             </li>
-             <li>
-               <a href="https://www.carthage.edu/news-events/">News &amp; Events</a>
-             </li>
-             <li>
-               <a href="https://www.carthage.edu/giving/">Giving</a>
-             </li>
-           </ul>
-         </nav>
-         <nav class="site-header__prospective" aria-label="Prospective students">
-           <ul>
-             <li>
-               <a href="https://www.carthage.edu/admissions/request-information/">Request Info</a>
-             </li>
-             <li>
-               <a href="https://www.carthage.edu/admissions/apply/">Apply</a>
-             </li>
-             <li>
-               <a href="https://www.carthage.edu/admissions/visit/">Visit</a>
-             </li>
-           </ul>
+          {% get_lw_content as header_utils blurbs 3184 %}
+          {{header_utils.body|safe}}
+        </nav>
+        <nav class="site-header__prospective" aria-label="Prospective students">
+          {% get_lw_content as header_stu blurbs 3185 %}
+          {{header_stu.body|safe}}
         </nav>
         <nav class="site-header__tools" aria-labelledby="site-header-tools-toggle">
           <a href="#site-header-tools-dropdown" class="site-header__tools-toggle" id="site-header-tools-toggle" aria-haspopup="true">
@@ -189,23 +174,8 @@
             </svg>
           </a>
           <div class="site-header__tools-dropdown">
-            <ul>
-              <li>
-                <a href="https://www.carthage.edu/bridge/">The Bridge</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/about/directory/">Directory</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/life-at-carthage/health-wellness-safety/covid-19/">COVID-19</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/academics/library/">Library</a>
-              </li>
-              <li>
-                <a href="https://carthage.onelogin.com/" class="lw_external_url">OneLogin</a>
-              </li>
-            </ul>
+            {% get_lw_content as tools blurbs 3180 %}
+            {{tools.body|safe}}
           </div>
         </nav>
         <div class="site-header__search">
@@ -529,7 +499,7 @@
                         <li>
                           <a href="https://carthage.meritpages.com/" target="_blank">
                             <span class="visible-for-screen-readers">Merit Pages</span>
-                            <img aria-hidden="true" src="../../img/meritpages-logo.png" alt="Merit Pages logo">
+                            <img aria-hidden="true" src="https://www.carthage.edu/_ingredients/_dist/img/meritpages-logo.png" alt="Merit Pages logo">
                           </a>
                         </li>
                       </ul>
@@ -562,7 +532,7 @@
             </svg>
           </a>
           <h2 class="site-search__title" id="site-search-title">Search</h2>
-          <form class="site-search__form" action="https://www.carthage.edu/search/" method="GET">
+          <form class="site-search__form" action="https://www.carthage.edu/search/" method="get">
             <div class="site-search__form-inner">
               <label class="visible-for-screen-readers" for="site-search-input">Search Keyword</label>
               <input class="site-search__form-input lw_qa lw_qa_page" id="site-search-input" type="text" name="q" placeholder="Search">
@@ -574,10 +544,9 @@
               </button>
               <div class="qa_results qa_mouse">
                 <div class="qa_category_Top_Links">
-                  <div class="qa_category_title">Top Links</div>
+                  <div class="qa_category_title"></div>
                   <ul>
                     <li class="qa_selected">
-                      <a href="https://www.carthage.edu/academics/masters-programs/sports-management/">Mas<span class="qa_highlight">ter</span> Of Science In Business — Sports Management</a>
                     </li>
                   </ul>
                 </div>
@@ -590,18 +559,20 @@
     <main id="main-content">
       <article class="page-content max-bound">
         <div class="page-header">
-          <h1>Directory</h1>
+          <h1>{% block content_header %}Directory{% endblock content_header %}</h1>
           <nav class="silc-breadcrumb" aria-label="Breadcrumb">
             <ol class="silc-breadcrumb__list">
               <li>
-                <a href="placeholder-link">Home</a>
+                <a href="https://www.carthage.edu/">Home</a>
+              </li>
+              {% block breadcrumb %}
+              <li>
+                <a href="https://www.carthage.edu/about/">About</a>
               </li>
               <li>
-                <a href="placeholder-link">About</a>
+                <a href="https://www.carthage.edu/directory/" aria-current="page">Directory</a>
               </li>
-              <li>
-                <a href="placeholder-link" aria-current="page">Directory</a>
-              </li>
+              {% endblock breadcrumb %}
             </ol>
           </nav>
         </div>
@@ -609,52 +580,33 @@
           <div class="page-sidebar-hero__sidebar">
             <nav class="subnav" aria-label="Sidebar">
               <div class="subnav__list" id="subnav-list">
-                <ul>
-                  <li>
-                    <a href="placeholder-link">About</a>
-                    <ul>
-                      <li>
-                        <a href="placeholder-link">Carthage At a Glance</a>
-                      </li>
-                      <li>
-                        <a href="placeholder-link">Mission & Values</a>
-                      </li>
-                      <li>
-                        <a href="placeholder-link">History</a>
-                      </li>
-                      <li>
-                        <a href="placeholder-link">Facilities</a>
-                      </li>
-                      <li>
-                        <a href="placeholder-link">Location & Map</a>
-                      </li>
-                      <li>
-                        <a href="placeholder-link">Offices & Services</a>
-                      </li>
-                      <li>
-                        <a href="placeholder-link">Divisions, Centers & Institutes</a>
-                      </li>
-                      <li>
-                        <a href="placeholder-link" aria-current="page">Directory</a>
-                      </li>
-                      <li>
-                        <a href="placeholder-link">Accreditation</a>
-                      </li>
-
-                    </ul>
-                  </li>
-                </ul>
+                {% block subnav %}{% endblock subnav %}
               </div>
             </nav>
+            <div class="page-sidebar-hero__sidebar-content text-content">
+              {% block sidebar %}
+              <h2>Stay Updated</h2>
+              <p>
+                Exciting things are happening at Carthage.&nbsp;
+              </p>
+              <p><a class="button" href="/news-events/">News &amp; Events</a></p>
+              {% endblock sidebar %}
+            </div>
           </div>
         </div>
         <div id="page-body" class="page-body editable">
-          <div class="directory-root">
-            <directory></directory>
-            <noscript>
-              <p>Please enable JavaScript to search our directory.</p>
-            </noscript>
-          </div>
+          {% block messages %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+              <div class=" alert {{message.tags}}">
+                <strong>{{ message }}</strong>
+              </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+          {% endblock messages %}
+          {% block content %}{% endblock content %}
         </div>
       </article>
     </main>
@@ -662,7 +614,7 @@
       <div class="site-footer__main">
         <div class="site-footer__contact-info">
           <div class="site-footer__logo">
-            <img src="https://carthage-2021.livewhale.net/_ingredients/_dist/img/footer-logo.svg" alt="Carthage College logo">
+            <img src="https://www.carthage.edu/_ingredients/_dist/img/footer-logo.svg" alt="Carthage College logo">
           </div>
           <div class="site-footer__address">
             <p>2001 Alford Park Drive<br>Kenosha, WI 53140</p>
@@ -681,51 +633,12 @@
         </div>
         <div class="site-footer__navs">
           <nav class="site-footer__primary-nav" aria-label="Footer Primary">
-            <ul>
-              <li>
-                <a href="https://www.carthage.edu/admissions/request-information/">Request Info</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/admissions/apply/">Apply</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/admissions/visit/">Visit</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/giving/">Give</a>
-              </li>
-            </ul>
+            {% get_lw_content as footer_primary_nav blurbs 3182 %}
+            {{footer_primary_nav.body|safe}}
           </nav>
           <nav class="site-footer__secondary-nav" aria-label="Footer Secondary">
-            <ul>
-              <li>
-                <a href="https://athletics.carthage.edu/" class="lw_external_url">Athletics</a>
-              </li>
-              <li>
-                <a href="https://carthage.bncollege.com/" class="lw_external_url">Bookstore</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/life-at-carthage/health-wellness-safety/covid-19/">COVID-19</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/about/directory/">Directory</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/academics/library/">Library</a>
-              </li>
-              <li>
-                <a href="https://carthage.onelogin.com" class="lw_external_url">OneLogin</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/bridge/">The Bridge</a>
-              </li>
-              <li>
-                <a href="https://carthage.college-tour.com" class="lw_external_url">Virtual Tour</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/about/offices-services/human-resources/careers-at-carthage/">Work at Carthage</a>
-              </li>
-            </ul>
+            {% get_lw_content as footer_secondary_nav blurbs 3181 %}
+            {{footer_secondary_nav.body|safe}}
           </nav>
           <nav class="site-footer__social" aria-label="Footer Social Media">
             <ul>
@@ -760,7 +673,7 @@
                   </svg></a>
               </li>
               <li>
-                <a href="https://carthage.meritpages.com/" target="_blank"><span class="visible-for-screen-readers">Merit Pages</span><img aria-hidden="true" src="https://carthage-2021.livewhale.net/_ingredients/_dist/img/meritpages-logo.png"
+                <a href="https://carthage.meritpages.com/" target="_blank"><span class="visible-for-screen-readers">Merit Pages</span><img aria-hidden="true" src="https://www.carthage.edu/_ingredients/_dist/img/meritpages-logo.png"
                     alt="Merit Pages logo" loading="lazy" /></a>
               </li>
             </ul>
@@ -770,20 +683,8 @@
       <div class="site-footer__sole">
         <span class="site-footer__copyright"><a href="/livewhale/?login&amp;referer=1">©</a>Carthage College</span>
         <div class="site-footer__legal">
-          <ul>
-            <li>
-              <a href="https://www.carthage.edu/about/offices-services/policies/privacy-policy/">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="https://www.carthage.edu/about/offices-services/policies/accessibility/">Accessibility</a>
-            </li>
-            <li>
-              <a href="https://www.carthage.edu/about/offices-services/polices/non-discrimination-statement/">Non-Discrimination Statement</a>
-            </li>
-            <li>
-              <a href="https://www.carthage.edu/about/offices-services/policies/">Policies</a>
-            </li>
-          </ul>
+          {% get_lw_content as footer_legal blurbs 3183 %}
+          {{footer_legal.body|safe}}
         </div>
       </div>
     </footer>
@@ -802,7 +703,7 @@
     </div>
   </div>
   {% block modalform %}{% endblock %}
-  <script src="https://carthage-2021.livewhale.net/_ingredients/_dist/js/index.js"></script>
+  <script src="https://www.carthage.edu/_ingredients/_dist/js/index.js"></script>
   {% block extra_javascript %}{% endblock %}
 </body>
 {% endblock body %}
