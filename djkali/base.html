@@ -559,7 +559,7 @@
     <main id="main-content">
       <article class="page-content max-bound">
         <div class="page-header">
-          <h1>{% block content_header %}Directory{% endblock content_header %}</h1>
+          <h1>{% block content_head %}Children of Kali{% endblock content_head %}</h1>
           <nav class="silc-breadcrumb" aria-label="Breadcrumb">
             <ol class="silc-breadcrumb__list">
               <li>
@@ -570,7 +570,7 @@
                 <a href="https://www.carthage.edu/about/">About</a>
               </li>
               <li>
-                <a href="https://www.carthage.edu/directory/" aria-current="page">Directory</a>
+                <a href="https://www.carthage.edu/about/kali/" aria-current="page">Kali</a>
               </li>
               {% endblock breadcrumb %}
             </ol>
@@ -580,7 +580,7 @@
           <div class="page-sidebar-hero__sidebar">
             <nav class="subnav" aria-label="Sidebar">
               <div class="subnav__list" id="subnav-list">
-                {% block subnav %}{% endblock subnav %}
+                {% block left_nav %}{% endblock left_nav %}
               </div>
             </nav>
             <div class="page-sidebar-hero__sidebar-content text-content">
@@ -594,7 +594,7 @@
             </div>
           </div>
         </div>
-        <div id="page-body" class="page-body editable">
+        <div id="page-body" class="page-body">
           {% block messages %}
           {% if messages %}
             {% for message in messages %}
@@ -704,7 +704,22 @@
   </div>
   {% block modalform %}{% endblock %}
   <script src="https://www.carthage.edu/_ingredients/_dist/js/index.js"></script>
-  {% block extra_javascript %}{% endblock %}
+  {% block jquery %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+  {% endblock %}
+  {% block extra_javascript %}
+  <script type="text/javascript">
+  $(function() {
+    $(".required > input").addClass("required");
+    $(".required > select").addClass("required");
+    $(".required > textarea").addClass("required");
+    $(".warning > input").addClass("error");
+    $(".warning > select").addClass("error");
+    $(".warning > textarea").addClass("error");
+    $(".required > ul").parent().parent().find('h3').addClass("required");
+  });
+  </script>
+  {% endblock %}
 </body>
 {% endblock body %}
 </html>
