@@ -151,7 +151,7 @@
   </svg>
   <div class="site-wrapper">
     <header class="site-header">
-      <a href="placeholder-link" class="site-header__logo">
+      <a href="https://www.carthage.edu/" class="site-header__logo">
         <img src="https://www.carthage.edu/_ingredients/_dist/img/logo.svg" alt="Carthage College logo">
       </a>
       <div class="site-header__top">
@@ -189,17 +189,8 @@
       </div>
       <div class="site-header__main">
         <nav class="site-header__highlights" aria-label="Highlights">
-          <ul>
-            <li>
-              <a href="https://www.carthage.edu/academics/">Academics</a>
-            </li>
-            <li>
-              <a href="https://www.carthage.edu/admissions/">Admission &amp; Aid</a>
-            </li>
-            <li>
-              <a href="https://www.carthage.edu/why-carthage/">Why Carthage</a>
-            </li>
-          </ul>
+            {% get_lw_content as highlights blurbs 3216 %}
+            {{highlights.body|safe}}
         </nav>
         <a href="#site-header-mega-menu" class="site-header__mega-menu-open" role="button" aria-controls="site-header-mega-menu">
           <span class="site-header__mega-menu-open-label">Full Menu</span>
@@ -226,160 +217,28 @@
                       <ul>
                         <li>
                           <a href="https://www.carthage.edu/academics/">Academics</a>
-                          <ul>
-                            <li>
-                              <a href="https://www.carthage.edu/academics/what-should-i-study/">What Should I Study?</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/academics/majors-minors/">Majors &amp; Minors</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/academics/masters-programs/">Master&#x2019;s Programs</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/academics/adult-evening-programs/">Adult &amp; Evening Programs</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/academics/carthage-curriculum/">Carthage Curriculum</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/academics/study-abroad/">Study Abroad</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/academics/experiential-learning/">Experiential Learning</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/academics/advising-support/">Advising &amp; Support</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/academics/calendars-schedules/">Calendars &amp; Schedules</a>
-                            </li>
-                          </ul>
+                          {% get_lw_content as academics_nav blurbs 3223 %}
+                          {{academics_nav.body|safe}}
                         </li>
                         <li>
                           <a href="https://www.carthage.edu/admissions/">Admission &amp; Aid</a>
-                          <ul>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/apply/">Apply to Carthage</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/costs-scholarships-aid/">Costs, Scholarships &amp; Aid</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/request-information/">Request Information</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/visit/">Visit</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/applicant-portal/">Applicant Portal</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/welcome-accepted-students/">Welcome, Accepted Students!</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/contact-admissons/">Contact Admissons</a>
-                            </li>
-                          </ul>
+                          {% get_lw_content as admish_nav blurbs 3188 %}
+                          {{admish_nav.body|safe}}
                         </li>
                         <li>
                           <a href="https://www.carthage.edu/why-carthage/">Why Carthage</a>
-                          <ul>
-                            <li>
-                              <a href="https://www.carthage.edu/why-carthage/exploration-mentorship/">Exploration &amp; Mentorship</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/why-carthage/career-preparation/">Career Preparation</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/why-carthage/4-year-graduation-guarantee/">4-Year Graduation Guarantee</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/why-carthage/affordability/">Affordability</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/why-carthage/commitment-to-equity-inclusion/">Commitment to Equity &amp; Inclusion</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/why-carthage/opportunities-abroad/">Opportunities Abroad</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/why-carthage/student-athletics/">Student Athletics</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/why-carthage/campus-location/">Campus &amp; Location</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/why-carthage/rankings-honors/">Rankings &amp; Honors</a>
-                            </li>
-                          </ul>
+                          {% get_lw_content as why_nav blurbs 3222 %}
+                          {{why_nav.body|safe}}
                         </li>
                         <li>
                           <a href="https://www.carthage.edu/life-at-carthage/">Life at Carthage</a>
-                          <ul>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/housing/">Housing &amp; Residence Life</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/commuting-to-carthage/">Commuting to Carthage</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/dining/">Dining</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/faith-spirituality/">Spiritual Life</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/student-activities/">Student Activities</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/kenosha-and-beyond/">Kenosha and Beyond</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/health-wellness-and-safety/">Health, Wellness and Safety</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/campus-services/">Campus Services</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/aspire/">Aspire Career Preparation</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/life-at-carthage/equity-inclusion/">Equity and Inclusion</a>
-                            </li>
-                          </ul>
+                          {% get_lw_content as life_nav blurbs 3221 %}
+                          {{life_nav.body|safe}}
                         </li>
                         <li>
                           <a href="https://www.carthage.edu/about/">About</a>
-                          <ul>
-                            <li>
-                              <a href="https://www.carthage.edu/about/carthage-at-a-glance/">Carthage at a Glance</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/about/mission-and-values/">Mission &amp; Values</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/about/college-history/">College History</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/about/facilities/">Facilities</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/about/location-and-map/">Location &amp; Map</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/about/offices-services/">Offices &amp; Services</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/about/divisions-centers-institutes/">Divisions, Centers &amp; Institutes</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/about/directory/">Directory</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/about/accreditation/">Accreditation</a>
-                            </li>
-                          </ul>
+                          {% get_lw_content as about_nav blurbs 3220 %}
+                          {{about_nav.body|safe}}
                         </li>
                       </ul>
                     </nav>
@@ -389,23 +248,8 @@
                   <div class="site-header__mega-menu-max-bound">
                     <nav class="site-header__mega-menu-info-nav" aria-labelledby="site-header-info-nav-label">
                       <h2 class="site-header__mega-menu-info-nav-label" id="site-header-info-nav-label">Info For&hellip;</h2>
-                      <ul>
-                        <li>
-                          <a href="https://www.carthage.edu/current-students/">Current Students</a>
-                        </li>
-                        <li>
-                          <a href="https://www.carthage.edu/alumni/">Alumni</a>
-                        </li>
-                        <li>
-                          <a href="https://www.carthage.edu/faculty-staff/">Faculty &amp; Staff</a>
-                        </li>
-                        <li>
-                          <a href="https://www.carthage.edu/parents-families/">Parents &amp; Families</a>
-                        </li>
-                        <li>
-                          <a href="https://www.carthage.edu/community/">Community</a>
-                        </li>
-                      </ul>
+                      {% get_lw_content as info4_nav blurbs 3224 %}
+                      {{info4_nav.body|safe}}
                     </nav>
                   </div>
                 </div>
@@ -414,35 +258,14 @@
                     <div class="silc-grid silc-grid--collapse">
                       <div class="silc-grid__col silc-grid__col--6">
                         <nav class="site-header__mega-menu-utility" aria-label="Utility">
-                          <ul>
-                            <li>
-                              <a href="placeholder-link">Athletics</a>
-                            </li>
-                            <li>
-                              <a href="placeholder-link">Arts</a>
-                            </li>
-                            <li>
-                              <a href="placeholder-link">News & Events</a>
-                            </li>
-                            <li>
-                              <a href="placeholder-link">Giving</a>
-                            </li>
-                          </ul>
+                          {% get_lw_content as header_utils blurbs 3184 %}
+                          {{header_utils.body|safe}}
                         </nav>
                       </div>
                       <div class="silc-grid__col silc-grid__col--6">
                         <nav class="site-header__mega-menu-prospective" aria-label="Prospective students">
-                          <ul>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/request-information/">Request Info</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/apply/">Apply</a>
-                            </li>
-                            <li>
-                              <a href="https://www.carthage.edu/admissions/visit/">Visit</a>
-                            </li>
-                          </ul>
+                          {% get_lw_content as header_stu blurbs 3185 %}
+                          {{header_stu.body|safe}}
                         </nav>
                       </div>
                     </div>
@@ -559,7 +382,7 @@
     <main id="main-content">
       <article class="page-content max-bound">
         <div class="page-header">
-          <h1>{% block content_head %}Children of Kali{% endblock content_head %}</h1>
+          <h1>{% block content_head %}Kali{% endblock content_head %}</h1>
           <nav class="silc-breadcrumb" aria-label="Breadcrumb">
             <ol class="silc-breadcrumb__list">
               <li>
@@ -584,13 +407,7 @@
               </div>
             </nav>
             <div class="page-sidebar-hero__sidebar-content text-content">
-              {% block sidebar %}
-              <h2>Stay Updated</h2>
-              <p>
-                Exciting things are happening at Carthage.&nbsp;
-              </p>
-              <p><a class="button" href="/news-events/">News &amp; Events</a></p>
-              {% endblock sidebar %}
+              {% block sidebar %}{% endblock sidebar %}
             </div>
           </div>
         </div>
@@ -598,8 +415,8 @@
           {% block messages %}
           {% if messages %}
             {% for message in messages %}
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-              <div class=" alert {{message.tags}}">
+              <div class="messages">
+              <div class="alert {{message.tags}}">
                 <strong>{{ message }}</strong>
               </div>
               </div>
@@ -616,20 +433,8 @@
           <div class="site-footer__logo">
             <img src="https://www.carthage.edu/_ingredients/_dist/img/footer-logo.svg" alt="Carthage College logo">
           </div>
-          <div class="site-footer__address">
-            <p>2001 Alford Park Drive<br>Kenosha, WI 53140</p>
-          </div>
-          <span class="site-footer__phone">(262) 551-8500</span>
-          <div class="site-footer__contact-info-links">
-            <ul>
-              <li>
-                <a href="https://www.carthage.edu/about/offices-services/">Contact</a>
-              </li>
-              <li>
-                <a href="https://www.carthage.edu/about/location-and-map/">Map &amp; Directions</a>
-              </li>
-            </ul>
-          </div>
+          {% get_lw_content as footer_contact blurbs 3219 %}
+          {{footer_contact.body|safe}}
         </div>
         <div class="site-footer__navs">
           <nav class="site-footer__primary-nav" aria-label="Footer Primary">
@@ -690,17 +495,8 @@
     </footer>
   </div>
   <div class="privacy-consent" hidden="">
-    <div class="privacy-consent__content">
-      This website uses cookies to measure traffic and improve your experience.
-      Declining tracking cookies will set a single cookie to remember your
-      preference. You can manage your cookie preference at any time and learn
-      more by visiting our
-      <a href="https://www.carthage.edu/privacy-policy/">Privacy Policy</a>.
-    </div>
-    <div class="privacy-consent__buttons">
-      <button class="button privacy-consent__accept" type="button">Accept</button>
-      <button class="button privacy-consent__decline" type="button">Decline</button>
-    </div>
+    {% get_lw_content as privacy_consent blurbs 3217 %}
+    {{privacy_consent.body|safe}}
   </div>
   {% block modalform %}{% endblock %}
   <script src="https://www.carthage.edu/_ingredients/_dist/js/index.js"></script>
