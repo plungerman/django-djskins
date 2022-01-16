@@ -14,16 +14,20 @@
   <meta name="author" content="">
   {% endblock %}
   <title>{% block title %}{% endblock %}</title>
-  {% block style %}
+  {% block bootstrap %}
   <!-- Bootstrap core CSS-->
   <link href="https://www.carthage.edu/static/vendor/bootstrap-admin4/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="https://www.carthage.edu/static/vendor/bootstrap-admin4/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  {% endblock %}
+  {% block style %}
   <!-- Page level plugin CSS-->
   <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="https://www.carthage.edu/static/vendor/bootstrap-admin4/css/sb-admin.min.css" rel="stylesheet">
+  {% endblock %}
+  {% block font_awesome %}
+  <!-- Custom fonts for this template-->
+  <link href="https://www.carthage.edu/static/vendor/bootstrap-admin4/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   {% endblock %}
   {% block extra_style %}{% endblock %}
 </head>
