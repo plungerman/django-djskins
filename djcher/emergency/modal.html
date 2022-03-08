@@ -1,34 +1,12 @@
+{% load livewhale_api %}
 {% spaceless %}
 <div id="main_modal" title="Update Contact Information"
     style="display:none;">
     <div id="ens_form" title="Update Contact Information">
         <div class="header">What is this about?</div>
         <fieldset id="instructions">
-            <p>
-                Please take a couple of minutes to let the college know
-                how to get in touch with you in case of an emergency.
-                There are two primary sections:
-            </p>
-            <ul>
-                <li>
-                    <strong>How should we contact you?</strong>
-                    <br />
-                    The college maintains an emergency notification system
-                    that allows us to send immediate notification
-                    via telephone, text message, and email. These numbers
-                    and addresses should be ways to reach <strong>you</strong>.
-                </li>
-                <li>
-                    <strong>Whom should we contact about you?</strong>
-                    <br />
-                    If we determine that something is wrong, we will try
-                    to contact the person or people listed in this section.
-                </li>
-            </ul>
-            <p>
-                Click on each section below to edit the information we
-                have for you.
-            </p>
+        {% get_lw_content as ens blurbs 3325 %}
+        {{ens.body|safe}}
         </fieldset>
         <div class="header">How should we contact you?</div>
         <fieldset id="ens">
