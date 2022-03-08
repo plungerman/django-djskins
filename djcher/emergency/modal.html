@@ -292,18 +292,24 @@
                 </tr>
             </table>
         </fieldset>
-        {% if not solo %}
-        <div class="header">What if this information changes?</div>
-        <fieldset id="later">
-            <p>
-                This form will only popup automatically once each semester,
-                but it will be available at any time on the home page of
-                <a href="https://my.carthage.edu/">
-                    https://my.carthage.edu
-                </a>.
-            </p>
+        <div class="header">Parent or Guardian Contact</div>
+        <fieldset id="parent">
+            <table cellpadding="5" cellspacing="0">
+                <tr>
+                    <td>Phone</td>
+                    <td>
+                        <input type="text" class="phone" name="CLLP_PHONE" id="CLLP_PHONE" value="{{CLLP.line1.strip}}">
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="text" class="name" name="EML4_EMAIL" id="EML4_EMAIL" value="{{EML4.line1.strip}}">
+                    </td>
+                </tr>
+            </table>
         </fieldset>
-        {% endif %}
     </div>
 </div>
 {% if not solo %}
