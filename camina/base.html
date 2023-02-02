@@ -124,7 +124,7 @@
         </div>
         {% endblock navbar-sidenav %}
         <div class="sb-sidenav-footer">
-          <div class="small">
+          <div class="small py-1">
           {% if user.username %}
             Logged in as: {{user.username}}
           {% else %}
@@ -137,7 +137,7 @@
     <div id="layoutSidenav_content">
       <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">{% block header %}Dashboard{% endblock %}</h1>
+          <h1 class="mt-2">{% block header %}Dashboard{% endblock %}</h1>
           {% block breadcrumb %}
           <ol class="breadcrumb mb-4">
               <li class="breadcrumb-item active">Dashboard</li>
