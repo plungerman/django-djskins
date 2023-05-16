@@ -382,7 +382,7 @@
       </div>
     </div>
     <main id="main-content">
-      <article class="page-content max-bound">
+        <article class="page-content max-bound{% block main_content_article %}{% endblock %}">
         <div class="page-header">
           <h1>{% block content_head %}Kali{% endblock content_head %}</h1>
           <nav class="silc-breadcrumb" aria-label="Breadcrumb">
@@ -401,6 +401,7 @@
             </ol>
           </nav>
         </div>
+        {% block page_sidebar %}
         <div class="page-sidebar-hero">
           <div class="page-sidebar-hero__sidebar">
             <nav class="subnav" aria-label="Sidebar">
@@ -413,6 +414,7 @@
             </div>
           </div>
         </div>
+        {% endblock page_sidebar %}
         <div id="page-body" class="page-body">
           {% block messages %}
           {% if messages %}
