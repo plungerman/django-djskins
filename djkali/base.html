@@ -157,13 +157,15 @@
         <img src="https://www.carthage.edu/_ingredients/_dist/img/logo.svg" alt="Carthage College logo">
       </a>
       <div class="site-header__top">
+        <div class="site-header__campaign">
+          <a class="site-header__campaign__link" href="https://www.carthage.edu/giving/light-that-travels/">
+            <span class="visible-for-screen-readers">Light that Travels</span>
+            <img src="https://www.carthage.edu/_ingredients/_dist/img/campaign-light-that-travels-logo.svg" alt="Light that Travels" width="202" height="30">
+          </a>
+        </div>
         <nav class="site-header__utility" aria-label="Utility">
           {% get_lw_content as header_utils blurbs 3184 %}
           {{header_utils.body|safe}}
-        </nav>
-        <nav class="site-header__prospective" aria-label="Prospective students">
-          {% get_lw_content as header_stu blurbs 3185 %}
-          {{header_stu.body|safe}}
         </nav>
         <nav class="site-header__tools" aria-labelledby="site-header-tools-toggle">
           <a href="#site-header-tools-dropdown" class="site-header__tools-toggle" id="site-header-tools-toggle" aria-haspopup="true">
@@ -179,6 +181,10 @@
             {% get_lw_content as tools blurbs 3180 %}
             {{tools.body|safe}}
           </div>
+        </nav>
+        <nav class="site-header__prospective" aria-label="Prospective students">
+          {% get_lw_content as header_stu blurbs 3185 %}
+          {{header_stu.body|safe}}
         </nav>
         <div class="site-header__search">
           <a href="#site-search" class="site-header__search-toggle" data-micromodal-trigger="site-search">
@@ -446,6 +452,12 @@
             {% get_lw_content as footer_primary_nav blurbs 3182 %}
             {{footer_primary_nav.body|safe}}
           </nav>
+          <div class="site-footer__campaign">
+            <a class="site-footer__campaign__link" href="https://www.carthage.edu/giving/light-that-travels/">
+              <span class="visible-for-screen-readers">Light that Travels | The Campaign For Carthage</span>
+              <img src="https://www.carthage.edu/_ingredients/_dist/img/campaign-light-that-travels-logo-tagline.svg" alt="Light that Travels | The Campaign For Carthage" width="166" height="117">
+            </a>
+          </div>
           <nav class="site-footer__secondary-nav" aria-label="Footer Secondary">
             {% get_lw_content as footer_secondary_nav blurbs 3181 %}
             {{footer_secondary_nav.body|safe}}
