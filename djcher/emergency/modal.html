@@ -1,37 +1,12 @@
+{% load livewhale_api %}
 {% spaceless %}
 <div id="main_modal" title="Update Contact Information"
     style="display:none;">
     <div id="ens_form" title="Update Contact Information">
         <div class="header">What is this about?</div>
         <fieldset id="instructions">
-            <p>
-                Please take a couple of minutes to let the college know
-                how to get in touch with you in case of an emergency.
-            </p>
-            <p>
-                Once each semester we will ask everyone to update the
-                information in this form. There are two sections:
-            </p>
-            <ul>
-                <li>
-                    <strong>How should we contact you?</strong>
-                    <br />
-                    The college maintains an emergency notification system
-                    that allows us to send immediate notification
-                    via telephone, text message, and email. These numbers
-                    and addresses should be ways to reach <strong>you</strong>.
-                </li>
-                <li>
-                    <strong>Whom should we contact about you?</strong>
-                    <br />
-                    If we determine that something is wrong, we will try
-                    to contact the person or people listed in this section.
-                </li>
-            </ul>
-            <p>
-                Click on each section below to edit the information we
-                have for you.
-            </p>
+        {% get_lw_content as ens blurbs 3325 %}
+        {{ens.body|safe}}
         </fieldset>
         <div class="header">How should we contact you?</div>
         <fieldset id="ens">
@@ -292,18 +267,24 @@
                 </tr>
             </table>
         </fieldset>
-        {% if not solo %}
-        <div class="header">What if this information changes?</div>
-        <fieldset id="later">
-            <p>
-                This form will only popup automatically once each semester,
-                but it will be available at any time on the home page of
-                <a href="https://my.carthage.edu/">
-                    https://my.carthage.edu
-                </a>.
-            </p>
+        <div class="header">Parent or Guardian Contact</div>
+        <fieldset id="parent">
+            <table cellpadding="5" cellspacing="0">
+                <tr>
+                    <td>Phone</td>
+                    <td>
+                        <input type="text" class="phone" name="CLLP_PHONE" id="CLLP_PHONE" value="{{CLLP.line1.strip}}">
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="text" class="name" name="EML4_EMAIL" id="EML4_EMAIL" value="{{EML4.line1.strip}}">
+                    </td>
+                </tr>
+            </table>
         </fieldset>
-        {% endif %}
     </div>
 </div>
 {% if not solo %}

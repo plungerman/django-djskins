@@ -7,7 +7,7 @@
     <div{% if field.field.required %} class="required"{% endif %}>
     {% endif %}
     {% if field.help_text %}
-        <p class="help">{{field.help_text|safe}}</p>
+        <p class="small text-muted">{{field.help_text|safe}}</p>
     {% endif %}
     {{field}}
     </div>

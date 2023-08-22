@@ -1,39 +1,38 @@
-<form name="djauth" method="post" action="{{action|default:'.'}}"
-    class="form" id="profile">{% csrf_token %}
-    <input type="hidden" name="next" value="{% if next %}{{ next|escape }}{% endif %}">
-    <fieldset class="blockLabels">
-        <ol>
-            <li class="ctrlHolder">
-                <label for="id_username" style="width:120px;"><h3>Username</h3></label>
-                {% if form.username.errors %}
-                    <span class="error-message">
-                        {{ form.username.errors|join:", " }}
-                    </span>
-                {% endif %}
-                <input type="text" id="id_username" name="username"
-                    class="required" size="15"
-                    value="{{form.data.username}}" maxlength="128" />@carthage.edu
-            </li>
-            <li class="ctrlHolder">
-                <label for="id_password" style="width:120px;"><h3>Password</h3></label>
-                {% if form.password.errors %}
-                    <span class="error-message">
-                        {{ form.password.errors|join:", " }}
-                    </span>
-                {% endif %}
-                <input type="password" id="id_password"
-                    class="vPasswordField required" name="password" size="15"
-                    value="{{form.data.password}}" maxlength="64" />
-            </li>
-        </ol>
-    </fieldset>
-    <fieldset class="btnHolder">
-        <ol>
-            <li class="btnHolder">
-                <label>&nbsp;</label>
-                <input id="id_submit" type="submit" class="button"
-                    value="Log in" />
-            </li>
-        </ol>
-    </fieldset>
+<form name="djauth" method="post" action="{{action|default:'.'}}" class="form">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{% if next %}{{ next|escape }}{% endif %}">
+  <fieldset class="blockLabels">
+    <ol>
+      <li class="ctrlHolder">
+        <h3><label for="id_username" style="width:120px;">Username</label></h3>
+        {% if form.username.errors %}
+          <span class="error-message">
+            {{form.username.errors|join:", "}}
+          </span>
+        {% endif %}
+        <input type="text" id="id_username" name="username"
+          class="required" size="15"
+          value="{{form.data.username}}" maxlength="128">@carthage.edu
+      </li>
+      <li class="ctrlHolder">
+        <h3><label for="id_password" style="width:120px;">Password</label></h3>
+        {% if form.password.errors %}
+        <span class="error-message">
+          {{form.password.errors|join:", "}}
+        </span>
+        {% endif %}
+        <input type="password" id="id_password"
+          class="vPasswordField required" name="password" size="15"
+          value="{{form.data.password}}" maxlength="64">
+      </li>
+    </ol>
+  </fieldset>
+  <fieldset class="btnHolder">
+    <ol>
+      <li class="btnHolder">
+        <label>&nbsp;</label>
+        <input id="id_submit" type="submit" class="button" value="Sign in">
+      </li>
+    </ol>
+  </fieldset>
 </form>
