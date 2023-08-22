@@ -117,11 +117,11 @@ id="djforms"{% endblock %}>
                     <ul>
                       {% if not user.is_anonymous %}
                         <li>
-                          <a href="{{root_url}}accounts/logout/?next=/bridge/">Logout</a>
+                          <a href="{% url 'auth_logout' %}?next=/bridge/">Logout</a>
                         </li>
                       {% else %}
                         <li>
-                          <a href="{{login_url}}?next={{request.path}}">Login</a>
+                          <a href="{% url 'auth_login' %}">Login</a>
                         </li>
                       {% endif %}
                       {% if user.is_superuser %}
