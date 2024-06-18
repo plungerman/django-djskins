@@ -6,12 +6,15 @@
 {% block left_nav %}{% endblock %}
 {% block breadcrumb %}{% endblock %}
 {% block content %}
-  {% if user.is_anonymous %}
-    <p class="dashintro">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+    {% if user.is_anonymous %}
+      <p class="dashintro">
         Please use your Carthage username to log in.
         Do not include @carthage.edu as part of your username.
-    </p>
-    {% if form.errors or errors %}
+      </p>
+      {% if form.errors or errors %}
         <p class="error">
             Please enter a correct username and password.
             Both fields are case-sensitive.
@@ -26,23 +29,26 @@
                 change your password
             </a>.
         </p>
-    {% endif %}
-    {% include "accounts/login_form.inc.html" %}
-  {% else %}
-    <h2>You are already logged in</h2>
-    {% if next %}
+      {% endif %}
+      {% include "accounts/login_form.inc.html" %}
+    {% else %}
+      <h2>You are already logged in</h2>
+      {% if next %}
         <p>
-            <a href="{{next}}">
-                Click here to continue on to your destination.
-            </a>
+          <a href="{{next}}">
+            Click here to continue on to your destination.
+          </a>
         </p>
-    {% endif %}
-    <p>
+      {% endif %}
+      <p>
         <a href="../logout/">
-            Do you want to log out and log in as a new user?
+          Do you want to log out and log in as a new user?
         </a>
-    </p>
-  {% endif %}
+      </p>
+    {% endif %}
+    </div>
+  </div>
+</div>
 {% endblock %}
 {% block extra_content %}
   {% if user.is_anonymous %}
