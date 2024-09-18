@@ -123,6 +123,7 @@
           </div>
         </div>
         {% endblock navbar-sidenav %}
+        {% block sidenav-footer %}
         <div class="sb-sidenav-footer">
           <div class="small py-1">
           {% if user.username %}
@@ -132,6 +133,7 @@
           {% endif %}
           </div>
         </div>
+        {% endblock sidenav-footer %}
       </nav>
     </div>
     <div id="layoutSidenav_content">
