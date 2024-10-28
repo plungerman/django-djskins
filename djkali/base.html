@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load livewhale_api %}
+{% load livewhale_api cache %}
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -27,6 +27,7 @@
 {% block body %}
 <body class="{% block body_class %}basic-page v2 body_ingredients{% endblock %}"{% block extra_body %}{% endblock %}>
   <a href="#main-content" class="skipnav button">Skip to main content</a>
+  {% cache 86400 djkali_svg %}
   <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
       <symbol id="icon-location-landing-fall" viewBox="0 0 29 32">
@@ -151,7 +152,9 @@
       </symbol>
     </defs>
   </svg>
+  {% endcache %}
   <div class="site-wrapper">
+    {% cache 86400 djkali_header %}
     <header class="site-header">
       <a href="https://www.carthage.edu/" class="site-header__logo">
         <img src="https://www.carthage.edu/_ingredients/_dist/img/logo.svg" alt="Carthage College logo">
@@ -387,6 +390,7 @@
         </div>
       </div>
     </div>
+    {% endcache %}
     <main id="main-content">
         <article class="page-content max-bound{% block main_content_article %}{% endblock %}">
         <div class="page-header">
@@ -438,6 +442,7 @@
         </div>
       </article>
     </main>
+    {% cache 86400 djkali_footer %}
     <footer class="site-footer">
       <div class="site-footer__main">
         <div class="site-footer__contact-info">
@@ -510,6 +515,7 @@
         </div>
       </div>
     </footer>
+    {% endcache %}
   </div>
   <div class="privacy-consent" hidden="">
     {% get_lw_content as privacy_consent blurbs 3217 %}
